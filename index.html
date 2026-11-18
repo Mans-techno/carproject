@@ -37,52 +37,81 @@
   .pz .srow { display:flex; align-items:center; justify-content:space-between; gap:14px; padding:12px 4px; border-bottom:1px solid rgba(255,255,255,.07); font-weight:700; }
   .pz input[type=range] { width:160px; accent-color:#ff7a1a; }
   .pz .back { margin-top:16px; }
-  /* ===== игровой гараж ===== */
-  .topbar { position:absolute; top:0; left:0; right:0; height:66px; display:flex; align-items:center; justify-content:space-between; padding:0 28px; background:linear-gradient(180deg, rgba(5,6,8,.92), rgba(5,6,8,0)); }
-  .logo { font-weight:900; letter-spacing:.16em; font-size:13px; } .logo span { color:#ff8a2a; }
-  .tabs { display:flex; gap:4px; position:absolute; left:50%; transform:translateX(-50%); }
-  .tab { background:none; border:none; border-radius:0; color:#9a928a; font-weight:800; letter-spacing:.18em; font-size:13px; padding:12px 20px; border-bottom:3px solid transparent; }
-  .tab:hover { background:none; color:#fff; } .tab.on { color:#fff; border-bottom-color:#ff7a1a; }
-  .chip { background:rgba(255,255,255,.07); border:1px solid rgba(255,255,255,.1); border-radius:999px; padding:7px 14px; font-size:13px; font-weight:700; font-variant-numeric:tabular-nums; } .chip span { color:#ffb35c; }
-  .page { position:absolute; inset:66px 0 48px 0; }
-  .brands { position:absolute; left:24px; top:14px; bottom:150px; width:220px; overflow-y:auto; display:flex; flex-direction:column; gap:5px; padding-right:4px; }
-  .sec { color:#8e877e; font-size:11px; font-weight:800; letter-spacing:.2em; margin:2px 0 6px; }
-  .brand-b { display:flex; justify-content:space-between; align-items:center; text-align:left; background:rgba(12,13,17,.74); border:1px solid rgba(255,255,255,.06); border-left:3px solid transparent; border-radius:8px; padding:11px 14px; font-weight:700; font-size:14px; flex:none; }
-  .brand-b small { color:#8e877e; font-weight:700; font-size:12px; } .brand-b:hover { background:rgba(30,32,38,.9); }
-  .brand-b.on { border-left-color:#ff7a1a; background:linear-gradient(90deg, rgba(255,122,26,.22), rgba(12,13,17,.8)); }
-  .models { position:absolute; left:24px; right:430px; bottom:8px; display:flex; gap:10px; overflow-x:auto; padding:4px 2px 6px; }
-  .mcard { flex:none; width:190px; text-align:left; background:rgba(12,13,17,.84); border:1px solid rgba(255,255,255,.08); border-radius:10px; padding:12px 14px; }
-  .mcard:hover { background:rgba(28,30,36,.92); } .mcard.on { border-color:#ff7a1a; box-shadow:inset 0 0 0 1px #ff7a1a, 0 6px 24px rgba(255,122,26,.18); }
-  .mcard .y { color:#8e877e; font-size:12px; font-weight:600; } .mcard .n { font-weight:800; font-size:15px; margin:3px 0 10px; line-height:1.15; min-height:35px; }
-  .mcard .r { display:flex; justify-content:space-between; align-items:center; font-size:12.5px; color:#cfc7bd; font-weight:700; }
-  .cls { display:inline-flex; border-radius:4px; overflow:hidden; font-weight:900; font-size:12px; line-height:1; } .cls b { padding:4px 7px; color:#0d0d0d; } .cls i { font-style:normal; padding:4px 7px; background:rgba(255,255,255,.14); color:#fff; font-variant-numeric:tabular-nums; }
-  .cls.big { font-size:15px; } .cls.big b, .cls.big i { padding:6px 10px; }
-  .info { position:absolute; right:24px; top:14px; bottom:8px; width:390px; display:flex; flex-direction:column; background:rgba(9,10,13,.82); border:1px solid rgba(255,255,255,.07); border-radius:14px; padding:22px 22px 18px; overflow-y:auto; backdrop-filter:blur(10px); }
-  .info .bn { color:#ff8a2a; font-weight:800; letter-spacing:.2em; font-size:12px; text-transform:uppercase; }
-  .info .cn { font-size:30px; font-weight:900; line-height:1.05; margin:6px 0 10px; letter-spacing:-.01em; }
-  .info .yr { color:#8e877e; font-size:13px; font-weight:600; margin-left:8px; }
-  .specs { display:grid; grid-template-columns:1fr 1fr; gap:8px; margin:16px 0 12px; }
-  .spec { background:rgba(255,255,255,.05); border-radius:8px; padding:9px 11px; } .spec span { display:block; color:#8e877e; font-size:10.5px; letter-spacing:.1em; text-transform:uppercase; font-weight:700; } .spec b { font-size:18px; font-variant-numeric:tabular-nums; }
-  .engine { color:#bdb5ab; font-size:13px; } .engine b { color:#fff; }
-  .info .stats { margin:14px 0 4px; }
-  .info .go { width:100%; margin-top:auto; font-size:18px; padding:15px; letter-spacing:.06em; display:flex; justify-content:center; gap:10px; align-items:center; }
-  .info .go kbd { background:rgba(0,0,0,.18); color:#1a0d02; }
-  .info .credit { margin-top:10px; font-size:11.5px; }
-  .hintbar { position:absolute; left:0; right:0; bottom:0; height:48px; display:flex; align-items:center; gap:24px; padding:0 28px; background:linear-gradient(0deg, rgba(5,6,8,.95), rgba(5,6,8,0)); font-size:13px; color:#bdb5ab; }
-  .hintbar kbd { margin-right:4px; }
-  .pagewrap { position:absolute; inset:14px 24px 8px; display:flex; gap:22px; justify-content:center; align-items:flex-start; overflow-y:auto; background:rgba(5,6,8,.55); border-radius:16px; padding:26px; backdrop-filter:blur(6px); }
-  .tcard { width:min(440px,46%); background:rgba(12,13,17,.92); border:1px solid rgba(255,255,255,.08); border-radius:14px; overflow:hidden; text-align:left; padding:0; }
-  .tcard canvas { display:block; width:100%; aspect-ratio:16/10; background:radial-gradient(circle at 50% 40%, #1b1e24, #0c0d10); }
-  .tcard .tb { padding:16px 18px 18px; } .tcard h3 { margin:0 0 4px; font-size:22px; } .tcard p { margin:6px 0 0; color:#bdb5ab; font-size:13.5px; line-height:1.45; }
-  .tcard .meta { display:flex; gap:14px; color:#ffb35c; font-weight:700; font-size:13px; }
-  .tcard.on { border-color:#ff7a1a; box-shadow:inset 0 0 0 1px #ff7a1a, 0 8px 30px rgba(255,122,26,.18); }
-  .settings { width:min(600px,100%); background:rgba(12,13,17,.92); border:1px solid rgba(255,255,255,.08); border-radius:14px; padding:24px 26px; }
-  .settings h3 { margin:0 0 4px; font-size:13px; letter-spacing:.2em; color:#8e877e; } .settings .row { margin:10px 0 20px; }
-  .busy { position:absolute; top:46%; left:calc(50% - 85px); transform:translate(-50%,-50%); font-size:15px; font-weight:700; color:#e6ddd2; background:rgba(10,12,16,.75); padding:12px 18px; border-radius:10px; display:flex; gap:10px; align-items:center; }
-  .busy::before { content:''; width:16px; height:16px; border-radius:50%; border:2px solid rgba(255,255,255,.25); border-top-color:#ff8a2a; animation:spin .8s linear infinite; }
+  /* ===== игровой гараж (компактный) ===== */
+  .topbar { position:absolute; top:0; left:0; right:0; height:52px; display:flex; align-items:center; justify-content:space-between; padding:0 22px; background:linear-gradient(180deg, rgba(5,6,8,.92), rgba(5,6,8,0)); }
+  .logo { font-weight:900; letter-spacing:.18em; font-size:12px; } .logo span { color:#ff8a2a; }
+  .tabs { display:flex; gap:2px; position:absolute; left:50%; transform:translateX(-50%); background:rgba(255,255,255,.05); border:1px solid rgba(255,255,255,.07); border-radius:10px; padding:3px; }
+  .tab { background:none; border:none; border-radius:7px; color:#9a928a; font-weight:800; letter-spacing:.14em; font-size:11.5px; padding:8px 16px; }
+  .tab:hover { background:rgba(255,255,255,.06); color:#fff; } .tab.on { color:#16181c; background:#ff7a1a; }
+  .chip { background:rgba(255,255,255,.06); border:1px solid rgba(255,255,255,.08); border-radius:999px; padding:5px 12px; font-size:12px; font-weight:700; font-variant-numeric:tabular-nums; } .chip span { color:#ffb35c; }
+  .page { position:absolute; inset:52px 0 38px 0; }
+  .brands { position:absolute; left:16px; top:8px; bottom:122px; width:176px; overflow-y:auto; display:flex; flex-direction:column; gap:3px; padding-right:4px; scrollbar-width:thin; }
+  .sec { color:#8e877e; font-size:10px; font-weight:800; letter-spacing:.22em; margin:2px 0 5px 2px; }
+  .brand-b { display:flex; justify-content:space-between; align-items:center; text-align:left; background:rgba(12,13,17,.72); border:1px solid rgba(255,255,255,.05); border-left:2px solid transparent; border-radius:6px; padding:7px 10px; font-weight:700; font-size:12.5px; flex:none; }
+  .brand-b small { color:#8e877e; font-weight:700; font-size:11px; } .brand-b:hover { background:rgba(30,32,38,.9); }
+  .brand-b.on { border-left-color:#ff7a1a; background:linear-gradient(90deg, rgba(255,122,26,.24), rgba(12,13,17,.8)); }
+  .models { position:absolute; left:16px; right:356px; bottom:6px; display:flex; gap:8px; overflow-x:auto; padding:3px 2px 6px; scrollbar-width:thin; }
+  .mcard { flex:none; width:158px; text-align:left; background:rgba(12,13,17,.84); border:1px solid rgba(255,255,255,.07); border-radius:8px; padding:9px 11px; }
+  .mcard:hover { background:rgba(28,30,36,.92); } .mcard.on { border-color:#ff7a1a; box-shadow:inset 0 0 0 1px #ff7a1a, 0 4px 18px rgba(255,122,26,.16); }
+  .mcard .y { color:#8e877e; font-size:10.5px; font-weight:600; } .mcard .n { font-weight:800; font-size:13px; margin:2px 0 7px; line-height:1.15; min-height:30px; }
+  .mcard .r { display:flex; justify-content:space-between; align-items:center; font-size:11px; color:#cfc7bd; font-weight:700; }
+  .cls { display:inline-flex; border-radius:3px; overflow:hidden; font-weight:900; font-size:10.5px; line-height:1; } .cls b { padding:3px 5px; color:#0d0d0d; } .cls i { font-style:normal; padding:3px 5px; background:rgba(255,255,255,.14); color:#fff; font-variant-numeric:tabular-nums; }
+  .cls.big { font-size:12px; } .cls.big b, .cls.big i { padding:4px 8px; }
+  .info { position:absolute; right:16px; top:8px; bottom:6px; width:326px; display:flex; flex-direction:column; background:rgba(9,10,13,.84); border:1px solid rgba(255,255,255,.06); border-radius:12px; padding:16px 16px 14px; overflow-y:auto; backdrop-filter:blur(10px); scrollbar-width:thin; }
+  .info .bn { color:#ff8a2a; font-weight:800; letter-spacing:.2em; font-size:10.5px; text-transform:uppercase; }
+  .info .cn { font-size:22px; font-weight:900; line-height:1.08; margin:4px 0 8px; letter-spacing:-.01em; }
+  .info .yr { color:#8e877e; font-size:12px; font-weight:600; margin-left:6px; }
+  .specs { display:grid; grid-template-columns:1fr 1fr; gap:5px; margin:11px 0 8px; }
+  .spec { background:rgba(255,255,255,.045); border-radius:6px; padding:6px 9px; } .spec span { display:block; color:#8e877e; font-size:9.5px; letter-spacing:.1em; text-transform:uppercase; font-weight:700; } .spec b { font-size:14.5px; font-variant-numeric:tabular-nums; }
+  .engine { color:#bdb5ab; font-size:11.5px; } .engine b { color:#fff; }
+  .info .stats { margin:10px 0 2px; gap:6px; } .info .stat { grid-template-columns:82px 1fr 24px; font-size:11.5px; } .info .lbl { font-size:10px; margin-top:4px; } .info .row { margin:7px 0; gap:6px; } .info .sw { width:24px; height:24px; }
+  .info .go { width:100%; margin-top:auto; font-size:15px; padding:12px; letter-spacing:.08em; display:flex; justify-content:center; gap:10px; align-items:center; border-radius:9px; }
+  .info .go kbd { background:rgba(0,0,0,.18); color:#1a0d02; } .info .mode-l { text-align:center; font-size:11px; color:#bdb5ab; margin-top:6px; } .info .mode-l b { color:#ffb35c; }
+  .info .credit { margin-top:7px; font-size:10.5px; }
+  .favb { position:absolute; top:14px; right:14px; background:none; border:none; font-size:18px; color:#6d675f; padding:2px 4px; } .favb.on { color:#ffb35c; }
+  .hintbar { position:absolute; left:0; right:0; bottom:0; height:38px; display:flex; align-items:center; gap:20px; padding:0 22px; background:linear-gradient(0deg, rgba(5,6,8,.95), rgba(5,6,8,0)); font-size:11.5px; color:#bdb5ab; }
+  .hintbar kbd { margin-right:3px; font-size:10.5px; }
+  .pagewrap { position:absolute; inset:8px 16px 6px; display:flex; gap:14px; flex-wrap:wrap; justify-content:center; align-content:flex-start; overflow-y:auto; background:rgba(5,6,8,.72); border-radius:14px; padding:20px; backdrop-filter:blur(8px); }
+  .ev { width:min(300px,100%); background:rgba(12,13,17,.92); border:1px solid rgba(255,255,255,.07); border-radius:12px; overflow:hidden; text-align:left; padding:0; display:flex; flex-direction:column; }
+  .ev .art { height:120px; display:flex; align-items:flex-end; padding:12px 14px; font-size:40px; background:linear-gradient(135deg, #2a1608, #0e1013 70%); position:relative; }
+  .ev .art canvas { position:absolute; inset:0; width:100%; height:100%; }
+  .ev .tb { padding:12px 14px 14px; } .ev h3 { margin:0 0 3px; font-size:17px; } .ev p { margin:4px 0 0; color:#bdb5ab; font-size:12px; line-height:1.45; }
+  .ev .meta { display:flex; gap:10px; color:#ffb35c; font-weight:800; font-size:10.5px; letter-spacing:.08em; text-transform:uppercase; }
+  .ev.on { border-color:#ff7a1a; box-shadow:inset 0 0 0 1px #ff7a1a, 0 8px 26px rgba(255,122,26,.16); }
+  .seg { display:inline-flex; background:rgba(255,255,255,.06); border-radius:8px; padding:3px; gap:2px; }
+  .seg button { padding:5px 11px; font-size:12px; border:none; border-radius:6px; background:none; } .seg button.on { background:#ff7a1a; color:#16181c; font-weight:800; }
+  .panel { width:min(640px,100%); background:rgba(12,13,17,.92); border:1px solid rgba(255,255,255,.07); border-radius:12px; padding:18px 20px; }
+  .panel h3 { margin:0 0 10px; font-size:11px; letter-spacing:.22em; color:#8e877e; }
+  .srow2 { display:flex; align-items:center; justify-content:space-between; gap:14px; padding:9px 0; border-bottom:1px solid rgba(255,255,255,.06); font-size:13px; font-weight:600; }
+  .srow2:last-child { border-bottom:none; } .srow2 input[type=range] { width:180px; accent-color:#ff7a1a; } .srow2 small { color:#8e877e; font-weight:500; display:block; font-size:11px; }
+  .rtable { width:100%; border-collapse:collapse; font-size:12.5px; } .rtable th { text-align:left; color:#8e877e; font-size:10px; letter-spacing:.14em; font-weight:800; padding:6px 4px; border-bottom:1px solid rgba(255,255,255,.08); }
+  .rtable td { padding:7px 4px; border-bottom:1px solid rgba(255,255,255,.05); font-variant-numeric:tabular-nums; } .rtable td b { color:#ffb35c; }
+  .kpis { display:grid; grid-template-columns:repeat(4,1fr); gap:8px; margin-bottom:14px; } .kpi { background:rgba(255,255,255,.045); border-radius:8px; padding:10px 12px; } .kpi span { display:block; font-size:9.5px; letter-spacing:.14em; color:#8e877e; font-weight:800; } .kpi b { font-size:19px; font-variant-numeric:tabular-nums; }
+  .busy { position:absolute; top:46%; left:calc(50% - 80px); transform:translate(-50%,-50%); font-size:13px; font-weight:700; color:#e6ddd2; background:rgba(10,12,16,.75); padding:10px 15px; border-radius:9px; display:flex; gap:9px; align-items:center; }
+  .busy::before { content:''; width:14px; height:14px; border-radius:50%; border:2px solid rgba(255,255,255,.25); border-top-color:#ff8a2a; animation:spin .8s linear infinite; }
   @keyframes spin { to { transform:rotate(360deg); } }
-  @media (max-width: 980px){ .brands { width:170px; } .info { width:320px; } .models { right:360px; } .tabs { position:static; transform:none; } .logo { display:none; } }
-  @media (max-width: 760px){ .brands { left:10px; right:10px; width:auto; top:6px; bottom:auto; height:46px; flex-direction:row; overflow-x:auto; } .brand-b small { display:none; } .info { left:10px; right:10px; width:auto; top:auto; height:46%; } .models { left:10px; right:10px; bottom:calc(46% + 14px); } .busy { left:50%; } .hintbar { display:none; } .page { bottom:0; } }
+  /* результаты, отсчёт, фоторежим */
+  #results { position:fixed; inset:0; z-index:13; display:flex; align-items:center; justify-content:center; background:radial-gradient(circle at 50% 40%, rgba(20,12,6,.75), rgba(5,6,8,.92)); }
+  .res { width:min(420px, calc(100% - 32px)); text-align:center; } .res .t { color:#ff8a2a; letter-spacing:.3em; font-size:12px; font-weight:900; } .res h2 { font-size:40px; font-style:italic; font-weight:900; margin:6px 0 18px; }
+  .res .rows { background:rgba(255,255,255,.05); border-radius:12px; padding:6px 16px; text-align:left; margin-bottom:16px; } .res .rows div { display:flex; justify-content:space-between; padding:9px 0; border-bottom:1px solid rgba(255,255,255,.06); font-size:14px; } .res .rows div:last-child { border:none; } .res .rows b { font-variant-numeric:tabular-nums; }
+  .res .rows .nr { color:#2ee59d; font-size:11px; font-weight:800; letter-spacing:.1em; margin-left:6px; }
+  .res .btns { display:flex; gap:8px; justify-content:center; flex-wrap:wrap; }
+  #count { position:fixed; inset:0; z-index:9; display:flex; align-items:center; justify-content:center; pointer-events:none; font-size:140px; font-weight:900; font-style:italic; color:#fff; text-shadow:0 6px 40px rgba(0,0,0,.6); }
+  #fps { position:fixed; top:6px; left:50%; transform:translateX(-50%); z-index:6; font:700 11px system-ui; color:#2ee59d; background:rgba(0,0,0,.45); padding:2px 8px; border-radius:6px; font-variant-numeric:tabular-nums; }
+  #photo { position:fixed; inset:0; z-index:12; pointer-events:none; }
+  #photo .pp { pointer-events:auto; position:absolute; left:18px; bottom:18px; width:270px; background:rgba(8,9,12,.82); border:1px solid rgba(255,255,255,.08); border-radius:12px; padding:14px 16px; backdrop-filter:blur(8px); }
+  #photo .pp h3 { margin:0 0 8px; font-size:12px; letter-spacing:.24em; color:#ff8a2a; } #photo .pr { display:flex; justify-content:space-between; align-items:center; font-size:12px; padding:5px 0; gap:10px; } #photo .pr input { width:130px; accent-color:#ff7a1a; }
+  #photo select { background:#16181c; color:#fff; border:1px solid rgba(255,255,255,.15); border-radius:6px; padding:4px 6px; font:inherit; font-size:12px; }
+  #photo .ph { pointer-events:none; position:absolute; bottom:18px; left:50%; transform:translateX(-50%); font-size:12px; color:rgba(255,255,255,.8); text-shadow:0 1px 4px rgba(0,0,0,.7); }
+  #photo .shot { width:100%; margin-top:8px; padding:9px; font-size:13px; } #photo .pr input[type=checkbox] { width:16px; height:16px; } #photo .pr label { cursor:pointer; }
+  .srow2 button, .srow2 .file { padding:7px 13px; font-size:12px; border-radius:7px; } .srow2 .seg button { padding:5px 11px; }
+  #photo .grid { position:absolute; inset:0; background-image:linear-gradient(rgba(255,255,255,.18) 1px, transparent 1px), linear-gradient(90deg, rgba(255,255,255,.18) 1px, transparent 1px); background-size:33.333% 33.333%; pointer-events:none; }
+  #photo .bars::before, #photo .bars::after { content:''; position:absolute; left:0; right:0; height:11%; background:#000; } #photo .bars::before { top:0; } #photo .bars::after { bottom:0; }
+  #shotview { position:fixed; inset:0; z-index:14; display:flex; align-items:center; justify-content:center; flex-direction:column; gap:14px; background:rgba(5,6,8,.9); }
+  #shotview img { max-width:min(92vw, 1200px); max-height:72vh; border-radius:8px; box-shadow:0 12px 50px rgba(0,0,0,.6); }
+  #shotview .btns { display:flex; gap:8px; } #shotview a { text-decoration:none; } #shotview .note { color:#9d958c; font-size:12px; }
+  @media (max-width: 980px){ .brands { width:150px; } .info { width:290px; } .models { right:318px; } .tabs { position:static; transform:none; } .logo { display:none; } }
+  @media (max-width: 760px){ .brands { left:10px; right:10px; width:auto; top:6px; bottom:auto; height:40px; flex-direction:row; overflow-x:auto; } .brands .sec { display:none; } .brand-b small { display:none; } .info { left:10px; right:10px; width:auto; top:auto; height:46%; } .models { left:10px; right:10px; bottom:calc(46% + 12px); } .busy { left:50%; } .hintbar { display:none; } .page { bottom:0; } .kpis { grid-template-columns:repeat(2,1fr); } }
   .hidden { display:none !important; }
   .card { width:min(520px, calc(100% - 28px)); padding:30px 30px 26px; }
   .card h1 { margin:0; font-size:clamp(36px,6vw,56px); font-weight:800; letter-spacing:-.02em; line-height:1; }
@@ -153,7 +182,8 @@
   <div class="pz" id="pz_main">
     <div class="t">ОСЕННЯЯ ТРАССА</div><h2>ПАУЗА</h2>
     <button class="opt" data-a="resume">ПРОДОЛЖИТЬ <small>Esc</small></button>
-    <button class="opt" data-a="restart">ЗАНОВО С ЛИНИИ СТАРТА</button>
+    <button class="opt" data-a="photo">ФОТОРЕЖИМ <small>P</small></button>
+    <button class="opt" data-a="restart">ЗАНОВО</button>
     <button class="opt" data-a="settings">НАСТРОЙКИ</button>
     <button class="opt" data-a="garage">В ГАРАЖ</button>
   </div>
@@ -173,16 +203,18 @@
     <div class="logo">ОСЕННЯЯ <span>ТРАССА</span></div>
     <div class="tabs" role="tablist">
       <button class="tab on" data-tab="garage" role="tab">ГАРАЖ</button>
-      <button class="tab" data-tab="track" role="tab">ТРАССА</button>
+      <button class="tab" data-tab="events" role="tab">СОБЫТИЯ</button>
+      <button class="tab" data-tab="records" role="tab">РЕКОРДЫ</button>
       <button class="tab" data-tab="settings" role="tab">НАСТРОЙКИ</button>
     </div>
     <div class="chip">Очки навыков: <span id="skill2">0</span></div>
   </div>
 
   <div class="page" id="p_garage">
-    <div class="brands"><div class="sec">МАРКИ</div><div id="brands" style="display:contents"></div></div>
+    <div class="brands"><div class="sec">МАРКИ</div><button class="brand-b" id="favf">★ Избранное<small id="favn">0</small></button><div id="brands" style="display:contents"></div></div>
     <div class="models" id="models"></div>
     <div class="info">
+      <button class="favb" id="favb" aria-label="В избранное">★</button>
       <div class="bn" id="i_brand"></div>
       <div class="cn"><span id="i_model"></span><span class="yr" id="i_year"></span></div>
       <div><span class="cls big" id="i_cls"></span></div>
@@ -200,39 +232,68 @@
       </div>
       <div class="lbl">Цвет кузова</div>
       <div class="row" id="colors"></div>
+      <div class="engine" id="i_rec" style="margin-bottom:8px"></div>
       <button class="go" id="start" disabled>ПОЕХАЛИ <kbd>Enter</kbd></button>
+      <div class="mode-l">Режим: <b id="i_mode">Свободная езда</b> · сменить во вкладке «События»</div>
       <div class="credit" id="credit"></div>
     </div>
     <div class="busy hidden" id="loadcar">Загружаю машину…</div>
   </div>
 
-  <div class="page hidden" id="p_track"><div class="pagewrap" id="tracks"></div></div>
+  <div class="page hidden" id="p_events"><div class="pagewrap" id="events"></div></div>
+  <div class="page hidden" id="p_records"><div class="pagewrap"><div class="panel" style="width:min(760px,100%)" id="records"></div></div></div>
 
-  <div class="page hidden" id="p_settings"><div class="pagewrap"><div class="settings">
-    <h3>ГРАФИКА</h3>
-    <div class="row"><button id="q">Графика: средняя</button></div>
-    <div class="note">Если игра тормозит, включи «быструю»: без теней и с меньшим разрешением.</div>
-    <h3 style="margin-top:22px">СВОЯ МАШИНА</h3>
-    <div class="row">
-      <label class="file">Загрузить машину (.glb)<input type="file" id="glb" accept=".glb,.gltf"></label>
-      <button id="rot" class="hidden">Повернуть на 90°</button>
-    </div>
-    <div class="note" id="glbnote">Любая машина в формате GLB появится в гараже.</div>
-    <h3 style="margin-top:22px">УПРАВЛЕНИЕ</h3>
-    <div class="keys" style="margin-top:8px">
-      <kbd>W</kbd><kbd>A</kbd><kbd>S</kbd><kbd>D</kbd> или стрелки — ехать · <kbd>Пробел</kbd> — ручник (дрифт)<br>
-      <kbd>C</kbd> — камера · <kbd>R</kbd> — вернуться на трассу · <kbd>Esc</kbd> — пауза
-    </div>
+  <div class="page hidden" id="p_settings"><div class="pagewrap"><div class="panel">
+    <h3>ГРАФИКА И ЗВУК</h3>
+    <div class="srow2"><div>Качество графики<small>низкая — без теней и травы</small></div><div class="seg" id="qseg"><button data-q="low">Низкая</button><button data-q="medium">Средняя</button><button data-q="high">Высокая</button></div></div>
+    <div class="srow2"><div>Громкость</div><input type="range" id="vol2" min="0" max="100" value="55" aria-label="Громкость"></div>
+    <div class="srow2"><div>Счётчик кадров (FPS)</div><div class="seg" id="fpsseg"><button data-v="0">Выкл</button><button data-v="1">Вкл</button></div></div>
+    <h3 style="margin-top:18px">ИГРА</h3>
+    <div class="srow2"><div>Единицы скорости</div><div class="seg" id="unitseg"><button data-v="kmh">км/ч</button><button data-v="mph">mph</button></div></div>
+    <div class="srow2"><div>Поле зрения камеры<small id="fovv">60°</small></div><input type="range" id="fov" min="50" max="80" value="60" aria-label="Поле зрения"></div>
+    <div class="srow2"><div>Чувствительность руля<small id="steerv">100%</small></div><input type="range" id="steer" min="60" max="140" value="100" aria-label="Чувствительность руля"></div>
+    <div class="srow2"><div>Мини-карта</div><div class="seg" id="mapseg"><button data-v="1">Вкл</button><button data-v="0">Выкл</button></div></div>
+    <div class="srow2"><div>Камера по умолчанию</div><div class="seg" id="camseg"><button data-v="0">Сзади</button><button data-v="1">Дальняя</button><button data-v="2">Капот</button></div></div>
+    <h3 style="margin-top:18px">СВОЯ МАШИНА</h3>
+    <div class="srow2"><div>Загрузить модель .glb<small id="glbnote">Появится в гараже</small></div><div class="row" style="margin:0"><label class="file">Выбрать файл<input type="file" id="glb" accept=".glb,.gltf"></label><button id="rot" class="hidden">Повернуть</button></div></div>
+    <h3 style="margin-top:18px">ДАННЫЕ</h3>
+    <div class="srow2"><div>Сбросить рекорды и очки<small>нельзя отменить</small></div><button id="resetrec">Сбросить</button></div>
   </div></div></div>
 
-  <div class="hintbar"><span><kbd>↑</kbd><kbd>↓</kbd> Марка</span><span><kbd>←</kbd><kbd>→</kbd> Модель</span><span><kbd>Мышь</kbd> Вращать</span><span><kbd>Tab</kbd> Вкладки</span><span><kbd>Enter</kbd> Поехали</span></div>
+  <div class="hintbar"><span><kbd>↑</kbd><kbd>↓</kbd> Марка</span><span><kbd>←</kbd><kbd>→</kbd> Модель</span><span><kbd>Мышь</kbd> Вращать</span><span><kbd>Tab</kbd> Вкладки</span><span><kbd>F</kbd> Избранное</span><span><kbd>Enter</kbd> Поехали</span></div>
 </div>
+
+<div id="results" class="hidden"><div class="res">
+  <div class="t" id="r_t">ФИНИШ</div><h2 id="r_h">Заезд окончен</h2>
+  <div class="rows" id="r_rows"></div>
+  <div class="btns"><button class="go" id="r_again">Ещё раз</button><button id="r_free">Свободная езда</button><button id="r_garage">В гараж</button></div>
+</div></div>
+<div id="count" class="hidden"></div>
+<div id="fps" class="hidden"></div>
+<div id="photo" class="hidden">
+  <div class="grid hidden" id="ph_grid"></div><div class="bars hidden" id="ph_bars"></div>
+  <div class="pp">
+    <h3>ФОТОРЕЖИМ</h3>
+    <div class="pr">Фильтр <select id="ph_f"><option value="">Нет</option><option value="vivid">Яркий</option><option value="film">Плёнка</option><option value="bw">Ч/Б</option><option value="sepia">Сепия</option><option value="cold">Холодный</option><option value="dusk">Закат</option></select></div>
+    <div class="pr">Экспозиция <input type="range" id="ph_e" min="40" max="160" value="100"></div>
+    <div class="pr">Поле зрения <input type="range" id="ph_fov" min="15" max="90" value="45"></div>
+    <div class="pr">Наклон <input type="range" id="ph_roll" min="-30" max="30" value="0"></div>
+    <div class="pr">Виньетка <input type="range" id="ph_v" min="0" max="100" value="35"></div>
+    <div class="pr"><label for="ph_grid_c">Сетка 3×3</label><input type="checkbox" id="ph_grid_c"></div>
+    <div class="pr"><label for="ph_bars_c">Кино-полосы</label><input type="checkbox" id="ph_bars_c"></div>
+    <div class="pr"><label for="ph_logo">Подпись игры</label><input type="checkbox" id="ph_logo" checked></div>
+    <button class="go shot" id="ph_take">СНИМОК <kbd>Пробел</kbd></button>
+    <button class="shot" id="ph_exit">Выйти <kbd>Esc</kbd></button>
+  </div>
+  <div class="ph">Мышь — вращать камеру · колесо — приблизить · Q / E — выше / ниже · W A S D — сдвиг</div>
+</div>
+<div id="shotview" class="hidden"><img id="shotimg" alt="Снимок из игры"><div class="btns"><a id="shotdl" download="osennyaya-trassa.png"><button class="go">Скачать PNG</button></a><button id="shotclose">Закрыть</button></div><div class="note">Если скачивание не началось — нажми на снимок правой кнопкой и выбери «Сохранить изображение».</div></div>
 
 <div id="hud" class="hidden">
   <div class="h-race">
-    <div class="h-lbl">КРУГ <b id="lapn">1</b></div>
+    <div class="h-lbl"><span id="lapl">КРУГ</span> <b id="lapn">1</b></div>
     <div class="h-time" id="laptime">0:00.00</div>
-    <div class="h-sub"><span>ЛУЧШИЙ</span> <b id="bestt">—</b></div>
+    <div class="h-sub"><span id="bestl">ЛУЧШИЙ</span> <b id="bestt">—</b></div>
     <div class="h-cps" id="cps"></div>
   </div>
   <div class="h-skill"><div class="h-lbl">ОЧКИ НАВЫКОВ</div><div class="h-pts" id="skill">0</div></div>
@@ -240,7 +301,7 @@
   <canvas id="gauge" width="560" height="560"></canvas>
   <div class="toast" id="toast"></div>
   <div class="drift" id="drift"></div>
-  <div class="hint"><span><kbd>C</kbd> камера</span><span><kbd>R</kbd> на трассу</span><span><kbd>Пробел</kbd> ручник</span><span><kbd>Esc</kbd> пауза</span></div>
+  <div class="hint"><span><kbd>C</kbd> камера</span><span><kbd>R</kbd> на трассу</span><span><kbd>Пробел</kbd> ручник</span><span><kbd>P</kbd> фото</span><span><kbd>Esc</kbd> пауза</span></div>
 </div>
 </div>
 
@@ -380,8 +441,8 @@ function buildTerrain(){
   const NV = N1*N1, pos = new Float32Array(NV*3), col = new Float32Array(NV*3), spl = new Float32Array(NV*4), snw = new Float32Array(NV);
   for (let j=0;j<N1;j++) for (let i=0;i<N1;i++){
     const x=-S/2+i*STEP, z=-S/2+j*STEP, k=j*N1+i;
-    let h = baseH(x,z); const q = roadQ(x,z); roadD[k] = q.i>=0 ? q.lat : 1e9;
-    if (q.i>=0 && q.d < RW+40){ const t = MU.smoothstep(q.lat, RW+2.5, RW+34); h = MU.lerp(roadY(q.i,x,z)-.3, h, t); }
+    let h = zoneFlatten(x, z, baseH(x,z)); const q = roadQ(x,z); roadD[k] = q.i>=0 ? q.lat : 1e9;
+    if (q.i>=0 && q.d < RW+40){ const t = MU.smoothstep(q.lat, RW+1.4, RW+30); h = MU.lerp(roadY(q.i,x,z)-.06, h, t); }
     hgt[k]=h; pos[k*3]=x; pos[k*3+1]=h; pos[k*3+2]=z;
   }
   const idx = new Uint32Array(SEG*SEG*6); let n=0;
@@ -395,11 +456,15 @@ function buildTerrain(){
     let rest = 1;
     const wr = Math.max(MU.smoothstep(1-ny, .26, .48), MU.smoothstep(h, 150+n1*60, 230+n1*60)*.7); rest -= wr;
     const ws = (1-MU.smoothstep(h, WL+.6, WL+3.5))*rest; rest -= ws;
-    const wv = (1-MU.smoothstep(roadD[k], RW+1.4, RW+3.6))*rest; rest -= wv;
+    const zn = zoneAt(x, z); let zg = 0;
+    if (zn){ const d = Math.hypot(x-zn.x, z-zn.z); if (zn.id==='gas' || zn.id==='fest') zg = 1 - MU.smoothstep(d, zn.R*.75, zn.R); if (zn.id==='village') zg = (1 - MU.smoothstep(d, 18, 26))*.9 + (1 - MU.smoothstep(Math.abs(d-61), 3, 6))*.8; if (zn.id==='light') zg = 1 - MU.smoothstep(d, 6, 12); }
+    const wv = Math.max(1-MU.smoothstep(roadD[k], RW+1.4, RW+3.6), zg)*rest; rest -= wv;
     spl[k*4]=rest; spl[k*4+1]=wr; spl[k*4+2]=ws; spl[k*4+3]=wv;
     snw[k] = MU.smoothstep(h, 270+n2*40, 340+n2*40) * MU.smoothstep(ny, .45, .75);
     // оттенок травы: сухие и тёмные пятна
     c.setRGB(1,1,1).lerp(new THREE.Color(1.15,1.02,.72), MU.smoothstep(n3,.5,.78)*.8).multiplyScalar(.82 + n1*.3);
+    if (zn && zn.id==='farm'){ const d = Math.hypot(x-zn.x, z-zn.z); if (d < zn.R-10){ const fi = Math.floor((x-zn.x+500)/28) + Math.floor((z-zn.z+500)/22)*7, ft = hash2(fi, 3.7);
+      if (ft < .4) c.setRGB(1.35,1.15,.55); else if (ft < .7) c.setRGB(1.05,1.12,.62); else c.setRGB(.82,.95,.7); } }
     col[k*3]=c.r; col[k*3+1]=c.g; col[k*3+2]=c.b;
   }
   geo.setAttribute('color', new THREE.BufferAttribute(col,3)); geo.setAttribute('splat', new THREE.BufferAttribute(spl,4)); geo.setAttribute('snow', new THREE.BufferAttribute(snw,1));
@@ -435,7 +500,7 @@ const G = { y:0, road:false };
 let world = 'autumn';
 function groundAt(x,z){ if (world==='wold') return hfGround(x,z);
   const q = roadQ(x,z);
-  if (q.i>=0 && q.lat < RW+1.1 && q.d < 30){ G.y = roadY(q.i,x,z)+0.12; G.road = q.lat < RW+.3; }
+  if (q.i>=0 && q.lat < RW+1.1 && q.d < 30){ G.y = roadY(q.i,x,z)+0.03; G.road = q.lat < RW+.3; }
   else { G.y = terrainH(x,z); G.road = false; }
   return G; }
 const gh = (x,z) => groundAt(x,z).y;
@@ -444,7 +509,7 @@ function buildRoad(){
   const HW = RW+1.1, pos=[], uv=[], idx=[]; let dist=0;
   for (let k=0;k<=NS;k++){
     const i=k%NS; if (k>0){ const p=(k-1)%NS; dist += Math.hypot(rx[i]-rx[p], rz[i]-rz[p]); }
-    const sx=-tz[i], sz=tx[i], y=ry[i]+0.12;
+    const sx=-tz[i], sz=tx[i], y=ry[i]+0.03;
     pos.push(rx[i]+sx*HW, y, rz[i]+sz*HW,  rx[i]-sx*HW, y, rz[i]-sz*HW);
     uv.push(0, dist/16, 1, dist/16);
     if (k<NS){ const a=k*2; idx.push(a, a+2, a+1, a+1, a+2, a+3); }
@@ -521,7 +586,7 @@ function buildForest(treeScene){
     const x = (R()-.5)*(S-200), z = (R()-.5)*(S-200), h = terrainH(x,z);
     if (h < WL+1.2) continue;
     const q2 = roadQ(x,z); const dr = q2.i>=0 ? q2.lat : 1e9; if (dr < RW+8) continue;
-    const sl = slopeAt(x,z); if (sl > .75) continue;
+    const sl = slopeAt(x,z); if (sl > .75) continue; if (zoneAt(x, z, 25)) continue;
     const dens = fbm(x/420+7, z/420-3, 3);
     const treeLine = 200 + fbm(x/300,z/300,2)*60;
     if (nt < 9000 && h < treeLine && dens > -.08 + R()*.25){
@@ -600,6 +665,7 @@ function grassCell(ci, cj, slot){
     const hx = hash2(ci*7.1+k, cj*3.3), hz = hash2(ci*1.7, cj*9.1+k), x = (ci+hx)*GC4, z = (cj+hz)*GC4;
     const h = terrainH(x,z); let ok = !(h < WL+1.2 || h > 220);
     if (ok){ const q2 = roadQ(x,z); if (q2.i>=0 && q2.lat < RW+2.4) ok = false; }
+    if (ok){ const zz = zoneAt(x, z); if (zz && zz.id !== 'farm') ok = false; }
     if (ok){ const e=1.5, sl = Math.abs(terrainH(x+e,z)-terrainH(x-e,z)) + Math.abs(terrainH(x,z+e)-terrainH(x,z-e)); if (sl > 1.2) ok = false; }
     const den = ok ? fbm(x/60, z/60, 2) : -1; if (den < -.35) ok = false;
     if (!ok){ grass.im.setMatrixAt(n, _gz); continue; }
@@ -620,6 +686,180 @@ function updGrass(dt){
   grass.im.count = GN*GN*GK;
   if (changed){ grass.im.instanceMatrix.needsUpdate = true; if (grass.im.instanceColor) grass.im.instanceColor.needsUpdate = true; }
 }
+// ================= места на карте: фестиваль, деревня, ферма, заправка, маяк, ветряки
+const ZONES = [];
+function sidePoint(i, side, off){ return { x: rx[i] + (-tz[i])*off*side, z: rz[i] + tx[i]*off*side }; }
+function planZones(){
+  const add = (id, name, sub, icon, i, side, off, R) => { const p = sidePoint(i, side, off); ZONES.push({ id, name, sub, icon, i, side, x:p.x, z:p.z, R, h: Math.max(ry[i], WL+2.5), yaw: Math.atan2(tx[i], tz[i]) }); };
+  // ищем ровный участок рядом с дорогой, где нет воды
+  const best = (from, to, off, R) => { let bi = from, bs = 1, bc = 1e9;
+    for (let i=from;i<to;i+=20) for (const s of [1,-1]){ const p = sidePoint(i, s, off); let c = 0, w = 0;
+      for (let a=0;a<6;a++){ const ang = a/6*Math.PI*2, hh = baseH(p.x+Math.cos(ang)*R*.7, p.z+Math.sin(ang)*R*.7); c += Math.abs(hh - ry[i]); if (hh < WL+1) w += 50; }
+      c += w; if (c < bc){ bc = c; bi = i; bs = s; } }
+    return [bi, bs]; };
+  let [i1, s1] = best(NS-260, NS-60, 100, 70); add('fest', 'Фестиваль «Осенняя трасса»', 'Сцена, колесо обозрения, парковка', '★', i1, s1, 100, 70);
+  let [i2, s2] = best(1150, 1550, 115, 95); add('village', 'Деревня Ольховка', 'Церковь, дома, сады', '⌂', i2, s2, 115, 95);
+  let [i3, s3] = best(2050, 2450, 130, 110); add('farm', 'Ферма «Кедровая»', 'Амбары, силосы, поля', '♣', i3, s3, 130, 110);
+  let [i4, s4] = best(600, 850, RW+24, 26); add('gas', 'Заправка 24', 'АЗС у дороги', '⛽', i4, s4, RW+24, 26);
+  // маяк — на берегу озера рядом с дорогой
+  let lh = null;
+  for (let i=0;i<NS && !lh;i+=25) for (const s of [1,-1]){ let last = null;
+    for (let d=40; d<=260; d+=10){ const p = sidePoint(i, s, d), hh = baseH(p.x, p.z); if (hh < WL-3){ if (last && last.d > 50) lh = { i, s, d:last.d }; break; } last = { d }; }
+    if (lh) break; }
+  if (lh){ const p = sidePoint(lh.i, lh.s, lh.d); ZONES.push({ id:'light', name:'Маяк «Северный»', sub:'Пирс у озера', icon:'⚑', i:lh.i, side:lh.s, x:p.x, z:p.z, R:22, h: Math.max(baseH(p.x,p.z), WL+2.2), yaw: Math.atan2(-tz[lh.i]*lh.s, tx[lh.i]*lh.s), lake: true }); }
+}
+const zoneAt = (x, z, pad=0) => { for (const zn of ZONES){ const d = Math.hypot(x-zn.x, z-zn.z); if (d < zn.R + pad) return zn; } return null; };
+function zoneFlatten(x, z, h){ for (const zn of ZONES){ const d = Math.hypot(x-zn.x, z-zn.z); if (d < zn.R+70){ const t = MU.smoothstep(d, zn.R, zn.R+70); h = MU.lerp(zn.h, h, t); } } return h; }
+
+// --- склейка построек в несколько мешей (по материалу) — мало вызовов отрисовки
+function bake(group, castShadow=true){
+  group.updateMatrixWorld(true);
+  const byMat = new Map();
+  group.traverse(o => { if (!o.isMesh) return; let g = o.geometry.index ? o.geometry.toNonIndexed() : o.geometry.clone(); g.applyMatrix4(o.matrixWorld);
+    for (const k of Object.keys(g.attributes)) if (!['position','normal','uv'].includes(k)) g.deleteAttribute(k);
+    if (!g.attributes.uv) g.setAttribute('uv', new THREE.Float32BufferAttribute(new Float32Array(g.attributes.position.count*2), 2));
+    (byMat.get(o.material) || byMat.set(o.material, []).get(o.material)).push(g); });
+  for (const [mat, list] of byMat){ const m = new THREE.Mesh(mergeGeometries(list), mat); m.castShadow = castShadow; m.receiveShadow = true; scene.add(m); }
+}
+const anims = []; // вращающиеся части (колесо обозрения, ветряки)
+function canvasMat(w, h, draw, opts={}){ const t = canvasTex(w, h, draw, opts.repeat ?? false); return new THREE.MeshStandardMaterial(Object.assign({ map:t, roughness:.8 }, opts.mat||{})); }
+
+function buildPlaces(){
+  const tr = (t, a, b) => { const c = t.clone(); c.needsUpdate = true; c.repeat.set(a, b); return c; };
+  const M = {
+    plaster: new THREE.MeshStandardMaterial({ map:tr(T.plaster,2,1), color:0xf3ece0, roughness:.92 }),
+    stone: new THREE.MeshStandardMaterial({ map:tr(T.stone,3,1.6), roughness:.95 }),
+    roof: new THREE.MeshStandardMaterial({ map:tr(T.roof,3,2), color:0x9a8c84, roughness:.85, side:THREE.DoubleSide }),
+    roofRed: new THREE.MeshStandardMaterial({ map:tr(T.roof,3,2), color:0xb0583e, roughness:.85, side:THREE.DoubleSide }),
+    win: new THREE.MeshStandardMaterial({ color:0x1d2a33, roughness:.08, metalness:.6, envMapIntensity:1.4 }),
+    white: new THREE.MeshStandardMaterial({ color:0xf4f1ea, roughness:.6 }),
+    wood: new THREE.MeshStandardMaterial({ color:0x6b4a32, roughness:.85 }),
+    barn: new THREE.MeshStandardMaterial({ map:tr(T.plaster,3,1), color:0x9a3326, roughness:.9 }),
+    metal: new THREE.MeshStandardMaterial({ color:0xb9bec4, roughness:.35, metalness:.8 }),
+    dark: new THREE.MeshStandardMaterial({ color:0x24262b, roughness:.5, metalness:.5 }),
+    orange: new THREE.MeshStandardMaterial({ color:0xff7a1a, roughness:.5 }),
+    glow: new THREE.MeshStandardMaterial({ color:0xffffff, emissive:0xfff2d8, emissiveIntensity:1.6 }),
+    asphalt: new THREE.MeshStandardMaterial({ map:tr(T.asphalt,6,6), color:0x9a9a9a, roughness:.9, polygonOffset:true, polygonOffsetFactor:-1, polygonOffsetUnits:-2 }),
+  };
+  const roofShape = new THREE.Shape([new THREE.Vector2(-4.9,0), new THREE.Vector2(4.9,0), new THREE.Vector2(0,3.4)]);
+  const roofGeo = new THREE.ExtrudeGeometry(roofShape, { depth:8, bevelEnabled:false }).translate(0,0,-4);
+  { const uvA = roofGeo.attributes.uv; for (let i=0;i<uvA.count;i++) uvA.setXY(i, uvA.getX(i)*.12, uvA.getY(i)*.12); }
+  const box = (g, w, h, d, mat, x, y, z, ry=0) => { const m = new THREE.Mesh(new THREE.BoxGeometry(w,h,d), mat); m.position.set(x,y,z); m.rotation.y = ry; g.add(m); return m; };
+  const cyl = (g, r1, r2, h, mat, x, y, z, seg=16) => { const m = new THREE.Mesh(new THREE.CylinderGeometry(r1,r2,h,seg), mat); m.position.set(x,y,z); g.add(m); return m; };
+  const house = (g, x, z, yaw, R, big=false) => { const hg = new THREE.Group(); hg.position.set(x, 0, z); hg.rotation.y = yaw; g.add(hg);
+    const sx = big ? 1.3 : 1; const wm = R() < .4 ? M.stone : M.plaster;
+    box(hg, 8.6*sx, 5.4, 7.2, wm, 0, 2.7, 0); const r = new THREE.Mesh(roofGeo, R() < .5 ? M.roof : M.roofRed); r.scale.set(sx,1,1); r.position.y = 5.4; hg.add(r);
+    box(hg, .9, 2.4, .9, M.stone, 2.6*sx, 7.6, 1.4);
+    for (const wx of [-2.6*sx, 2.6*sx]) for (const wz of [-3.62, 3.62]) for (const yy of [1.6, 3.9]){ if (yy===1.6 && wz>0 && wx<0) continue; box(hg, 1.5,1.6,.1, M.white, wx, yy, wz); box(hg, 1.25,1.35,.12, M.win, wx, yy, wz); }
+    box(hg, 1.3, 2.3, .12, M.wood, -2.6*sx, 1.15, 3.62); };
+  const fence = (g, pts, closed) => { for (let k=0;k<pts.length-(closed?0:1);k++){ const a = pts[k], b = pts[(k+1)%pts.length], L = Math.hypot(b[0]-a[0], b[1]-a[1]), n = Math.max(1, Math.round(L/2.5)), yaw = Math.atan2(b[0]-a[0], b[1]-a[1]);
+      for (let s=0;s<n;s++){ const t = s/n, x = a[0]+(b[0]-a[0])*t, z = a[1]+(b[1]-a[1])*t; cyl(g, .07,.08, 1.1, M.wood, x, .55, z, 5); }
+      for (const yy of [.45, .9]){ const m = box(g, .06, .08, L, M.wood, (a[0]+b[0])/2, yy, (a[1]+b[1])/2); m.rotation.y = yaw; } } };
+  const local = (zn, lx, lz) => { const c = Math.cos(zn.yaw), s = Math.sin(zn.yaw); return [zn.x + lx*c + lz*s, zn.z - lx*s + lz*c]; };
+
+  for (const zn of ZONES){
+    const R = mulberry(zn.x*13 + zn.z*7 | 0), g = new THREE.Group(); g.position.y = zn.h - .25;
+    if (zn.id === 'village'){
+      // церковь в центре
+      const cg = new THREE.Group(); const [cx, cz] = local(zn, 0, 0); cg.position.set(cx, 0, cz); cg.rotation.y = zn.yaw; g.add(cg);
+      box(cg, 10, 8, 18, M.stone, 0, 4, 0); const rr = new THREE.Mesh(roofGeo, M.roof); rr.scale.set(1.1, 1.3, 2.3); rr.position.y = 8; cg.add(rr);
+      box(cg, 5.5, 18, 5.5, M.stone, 0, 9, -11); const sp = new THREE.Mesh(new THREE.ConeGeometry(4.2, 12, 4), M.roof); sp.position.set(0, 24, -11); sp.rotation.y = Math.PI/4; cg.add(sp);
+      box(cg, 1.2, 2, .2, M.glow, 0, 14, -8.2); for (const zz of [-4, 0, 4]){ box(cg, .1, 3, 1.4, M.win, 5.05, 4, zz); box(cg, .1, 3, 1.4, M.win, -5.05, 4, zz); }
+      addObst(cx, cz, 10);
+      // дома по кругу вдоль улиц
+      const N = 22;
+      for (let k=0;k<N;k++){ const ang = k/N*Math.PI*2 + (R()-.5)*.1, rad = (k%2 ? 48 : 74) + R()*8; const lx = Math.cos(ang)*rad, lz = Math.sin(ang)*rad; const [x, z] = local(zn, lx, lz);
+        if (roadQ(x, z).lat < RW+10) continue; house(g, x, z, zn.yaw - ang + Math.PI/2, R, R() < .2); addObst(x, z, 6);
+        // садик с забором
+        const fx = lx*1.12, fz = lz*1.12; const pts = [[-5,-3],[5,-3],[5,3],[-5,3]].map(([a,b]) => { const ca = Math.cos(-ang), sa = Math.sin(-ang); return local(zn, fx + a*ca - b*sa, fz + a*sa + b*ca); });
+        if (R() < .6) fence(g, pts, false); }
+      // колодец и скамейки на площади
+      cyl(g, 1.4, 1.5, 1, M.stone, ...(() => { const [x,z] = local(zn, 0, 22); return [x, .5, z]; })());
+    }
+    if (zn.id === 'farm'){
+      const [bx, bz] = local(zn, -30, -10);
+      const bg = new THREE.Group(); bg.position.set(bx, 0, bz); bg.rotation.y = zn.yaw; g.add(bg);
+      box(bg, 14, 8, 22, M.barn, 0, 4, 0); for (const sgn of [1,-1]){ const r1 = box(bg, 8.6, .4, 23, M.roof, sgn*3.6, 9.6, 0); r1.rotation.z = -sgn*.55; }
+      box(bg, 6, 6, .2, M.wood, 0, 3, 11.05); addObst(bx, bz, 12);
+      for (let k=0;k<3;k++){ const [sx2, sz2] = local(zn, -8 + k*7.5, -36); cyl(g, 3, 3, 16, M.metal, sx2, 8, sz2, 20); const dm = new THREE.Mesh(new THREE.SphereGeometry(3, 16, 8, 0, Math.PI*2, 0, Math.PI/2), M.metal); dm.position.set(sx2, 16, sz2); g.add(dm); addObst(sx2, sz2, 3.4); }
+      const [hx, hz] = local(zn, 30, -25); house(g, hx, hz, zn.yaw, R, true); addObst(hx, hz, 7);
+      // загоны вокруг полей
+      const pts = []; for (let k=0;k<24;k++){ const a = k/24*Math.PI*2; pts.push(local(zn, Math.cos(a)*(zn.R-8), Math.sin(a)*(zn.R-8))); } fence(g, pts.filter((p,k) => k % 6 !== 0), false);
+      // тюки сена
+      for (let k=0;k<26;k++){ const [x, z] = local(zn, (R()-.5)*zn.R*1.3, 15 + R()*50); if (roadQ(x,z).lat < RW+6) continue; const m = cyl(g, .8, .8, 1.3, new THREE.MeshStandardMaterial({ color:0xc9a95a, roughness:1 }), x, .8, z, 12); m.rotation.z = Math.PI/2; m.rotation.y = R()*3; }
+    }
+    if (zn.id === 'gas'){
+      const gg = new THREE.Group(); gg.position.set(zn.x, 0, zn.z); gg.rotation.y = zn.yaw; g.add(gg);
+      box(gg, 22, .02, 34, M.asphalt, 0, .26, 0);
+      box(gg, 16, .7, 22, M.white, 0, 6, 0); box(gg, 16.2, .25, 22.2, M.orange, 0, 5.6, 0); box(gg, 14, .05, 20, M.glow, 0, 5.62, 0);
+      for (const px of [-6, 6]) for (const pz of [-8, 8]){ cyl(gg, .3, .3, 5.6, M.white, px, 2.8, pz, 8); }
+      for (const pz of [-4, 4]){ box(gg, 1, 1.8, .7, M.dark, 0, .9, pz); box(gg, .9, .5, .72, M.orange, 0, 1.5, pz); }
+      box(gg, 9, 4.2, 8, M.white, -14, 2.1, 0); box(gg, .1, 2.6, 6, M.win, -9.45, 1.8, 0); box(gg, 9.2, .5, 8.2, M.orange, -14, 4.4, 0);
+      cyl(gg, .25, .25, 9, M.dark, 11, 4.5, 14, 8);
+      const sign = new THREE.Mesh(new THREE.BoxGeometry(3.2, 2.4, .3), canvasMat(256, 192, (c,w,h) => { c.fillStyle = '#ff7a1a'; c.fillRect(0,0,w,h); c.fillStyle = '#fff'; c.font = 'bold 64px system-ui'; c.textAlign = 'center'; c.fillText('АЗС', w/2, 78); c.font = 'bold 54px system-ui'; c.fillText('24', w/2, 150); }));
+      sign.position.set(11, 9.5, 14); gg.add(sign);
+      const [ax, az] = local(zn, -14, 0); addObst(ax, az, 6);
+    }
+    if (zn.id === 'fest'){
+      const fg = new THREE.Group(); fg.position.set(zn.x, 0, zn.z); fg.rotation.y = zn.yaw; g.add(fg);
+      box(fg, 60, .02, 44, M.asphalt, 0, .26, 0);
+      const lines = canvasMat(512, 512, (c,w,h) => { c.clearRect(0,0,w,h); c.fillStyle = 'rgba(255,255,255,.85)'; for (let k=0;k<14;k++){ c.fillRect(20 + k*35, 30, 4, 150); c.fillRect(20 + k*35, 330, 4, 150); } }, { mat:{ transparent:true, polygonOffset:true, polygonOffsetFactor:-3, polygonOffsetUnits:-4, roughness:.9 } });
+      const lp = new THREE.Mesh(new THREE.PlaneGeometry(58, 42), lines); lp.rotation.x = -Math.PI/2; lp.position.y = .29; fg.add(lp);
+      // сцена
+      box(fg, 26, 1.6, 14, M.dark, 0, .8, -40); for (const sx of [-13, 13]) for (const sz of [-47, -33]) box(fg, .6, 13, .6, M.metal, sx, 6.5, sz);
+      box(fg, 28, .8, 16, M.dark, 0, 13.2, -40); box(fg, 18, 7, .3, canvasMat(512, 200, (c,w,h) => { const gr = c.createLinearGradient(0,0,w,0); gr.addColorStop(0,'#ff7a1a'); gr.addColorStop(1,'#ffb35c'); c.fillStyle = gr; c.fillRect(0,0,w,h); c.fillStyle = '#16181c'; c.font = '900 italic 74px system-ui'; c.textAlign = 'center'; c.fillText('ФЕСТИВАЛЬ', w/2, 120); }, { mat:{ emissive:0xffffff, emissiveIntensity:.35 } }), 0, 7.5, -46.8);
+      addObst(...local(zn, 0, -40), 14);
+      // шатры
+      const stripe = canvasTex(256, 64, (c,w,h) => { for (let k=0;k<8;k++){ c.fillStyle = k%2 ? '#ffffff' : '#ff7a1a'; c.fillRect(k*w/8, 0, w/8, h); } }, false);
+      const tentM = new THREE.MeshStandardMaterial({ map:stripe, roughness:.8, side:THREE.DoubleSide });
+      for (let k=0;k<6;k++){ const tx3 = -30 + k*12, tz3 = 34; cyl(fg, 4, 4, 2.6, tentM, tx3, 1.3, tz3, 16); const cn = new THREE.Mesh(new THREE.ConeGeometry(4.6, 3.6, 16), tentM); cn.position.set(tx3, 4.4, tz3); fg.add(cn); addObst(...local(zn, tx3, tz3), 4.5); }
+      // флаги
+      const flagCols = ['#ff7a1a', '#2b6cff', '#ffcc33', '#ffffff', '#2fbf71'];
+      for (let k=0;k<10;k++){ const fx = -32 + k*7, fz = 24; cyl(fg, .1, .12, 10, M.metal, fx, 5, fz, 6); const fm = canvasMat(64, 40, (c,w,h) => { c.fillStyle = flagCols[k%5]; c.fillRect(0,0,w,h); }, { mat:{ side:THREE.DoubleSide } }); const fl = new THREE.Mesh(new THREE.PlaneGeometry(2.4, 1.5), fm); fl.position.set(fx+1.25, 9.1, fz); fg.add(fl); }
+      // арка-вход
+      for (const sx of [-9, 9]) box(fg, 1, 9, 1, M.dark, sx, 4.5, 22);
+      box(fg, 20, 1.6, .6, canvasMat(512, 48, (c,w,h) => { c.fillStyle = '#16181c'; c.fillRect(0,0,w,h); c.fillStyle = '#ff8a2a'; c.font = '900 34px system-ui'; c.textAlign = 'center'; c.fillText('ДОБРО ПОЖАЛОВАТЬ', w/2, 36); }, { mat:{ emissive:0xffffff, emissiveIntensity:.25 } }), 0, 8.6, 22);
+      // колесо обозрения (крутится)
+      const fw = new THREE.Group(); const [wx2, wz2] = local(zn, 34, -18); fw.position.set(wx2, zn.h - .25 + 17, wz2); fw.rotation.y = zn.yaw + Math.PI/2;
+      const rot = new THREE.Group(); fw.add(rot);
+      for (const sz of [-1.2, 1.2]){ const t1 = new THREE.Mesh(new THREE.TorusGeometry(15, .25, 6, 48), M.white); t1.position.z = sz; rot.add(t1); }
+      for (let k=0;k<16;k++){ const a = k/16*Math.PI*2; const sp = new THREE.Mesh(new THREE.BoxGeometry(.18, 15, .18), M.white); sp.position.set(Math.cos(a)*7.5, Math.sin(a)*7.5, 0); sp.rotation.z = a - Math.PI/2; rot.add(sp);
+        const cab = new THREE.Mesh(new THREE.BoxGeometry(1.8, 1.8, 2), k%2 ? M.orange : M.metal); cab.position.set(Math.cos(a)*15, Math.sin(a)*15 - 1.2, 0); cab.userData.cab = true; rot.add(cab); }
+      for (const sz of [-3, 3]){ const lg = new THREE.Mesh(new THREE.BoxGeometry(.6, 19, .6), M.white); lg.position.set(0, -8.5, sz); lg.rotation.z = .35; fw.add(lg); const lg2 = lg.clone(); lg2.rotation.z = -.35; fw.add(lg2); }
+      fw.traverse(o => { if (o.isMesh){ o.castShadow = true; o.receiveShadow = true; } }); scene.add(fw); anims.push({ o:rot, ax:'z', sp:.06, cabs:true }); addObst(wx2, wz2, 4);
+    }
+    if (zn.id === 'light'){
+      const lg = new THREE.Group(); lg.position.set(zn.x, 0, zn.z); g.add(lg);
+      const bands = canvasMat(64, 256, (c,w,h) => { for (let k=0;k<6;k++){ c.fillStyle = k%2 ? '#f2efe8' : '#c4372b'; c.fillRect(0, k*h/6, w, h/6); } });
+      const tw = new THREE.Mesh(new THREE.CylinderGeometry(1.7, 2.4, 22, 24), bands); tw.position.y = 11; lg.add(tw);
+      cyl(lg, 2.6, 2.6, .4, M.dark, 0, 22.2, 0, 24); cyl(lg, 1.4, 1.4, 2.4, M.glow, 0, 23.6, 0, 16); const cap = new THREE.Mesh(new THREE.ConeGeometry(1.8, 2, 16), new THREE.MeshStandardMaterial({ color:0xc4372b, roughness:.6 })); cap.position.y = 25.8; lg.add(cap);
+      box(lg, 6, 3.4, 5, M.plaster, 5, 1.7, 2); const rr = new THREE.Mesh(roofGeo, M.roofRed); rr.scale.set(.7, .6, .7); rr.position.set(5, 3.4, 2); lg.add(rr);
+      addObst(zn.x, zn.z, 3);
+      // пирс в воду
+      const pg = new THREE.Group(); pg.position.set(zn.x, WL + .7 - (zn.h - .25), zn.z); pg.rotation.y = zn.yaw; g.add(pg);
+      for (let k=0;k<16;k++){ box(pg, 3.4, .25, 3, M.wood, 0, 0, 6 + k*3); for (const sx of [-1.6, 1.6]) cyl(pg, .15, .15, 4, M.wood, sx, -1.8, 6 + k*3, 6); }
+    }
+    bake(g);
+  }
+  // ветряки на холмах
+  const R2 = mulberry(4242); let nt = 0, guard = 0;
+  while (nt < 10 && guard++ < 4000){
+    const x = (R2()-.5)*(S-600), z = (R2()-.5)*(S-600), h = terrainH(x, z);
+    if (h < 90 || h > 230) continue; const q = roadQ(x,z); if (q.i>=0 && q.lat < 120) continue; if (zoneAt(x, z, 80)) continue;
+    const tg = new THREE.Group(); tg.position.set(x, h - 1, z); tg.rotation.y = R2()*6.28;
+    const tw = new THREE.Mesh(new THREE.CylinderGeometry(.9, 1.6, 48, 12), M.white); tw.position.y = 24; tg.add(tw);
+    const nac = new THREE.Mesh(new THREE.BoxGeometry(2.4, 2.4, 6), M.white); nac.position.set(0, 49, -.5); tg.add(nac);
+    const rot = new THREE.Group(); rot.position.set(0, 49, 2.8); tg.add(rot);
+    const hub = new THREE.Mesh(new THREE.SphereGeometry(1.2, 12, 8), M.white); rot.add(hub);
+    for (let k=0;k<3;k++){ const bl = new THREE.Mesh(new THREE.BoxGeometry(1.4, 22, .3).translate(0, 11.5, 0), M.white); bl.rotation.z = k*Math.PI*2/3; rot.add(bl); }
+    tg.traverse(o => { if (o.isMesh){ o.castShadow = true; o.receiveShadow = true; } }); scene.add(tg);
+    anims.push({ o:rot, ax:'z', sp:.6 + R2()*.4 }); addObst(x, z, 2); nt++;
+  }
+}
+function updPlaces(dt){ for (const a of anims){ a.o.rotation[a.ax] += a.sp*dt; if (a.cabs) for (const c of a.o.children) if (c.userData.cab) c.rotation.z = -a.o.rotation.z; } }
+let lastZone = null;
+function zoneCheck(){ const zn = zoneAt(car.x, car.z, 40); if (zn && zn !== lastZone) toast(zn.name, zn.sub); lastZone = zn; }
+
 function buildHouses(){
   const R = mulberry(5);
   const tx2 = (t, rx2, ry2) => { const c = t.clone(); c.needsUpdate = true; c.repeat.set(rx2, ry2); return c; };
@@ -724,29 +964,32 @@ function prepareModel(root, opts={}){
         wh.position.set(W.x, W.radius, zs*(W.track/2)); root.add(wh); } } }
   root.updateMatrixWorld(true); box.setFromObject(root); let size = box.getSize(new THREE.Vector3());
   if (size.x > size.z){ root.rotation.y = Math.PI/2; root.updateMatrixWorld(true); }
-  // колёса
-  const groups = {}, picked = new Set();
-  root.traverse(o => { if (o===root) return; let p=o.parent; while (p){ if (picked.has(p)) return; p=p.parent; }
-    if (o.children.some(ch => /_spin$/i.test(ch.name||''))) return;
-    let k = wheelKey(o.name||''); const m = (o.name||'').match(/^(f|r)(l|r)(?:[_\-.\d]|$)/i); if (!k && m) k = (m[1]+m[2]).toLowerCase();
-    if (k){ (groups[k] ||= []).push(o); picked.add(o); } });
-  if (Object.keys(groups).length < 4){ // колёса без понятных имён — находим по положению (4 угла машины)
-    for (const k in groups) delete groups[k];
-    const mb = new THREE.Box3().setFromObject(root), mc = mb.getCenter(new THREE.Vector3()), ms = mb.getSize(new THREE.Vector3()), L = Math.max(ms.x, ms.z);
-    const seen = new Set();
-    root.traverse(o => { if (o===root) return; for (let p=o.parent;p;p=p.parent) if (seen.has(p)) return;
-      const n = (o.name||'').toLowerCase();
-      if (!/wheel|whl|tyre|tire|rim|reifen|felge/.test(n) || /steer|pedal|parking|caliper|pad|light|lamp|windlet|cover|nut|badge|logo|arch|well|interior|seat|gauge/.test(n)) return;
-      const b = new THREE.Box3().setFromObject(o); if (b.isEmpty()) return; const sz = b.getSize(new THREE.Vector3()); if (Math.max(sz.x,sz.y,sz.z) > L*.3) return;
-      const c = b.getCenter(new THREE.Vector3()); if (c.y > mb.min.y + ms.y*.6) return;
-      const along = ms.z >= ms.x ? c.z - mc.z : c.x - mc.x, across = ms.z >= ms.x ? c.x - mc.x : c.z - mc.z;
-      const k = (along > 0 ? 'f' : 'r') + (across > 0 ? 'l' : 'r'); (groups[k] ||= []).push(o); seen.add(o); });
-  }
-  if (Object.keys(groups).length < 4) for (const k in groups) delete groups[k];
-  const center = nodes => { const b = new THREE.Box3(); nodes.forEach(n => b.expandByObject(n)); return b.getCenter(new THREE.Vector3()); };
-  const fz = ['fl','fr'].filter(k=>groups[k]).map(k=>center(groups[k]).z), rz2 = ['rl','rr'].filter(k=>groups[k]).map(k=>center(groups[k]).z);
-  if (fz.length && rz2.length && fz.reduce((a,b)=>a+b)/fz.length < rz2.reduce((a,b)=>a+b)/rz2.length){ root.rotation.y += Math.PI; root.updateMatrixWorld(true); }
   if (opts.flip){ root.rotation.y += Math.PI; root.updateMatrixWorld(true); }
+  // колёса: 1) по именам понимаем, где перед; 2) берём только вращающиеся детали (без суппортов); 3) сторону определяем по положению
+  const center = nodes => { const b = new THREE.Box3(); nodes.forEach(n => b.expandByObject(n)); return b.getCenter(new THREE.Vector3()); };
+  const BAD = /steer|pedal|parking|caliper|pad|light|lamp|windlet|cover|nut|badge|logo|arch|well|interior|seat|gauge|keep|fender|mudguard/i;
+  { const named = {}, picked = new Set();
+    root.traverse(o => { if (o===root) return; for (let p=o.parent;p;p=p.parent) if (picked.has(p)) return;
+      if (BAD.test(o.name||'')) return; const k = wheelKey(o.name||''); if (k){ (named[k[0]] ||= []).push(o); picked.add(o); } });
+    if (named.f && named.r && center(named.f).z < center(named.r).z){ root.rotation.y += Math.PI; root.updateMatrixWorld(true); } }
+  const groups = {};
+  { const mb = new THREE.Box3().setFromObject(root), mc = mb.getCenter(new THREE.Vector3()), ms = mb.getSize(new THREE.Vector3()), L = Math.max(ms.x, ms.z);
+    const spins = []; root.traverse(o => { if (/_spin$/i.test(o.name||'')) spins.push(o); });
+    let cands = [];
+    if (spins.length >= 4) cands = spins;
+    else { const seen = new Set();
+      root.traverse(o => { if (o===root) return; for (let p=o.parent;p;p=p.parent) if (seen.has(p)) return;
+        const n = o.name||''; if (!/wheel|whl|tyre|tire|rim|reifen|felge|rad_/i.test(n) || BAD.test(n)) return;
+        const b = new THREE.Box3().setFromObject(o); if (b.isEmpty()) return; const sz = b.getSize(new THREE.Vector3()); if (Math.max(sz.x,sz.y,sz.z) > L*.3) return;
+        if (b.getCenter(new THREE.Vector3()).y > mb.min.y + ms.y*.6) return;
+        cands.push(o); seen.add(o); }); }
+    for (const o of cands){ const c = new THREE.Box3().setFromObject(o).getCenter(new THREE.Vector3());
+      const k = (c.z - mc.z > 0 ? 'f' : 'r') + (c.x - mc.x > 0 ? 'l' : 'r'); (groups[k] ||= []).push(o); }
+    if (Object.keys(groups).length < 4) for (const k in groups) delete groups[k];
+    // проверка: центры колёс должны быть по углам машины и внизу, иначе не крутим (лучше стоят, чем болтаются)
+    for (const k in groups){ const c = center(groups[k]), dx = Math.abs(c.x - mc.x)/ms.x, dz = Math.abs(c.z - mc.z)/ms.z, dy = (c.y - mb.min.y)/ms.y;
+      if (dx < .3 || dx > .55 || dz < .2 || dy > .45){ for (const kk in groups) delete groups[kk]; break; } }
+  }
   // масштаб и посадка на землю
   box.setFromObject(root); size = box.getSize(new THREE.Vector3());
   const sc = 4.5 / size.z; root.scale.multiplyScalar(sc); root.updateMatrixWorld(true);
@@ -791,7 +1034,7 @@ function applyQuality(name){
   if (typeof grass !== 'undefined' && grass.im){ grass.im.visible = Q.grass; if ($('grb')) $('grb').textContent = Q.grass ? 'включена' : 'выключена'; }
   dynScale = 1; if (typeof forest !== 'undefined') forest.t = 0;
   [scene, gScene].forEach(sc => sc && sc.traverse(o => { if (o.material) (Array.isArray(o.material)?o.material:[o.material]).forEach(m => m.needsUpdate = true); }));
-  if ($('q')) $('q').textContent = 'Графика: ' + Q.name; if ($('q2')) $('q2').textContent = Q.name;
+  if ($('q2')) $('q2').textContent = Q.name; document.querySelectorAll('#qseg button').forEach(b => b.classList.toggle('on', b.dataset.q===name));
   try { localStorage.setItem('race_q', name); } catch(e) {}
 }
 function autoRes(dt){ // динамическое разрешение: держим ~55+ кадров
@@ -804,11 +1047,13 @@ function autoRes(dt){ // динамическое разрешение: держ
 }
 let carIdx = 0, brandSel = CARS[0].brand, carStats = CARS[0].st, loadToken = 0;
 function renderBrands(){
+  $('favf').classList.toggle('on', brandSel==='★'); $('favn').textContent = FAV.size;
   $('brands').innerHTML = BRANDS.map(b => `<button class="brand-b${b===brandSel?' on':''}" data-b="${b}">${b}<small>${CARS.filter(c=>c.brand===b).length}</small></button>`).join('');
   $('brands').querySelectorAll('.brand-b').forEach(el => el.onclick = () => selectBrand(el.dataset.b));
 }
 function renderModels(){
-  $('models').innerHTML = CARS.map((c,i) => c.brand!==brandSel ? '' : `<button class="mcard${i===carIdx?' on':''}" data-i="${i}"><div class="y">${c.year} · ${c.brand}</div><div class="n">${c.model}</div><div class="r"><span class="cls">${clsHTML(c)}</span><span>${c.spec.hp} л.с.</span></div></button>`).join('');
+  const inSel = c => brandSel==='★' ? FAV.has(c.id) : c.brand===brandSel;
+  $('models').innerHTML = (brandSel==='★' && !FAV.size) ? '<div class="mcard" style="width:260px">Нет избранных машин.<br><small style="color:#8e877e">Нажми ★ в карточке или клавишу F.</small></div>' : CARS.map((c,i) => !inSel(c) ? '' : `<button class="mcard${i===carIdx?' on':''}" data-i="${i}"><div class="y">${c.year} · ${c.brand}</div><div class="n">${c.model}</div><div class="r"><span class="cls">${clsHTML(c)}</span><span>${c.spec.hp} л.с.</span></div></button>`).join('');
   $('models').querySelectorAll('.mcard').forEach(el => el.onclick = () => pickCar(+el.dataset.i));
 }
 function selectBrand(b){ brandSel = b; renderBrands(); const i = CARS.findIndex(c => c.brand===b); pickCar(i); $('brands').querySelector('.on')?.scrollIntoView({ block:'nearest' }); }
@@ -823,7 +1068,8 @@ function showCarInfo(c){
 }
 function pickCar(i){
   carIdx = (i + CARS.length) % CARS.length; const c = CARS[carIdx]; carStats = c.st;
-  if (c.brand !== brandSel){ brandSel = c.brand; renderBrands(); }
+  if (c.brand !== brandSel && !(brandSel==='★' && FAV.has(c.id))){ brandSel = c.brand; renderBrands(); }
+  $('favb').classList.toggle('on', FAV.has(c.id)); const pb = REC.laps[c.id]; $('i_rec').innerHTML = pb ? 'Лучший круг: <b>' + fmt(pb) + '</b>' : 'Лучший круг: <b>—</b>';
   renderModels(); showCarInfo(c); $('models').querySelector('.on')?.scrollIntoView({ inline:'nearest', block:'nearest' });
   const tok = ++loadToken;
   if (modelCache[c.id]){ useModel(modelCache[c.id]); $('loadcar').classList.add('hidden'); $('start').disabled = false; return; }
@@ -836,11 +1082,12 @@ function pickCar(i){
       if (tok===loadToken){ useModel(modelCache[c.id]); $('loadcar').classList.add('hidden'); $('start').disabled = false; } }, fail);
   }).catch(fail);
 }
-function stepModel(d){ const list = CARS.map((c,i)=>[c,i]).filter(([c])=>c.brand===brandSel).map(([,i])=>i); const k = list.indexOf(carIdx); pickCar(list[(k+d+list.length)%list.length]); }
-function stepBrand(d){ const k = BRANDS.indexOf(brandSel); selectBrand(BRANDS[(k+d+BRANDS.length)%BRANDS.length]); }
+function stepModel(d){ const list = CARS.map((c,i)=>[c,i]).filter(([c])=> brandSel==='★' ? FAV.has(c.id) : c.brand===brandSel).map(([,i])=>i); if (!list.length) return; const k = list.indexOf(carIdx); pickCar(list[(k+d+list.length)%list.length]); }
+function stepBrand(d){ if (brandSel==='★'){ selectBrand(BRANDS[0]); return; } const k = BRANDS.indexOf(brandSel); selectBrand(BRANDS[(k+d+BRANDS.length)%BRANDS.length]); }
 let tab = 'garage';
 function setTab(t){ tab = t; document.querySelectorAll('.tab').forEach(b => b.classList.toggle('on', b.dataset.tab===t));
-  ['garage','track','settings'].forEach(k => $('p_'+k).classList.toggle('hidden', k!==t)); if (t==='track') renderTracks(); }
+  TABS.forEach(k => $('p_'+k).classList.toggle('hidden', k!==t)); $('menu').classList.toggle('dim', t!=='garage'); if (t==='events') renderEvents(); if (t==='records') renderRecords(); if (t==='settings') syncSettings(); }
+const TABS = ['garage','events','records','settings'];
 document.querySelectorAll('.tab').forEach(b => b.onclick = () => setTab(b.dataset.tab));
 $('glb').addEventListener('change', e => {
   const f = e.target.files[0]; if (!f) return;
@@ -865,19 +1112,24 @@ function updSmoke(dt){ for (const o of smoke){ if (o.life<=0) continue; o.life -
 const keys = {};
 const KM = { KeyW:'up', ArrowUp:'up', KeyS:'down', ArrowDown:'down', KeyA:'left', ArrowLeft:'left', KeyD:'right', ArrowRight:'right', Space:'hb' };
 addEventListener('keydown', e => {
+  if (!$('shotview').classList.contains('hidden')){ e.preventDefault(); if (e.code==='Escape' || e.code==='Space') $('shotview').classList.add('hidden'); return; }
+  if (photoOn){ e.preventDefault(); if (e.code==='Escape') exitPhoto(); else if (e.code==='Space') takeShot(); else phKeys[e.code] = true; return; }
   if (KM[e.code]){ keys[KM[e.code]] = true; e.preventDefault(); }
+  if (!$('results').classList.contains('hidden')){ if (e.code==='Enter') $('r_again').click(); if (e.code==='Escape') $('r_garage').click(); return; }
   if (!running){
     if (e.target && e.target.tagName==='INPUT') return;
     if (tab==='garage'){ if (e.code==='ArrowLeft') stepModel(-1); if (e.code==='ArrowRight') stepModel(1); if (e.code==='ArrowUp'){ e.preventDefault(); stepBrand(-1); } if (e.code==='ArrowDown'){ e.preventDefault(); stepBrand(1); } }
-    if (e.code==='Tab'){ e.preventDefault(); const T = ['garage','track','settings']; setTab(T[(T.indexOf(tab)+(e.shiftKey?2:1))%3]); }
+    if (e.code==='Tab'){ e.preventDefault(); setTab(TABS[(TABS.indexOf(tab)+(e.shiftKey?3:1))%4]); }
+    if (tab==='garage' && e.code==='KeyF') toggleFav();
     if (e.code==='Enter' && !$('start').disabled){ e.preventDefault(); $('start').click(); }
     return; }
   if (e.code==='Escape'){ e.preventDefault(); pauseOpen ? (pzPage==='set' ? showPz('main') : closePause()) : openPause(); return; }
   if (pauseOpen){ if (e.code==='ArrowDown' || e.code==='ArrowUp'){ e.preventDefault(); const opts = [...document.querySelectorAll('#pz_'+pzPage+' .opt, #pz_'+pzPage+' button:not(.opt)')]; const i = opts.indexOf(document.activeElement); opts[(i + (e.code==='ArrowDown'?1:-1) + opts.length) % opts.length].focus(); } return; }
+  if (e.code==='KeyP'){ openPause(); enterPhoto(); return; }
   if (e.code==='KeyC'){ camMode = (camMode+1)%3; updCamBtn(); }
   if (e.code==='KeyR') resetCar();
 });
-addEventListener('keyup', e => { if (KM[e.code]) keys[KM[e.code]] = false; });
+addEventListener('keyup', e => { if (KM[e.code]) keys[KM[e.code]] = false; phKeys[e.code] = false; });
 addEventListener('blur', () => { for (const k in keys) keys[k] = false; }); // клавиши не «залипают» при переключении окна
 document.addEventListener('visibilitychange', () => { if (document.hidden && running && !pauseOpen) openPause(); });
 
@@ -886,7 +1138,7 @@ let ac, eng1, eng2, engF, engG, scrG, windG, masterGain = null;
 function initAudio(){
   if (ac) return;
   ac = new (window.AudioContext||window.webkitAudioContext)();
-  const master = ac.createGain(); master.gain.value = $('vol') ? $('vol').value/100 : .55; master.connect(ac.destination); masterGain = master;
+  const master = ac.createGain(); master.gain.value = SET.vol/100; master.connect(ac.destination); masterGain = master;
   eng1 = ac.createOscillator(); eng1.type='sawtooth'; eng2 = ac.createOscillator(); eng2.type='square';
   engF = ac.createBiquadFilter(); engF.type='lowpass'; engF.Q.value = 4;
   engG = ac.createGain(); engG.gain.value = 0;
@@ -926,9 +1178,9 @@ function physics(dt){
   const fx=Math.sin(car.yaw), fz=Math.cos(car.yaw), rtx=Math.cos(car.yaw), rtz=-Math.sin(car.yaw);
   let vF = car.vx*fx + car.vz*fz, vR = car.vx*rtx + car.vz*rtz;
   const g = groundAt(car.x, car.z), onRoad = g.road;
-  const thr = keys.up?1:0, brk = keys.down?1:0, hb = !!keys.hb;
+  const thr = keys.up && !frozen ?1:0, brk = keys.down || frozen ?1:0, hb = !!keys.hb || frozen;
   const steerIn = (keys.left?1:0) - (keys.right?1:0);
-  const maxSteer = .62 / (1 + Math.abs(vF)/45);
+  const maxSteer = .62 * SET.steer / (1 + Math.abs(vF)/45);
   car.steer += (steerIn*maxSteer - car.steer) * Math.min(1, dt*(steerIn?5:8));
   let acc = 0;
   if (!car.air){
@@ -976,8 +1228,9 @@ function physics(dt){
       car.vy = 0; car.airT = 0; }
   } else {
     // плавная вертикаль: скорость подъёма сглаживается, в воздух — только на настоящих трамплинах
-    const pred = car.y + car.vy*dt;
-    if (car.vy > 6 && gy < pred - .8){ car.air = true; car.y = pred; car.airT = 0; }
+    // земля уходит вниз быстрее, чем машина падает под своим весом (обрыв, гребень холма) — машина летит
+    const yFree = car.y + car.vy*dt - 12*dt*dt;
+    if (gy < yFree - .02 && (yFree - gy)/dt > 4){ car.air = true; car.airT = 0; car.y = yFree; car.vy -= 24*dt; }
     else { car.vy += (clamp((gy - car.y)/dt, -40, 40) - car.vy)*.35; car.y = gy; }
   }
   // вода тормозит
@@ -1005,7 +1258,7 @@ function physics(dt){
   const slip = Math.abs(vR);
   if (!car.air && sp > 12 && slip > 3.5){ driftPts += slip*sp*dt*.7; driftT = .9; $('drift').textContent = 'Дрифт ' + Math.round(driftPts);
     if (performance.now() - lastSmoke > 30){ lastSmoke = performance.now(); for (const sx of [-.85,.85]){ const p = new THREE.Vector3(sx,.2,-1.45); carTilt.localToWorld(p); puff(p); } } }
-  else { driftT -= dt; if (driftT <= 0 && driftPts > 0){ if (driftPts > 150){ addSkill(driftPts); toast('Дрифт +' + Math.round(driftPts), driftPts>3000?'Невероятно!':driftPts>1200?'Отлично!':'Неплохо'); } driftPts = 0; $('drift').textContent=''; } }
+  else { driftT -= dt; if (driftT <= 0 && driftPts > 0){ if (driftPts > 150){ addSkill(driftPts); if (mode==='drift' && raceOn) driftScore += driftPts; toast('Дрифт +' + Math.round(driftPts), driftPts>3000?'Невероятно!':driftPts>1200?'Отлично!':'Неплохо'); } driftPts = 0; $('drift').textContent=''; } }
   return { thr, slip, sp, vF, acc, turn: car.steer };
 }
 
@@ -1015,7 +1268,10 @@ function laps(){
   if (di < (nextCp===0 ? 5 : 20)){
     if (nextCp === 0){
       const now = performance.now();
-      if (started){ const t = (now - lapStart)/1000; const nb = best===null || t<best; if (nb) best = t; toast(nb ? 'Новый рекорд круга!' : 'Круг ' + lap, fmt(t)); addSkill(nb ? 2500 : 1000); lap++; }
+      if (started){ const t = (now - lapStart)/1000; const nb = best===null || t<best; if (nb) best = t; lapTimes.push(t);
+        const rk = carKey(), pb = REC.laps[rk]; if (!pb || t < pb){ REC.laps[rk] = t; saveRec(); }
+        toast(nb ? 'Лучший круг!' : 'Круг ' + lap, fmt(t) + (!pb || t < pb ? ' · личный рекорд' : '')); addSkill(nb ? 2500 : 1000); lap++;
+        if (mode==='time' && raceOn && lap > modeLaps){ finishRace(); return; } }
       else { started = true; toast('Старт!', 'Проедь все контрольные точки'); }
       lapStart = now;
     } else if (started) { /* контрольная точка */ }
@@ -1044,6 +1300,12 @@ function drawMap(){ // мини-карта, повёрнутая по напра
   c.strokeStyle = '#e9e4dc'; c.lineWidth = 16; c.stroke(roadPath);
   const cp = cps[nextCp]; c.fillStyle = '#ff8a2a'; c.beginPath(); c.arc(rx[cp], rz[cp], 18, 0, 7); c.fill();
   c.restore();
+  { const th = -Math.PI/2 - Math.atan2(Math.cos(car.yaw), Math.sin(car.yaw)), co = Math.cos(th), si = Math.sin(th);
+    c.textAlign = 'center'; c.textBaseline = 'middle';
+    for (const zn of ZONES){ const dx = (zn.x-car.x)*k, dz = (zn.z-car.z)*k; let px = W/2 + dx*co - dz*si, py = H*.6 + dx*si + dz*co;
+      const out = px < 22 || px > W-22 || py < 22 || py > H-22; px = clamp(px, 22, W-22); py = clamp(py, 22, H-22);
+      c.fillStyle = out ? 'rgba(20,22,26,.8)' : '#16181c'; c.strokeStyle = '#ffb35c'; c.lineWidth = 3; c.beginPath(); c.arc(px, py, 17, 0, 7); c.fill(); c.stroke();
+      c.fillStyle = '#ffb35c'; c.font = '900 20px system-ui'; c.fillText(zn.icon, px, py+1); } }
   c.save(); c.translate(W/2, H*.6); c.fillStyle = '#ff4a2a'; c.strokeStyle = '#fff'; c.lineWidth = 3;
   c.beginPath(); c.moveTo(0,-18); c.lineTo(12,14); c.lineTo(0,7); c.lineTo(-12,14); c.closePath(); c.fill(); c.stroke(); c.restore();
 }
@@ -1064,8 +1326,8 @@ function drawGauge(kmh, rpm, gearTxt){ // спидометр + тахометр
   const an = ang(rpm); c.strokeStyle = '#ff7a1a'; c.lineWidth = 6; c.lineCap = 'round'; c.beginPath(); c.moveTo(cx+Math.cos(an)*40, cy+Math.sin(an)*40); c.lineTo(cx+Math.cos(an)*(R-30), cy+Math.sin(an)*(R-30)); c.stroke();
   c.fillStyle = '#16181c'; c.beginPath(); c.arc(cx,cy,30,0,7); c.fill(); c.strokeStyle='#ff7a1a'; c.lineWidth=3; c.stroke();
   c.fillStyle = '#fff'; c.textAlign = 'center'; c.textBaseline = 'alphabetic';
-  c.font = 'italic 900 92px system-ui'; c.fillText(Math.round(kmh), cx, cy+150);
-  c.font = '800 20px system-ui'; c.fillStyle = '#bdb5ab'; c.fillText('КМ/Ч', cx, cy+180);
+  c.font = 'italic 900 92px system-ui'; c.fillText(Math.round(SET.units==='mph' ? kmh*.6214 : kmh), cx, cy+150);
+  c.font = '800 20px system-ui'; c.fillStyle = '#bdb5ab'; c.fillText(SET.units==='mph' ? 'MPH' : 'КМ/Ч', cx, cy+180);
   c.font = 'italic 900 40px system-ui'; c.fillStyle = '#ff8a2a'; c.fillText(gearTxt, cx, cy+82);
   c.font = '700 15px system-ui'; c.fillStyle = 'rgba(255,255,255,.55)'; c.fillText('×1000 об/мин', cx, cy-60);
 }
@@ -1091,7 +1353,7 @@ function updCamera(dt, info){
     camera.lookAt(look);
   }
   if (shake > 0){ camera.position.x += (Math.random()-.5)*shake*.5; camera.position.y += (Math.random()-.5)*shake*.5; shake = Math.max(0, shake - dt*2); }
-  const f = 60 + Math.min(22, info.sp*.28);
+  const f = SET.fov + Math.min(22, info.sp*.28);
   if (Math.abs(camera.fov - f) > .05){ camera.fov += (f - camera.fov)*Math.min(1, dt*3); camera.updateProjectionMatrix(); }
 }
 
@@ -1291,19 +1553,24 @@ function frame(){
   }
   updSmoke(dt);
   if (running){
-    updCamera(dt, info);
+    if (photoOn) updPhotoCam(dt); else updCamera(dt, info);
     hudT += dt; const hudNow = hudT > 1/30; if (hudNow) hudT = 0;
     if (hudNow) drawGauge(Math.abs(info.vF)*3.6, rpm, info.vF < -.5 ? 'R' : (Math.abs(info.vF) < .3 && !keys.up ? 'N' : String(gear)));
-    $('laptime').textContent = started ? fmt((performance.now()-lapStart)/1000) : '0:00.00';
-    $('lapn').textContent = lap; $('bestt').textContent = best===null ? '—' : fmt(best);
+    if (mode==='drift' && raceOn){ const left = Math.max(0, DRIFT_T - (performance.now()-driftStart)/1000); $('laptime').textContent = frozen ? fmt(DRIFT_T) : fmt(left); $('lapn').textContent = ''; $('bestt').textContent = Math.round(driftScore + driftPts).toLocaleString('ru-RU');
+      if (!frozen && left <= 0){ if (driftPts > 150) driftScore += driftPts; driftPts = 0; finishRace(); } }
+    else { $('laptime').textContent = started ? fmt((performance.now()-lapStart)/1000) : '0:00.00';
+    $('lapn').textContent = mode==='time' && raceOn ? Math.min(lap, modeLaps) + ' / ' + modeLaps : lap; $('bestt').textContent = best===null ? '—' : fmt(best); }
+    const kmhNow = Math.abs(info.vF)*3.6; if (kmhNow > REC.top) REC.top = kmhNow; REC.dist += Math.abs(info.vF)*dt;
+    if (SET.fps){ fpsC++; fpsT += dt; if (fpsT > .5){ $('fps').textContent = Math.round(fpsC/fpsT) + ' FPS'; fpsC = 0; fpsT = 0; } }
     const done = started ? (nextCp===0 ? NCP : nextCp) : 0; if ($('cps').dataset.v != done){ $('cps').dataset.v = done; $('cps').innerHTML = Array.from({length:NCP}, (_,i) => `<i class="${i<done?'on':''}"></i>`).join(''); }
-    if (hudNow) drawMap();
+    if (hudNow && SET.map) drawMap();
   }
   updAudio(rpm, info.thr, info.slip, info.sp);
   sun.position.set(car.x + sunDir.x*300, car.y + sunDir.y*300, car.z + sunDir.z*300);
   sun.target.position.set(car.x, car.y, car.z);
   if (running && world==='wold') updLOD(dt);
-  if (running && world==='autumn'){ updForest(dt); updGrass(dt); }
+  if (running && world==='autumn'){ updForest(dt); updGrass(dt); zoneCheck(); }
+  updPlaces(dt);
   if (waterMat){ const tt = performance.now()/1000; waterMat.normalMap.offset.set(tt*.006, tt*.004); }
   if (running){
     if (!paused) autoRes(dt);
@@ -1323,17 +1590,18 @@ function closePause(){ pauseOpen = false; paused = false; $('pause').classList.a
 document.querySelectorAll('#pause .opt').forEach(b => b.onclick = () => {
   const a = b.dataset.a;
   if (a==='resume') closePause();
-  if (a==='restart'){ closePause(); resetCar(world==='wold' ? woldStart : NS-25); lap = 1; nextCp = 0; started = false; lapStart = null; visY = car.y; lookY = car.y+1.25; camYaw = car.yaw; }
+  if (a==='restart'){ closePause(); startMode(); }
   if (a==='settings') showPz('set');
+  if (a==='photo') enterPhoto();
   if (a==='back') showPz('main');
   if (a==='garage'){ closePause(); pause(); }
 });
-$('q2').onclick = () => $('q').onclick();
-$('vol').oninput = e => { if (masterGain) masterGain.gain.value = e.target.value/100; };
+$('q2').onclick = () => applyQuality(qName==='high' ? 'medium' : qName==='medium' ? 'low' : 'high');
+$('vol').oninput = e => setVol(+e.target.value);
 $('camb').onclick = () => { camMode = (camMode+1)%3; updCamBtn(); };
 $('grb').onclick = () => { if (!grass.im) return; grass.im.visible = !grass.im.visible; if (grass.im.visible){ grass.cx = 1e9; gCell.fill(-2147483648); } $('grb').textContent = grass.im.visible ? 'включена' : 'выключена'; };
-function pause(){ paused = true; running = false; enterGarage(); info.thr = 0; setTab('garage'); $('menu').classList.remove('hidden'); $('hud').classList.add('hidden'); $('start').textContent = 'Продолжить'; }
-function beginRace(){ leaveGarage(); updCamera(.016, info); visY = car.y; lookY = car.y+1.25; if (world==='wold') updLOD(0, true); else { updForest(0, true); grass.cx = 1e9; gCell.fill(-2147483648); updGrass(0); } if (ac.state==='suspended') ac.resume(); $('menu').classList.add('hidden'); $('hud').classList.remove('hidden'); running = true; paused = false; camYaw = car.yaw; clock.getDelta(); }
+function pause(){ saveRec(); raceOn = false; frozen = false; $('count').classList.add('hidden'); paused = true; running = false; enterGarage(); info.thr = 0; setTab('garage'); $('menu').classList.remove('hidden'); $('hud').classList.add('hidden'); $('start').textContent = 'Продолжить'; }
+function beginRace(){ leaveGarage(); updCamera(.016, info); visY = car.y; lookY = car.y+1.25; if (world==='wold') updLOD(0, true); else { updForest(0, true); grass.cx = 1e9; gCell.fill(-2147483648); updGrass(0); } if (ac.state==='suspended') ac.resume(); $('menu').classList.add('hidden'); $('hud').classList.remove('hidden'); running = true; paused = false; camYaw = car.yaw; clock.getDelta(); startMode(); }
 $('start').onclick = () => {
   initAudio(); if (ac.state==='suspended') ac.resume();
   if (mapId !== world || (mapId==='wold' && !TRACKS.wold)){
@@ -1347,7 +1615,148 @@ $('start').onclick = () => {
   }
   beginRace();
 };
-$('q').onclick = () => applyQuality(qName==='high' ? 'medium' : qName==='medium' ? 'low' : 'high');
+
+
+// ================= режимы, рекорды, настройки, фоторежим
+const LS = (k, d) => { try { const v = JSON.parse(localStorage.getItem(k)); return v ?? d; } catch(e){ return d; } };
+const LSW = (k, v) => { try { localStorage.setItem(k, JSON.stringify(v)); } catch(e){} };
+const SET = Object.assign({ units:'kmh', fov:60, steer:1, map:1, fps:0, vol:55, cam:0 }, LS('race_set', {}));
+const REC = Object.assign({ laps:{}, drift:0, dist:0, top:0, races:0, skill:0 }, LS('race_rec', {}));
+const FAV = new Set(LS('race_fav', []));
+skill = REC.skill || 0;
+function saveSet(){ LSW('race_set', SET); }
+function saveRec(){ REC.skill = skill; LSW('race_rec', REC); }
+setInterval(() => { if (running) saveRec(); }, 10000);
+const carKey = () => custom ? 'custom' : CARS[carIdx].id;
+function setVol(v){ SET.vol = v; saveSet(); if (masterGain) masterGain.gain.value = v/100; $('vol').value = v; $('vol2').value = v; }
+function applySettings(){
+  camMode = SET.cam; updCamBtn(); $('fps').classList.toggle('hidden', !SET.fps || !running);
+  document.querySelector('.h-map').style.display = SET.map ? '' : 'none'; $('vol').value = SET.vol; syncSettings();
+}
+function segOn(id, v){ document.querySelectorAll('#'+id+' button').forEach(b => b.classList.toggle('on', b.dataset.v==String(v))); }
+function syncSettings(){
+  segOn('unitseg', SET.units); segOn('mapseg', SET.map); segOn('fpsseg', SET.fps); segOn('camseg', SET.cam);
+  document.querySelectorAll('#qseg button').forEach(b => b.classList.toggle('on', b.dataset.q===qName));
+  $('fov').value = SET.fov; $('fovv').textContent = SET.fov + '°'; $('steer').value = Math.round(SET.steer*100); $('steerv').textContent = Math.round(SET.steer*100) + '%'; $('vol2').value = SET.vol;
+}
+const bindSeg = (id, key, num) => document.querySelectorAll('#'+id+' button').forEach(b => b.onclick = () => { SET[key] = num ? +b.dataset.v : b.dataset.v; saveSet(); applySettings(); });
+bindSeg('unitseg','units'); bindSeg('mapseg','map',1); bindSeg('fpsseg','fps',1); bindSeg('camseg','cam',1);
+document.querySelectorAll('#qseg button').forEach(b => b.onclick = () => applyQuality(b.dataset.q));
+$('fov').oninput = e => { SET.fov = +e.target.value; $('fovv').textContent = SET.fov + '°'; saveSet(); };
+$('steer').oninput = e => { SET.steer = e.target.value/100; $('steerv').textContent = e.target.value + '%'; saveSet(); };
+$('vol2').oninput = e => setVol(+e.target.value);
+$('resetrec').onclick = () => { if (!confirm('Сбросить все рекорды и очки навыков?')) return; REC.laps = {}; REC.drift = 0; REC.dist = 0; REC.top = 0; REC.races = 0; skill = 0; addSkill(0); saveRec(); $('resetrec').textContent = 'Сброшено'; setTimeout(() => $('resetrec').textContent = 'Сбросить', 1500); };
+function toggleFav(){ if (custom) return; const id = CARS[carIdx].id; FAV.has(id) ? FAV.delete(id) : FAV.add(id); LSW('race_fav', [...FAV]); $('favb').classList.toggle('on', FAV.has(id)); $('favn').textContent = FAV.size; if (brandSel==='★') renderModels(); }
+$('favb').onclick = toggleFav;
+$('favf').onclick = () => { brandSel = '★'; renderBrands(); renderModels(); const i = CARS.findIndex(c => FAV.has(c.id)); if (i >= 0) pickCar(i); };
+
+// --- события
+let mode = LS('race_mode', 'free'), modeLaps = LS('race_laps', 3), raceOn = false, frozen = false, lapTimes = [], driftScore = 0, driftStart = 0, raceT0 = 0, fpsC = 0, fpsT = 0;
+const DRIFT_T = 60;
+const EVENTS = [
+  { id:'free', icon:'🗺️', name:'Свободная езда', meta:['Открытый мир','Без таймера'], desc:'Катайся по долине, заезжай в деревню, на ферму, к маяку и на фестиваль. Круги и дрифт всё равно дают очки.' },
+  { id:'time', icon:'⏱️', name:'Заезд на время', meta:['Кольцо ~8 км','Рекорды'], desc:'Отсчёт 3-2-1 и гонка на время по кольцу. Лучший круг сохраняется для каждой машины.', laps:true },
+  { id:'drift', icon:'💨', name:'Дрифт-зона', meta:['60 секунд','Очки'], desc:'Минута, чтобы набрать как можно больше очков в заносах. Длинный дрифт на скорости ценится больше.' },
+];
+const modeName = () => EVENTS.find(e => e.id===mode).name + (mode==='time' ? ' · ' + modeLaps + ' кр.' : '');
+function renderEvents(){
+  $('events').innerHTML = EVENTS.map(e => `<div class="ev${e.id===mode?' on':''}" data-id="${e.id}" role="button" tabindex="0"><div class="art"><span>${e.icon}</span></div><div class="tb"><div class="meta">${e.meta.map(t=>`<span>${t}</span>`).join('')}</div><h3>${e.name}</h3><p>${e.desc}</p>
+    ${e.laps ? `<div style="margin-top:10px; display:flex; align-items:center; gap:10px; font-size:12px; color:#bdb5ab">Круги <div class="seg" data-laps>${[1,3,5].map(n=>`<button data-n="${n}" class="${n===modeLaps?'on':''}">${n}</button>`).join('')}</div></div>` : ''}
+    <button class="go" style="width:100%; margin-top:12px; padding:9px; font-size:13px">${e.id===mode ? 'ВЫБРАНО — ПОЕХАЛИ' : 'ВЫБРАТЬ'}</button></div></div>`).join('');
+  $('events').querySelectorAll('.ev').forEach(el => {
+    el.querySelectorAll('[data-laps] button').forEach(b => b.onclick = ev => { ev.stopPropagation(); modeLaps = +b.dataset.n; LSW('race_laps', modeLaps); mode = 'time'; LSW('race_mode', mode); renderEvents(); updModeLabel(); });
+    el.querySelector('.go').onclick = ev => { ev.stopPropagation(); if (mode===el.dataset.id){ setTab('garage'); if (!$('start').disabled) $('start').click(); } else { mode = el.dataset.id; LSW('race_mode', mode); renderEvents(); updModeLabel(); } };
+    el.onclick = () => { mode = el.dataset.id; LSW('race_mode', mode); renderEvents(); updModeLabel(); };
+  });
+}
+function updModeLabel(){ $('i_mode').textContent = modeName(); }
+updModeLabel();
+function renderRecords(){
+  const rows = CARS.filter(c => REC.laps[c.id]).sort((a,b) => REC.laps[a.id]-REC.laps[b.id]);
+  const dist = SET.units==='mph' ? (REC.dist/1609).toFixed(1).replace('.',',') + ' ми' : (REC.dist/1000).toFixed(1).replace('.',',') + ' км';
+  const top = SET.units==='mph' ? Math.round(REC.top*.6214) + ' mph' : Math.round(REC.top) + ' км/ч';
+  $('records').innerHTML = `<h3>СТАТИСТИКА</h3><div class="kpis"><div class="kpi"><span>ОЧКИ НАВЫКОВ</span><b>${skill.toLocaleString('ru-RU')}</b></div><div class="kpi"><span>ПРОЕХАНО</span><b>${dist}</b></div><div class="kpi"><span>МАКС. СКОРОСТЬ</span><b>${top}</b></div><div class="kpi"><span>ЛУЧШИЙ ДРИФТ</span><b>${Math.round(REC.drift).toLocaleString('ru-RU')}</b></div></div>
+    <h3>ЛУЧШИЕ КРУГИ · ГОРНАЯ ДОЛИНА</h3>` + (rows.length ? `<table class="rtable"><tr><th>#</th><th>МАШИНА</th><th>КЛАСС</th><th style="text-align:right">ВРЕМЯ</th></tr>${rows.map((c,i)=>`<tr><td>${i+1}</td><td>${c.brand} ${c.model}</td><td><span class="cls">${clsHTML(c)}</span></td><td style="text-align:right">${i===0?'<b>':''}${fmt(REC.laps[c.id])}${i===0?'</b>':''}</td></tr>`).join('')}</table>`
+    : `<p style="color:#bdb5ab; font-size:13px; margin:6px 0 0">Пока нет рекордов. Выбери «Заезд на время» во вкладке «События» и проедь круг.</p>`);
+}
+function startMode(){
+  resetCar(NS-25); lap = 1; nextCp = 0; started = false; lapStart = null; best = null; lapTimes = []; driftScore = 0; driftPts = 0; $('drift').textContent = '';
+  visY = car.y; lookY = car.y+1.25; camYaw = car.yaw; $('results').classList.add('hidden'); applySettings();
+  raceOn = mode !== 'free'; frozen = false; $('lapl').textContent = mode==='drift' ? 'ДРИФТ-ЗОНА' : 'КРУГ'; $('bestl').textContent = mode==='drift' ? 'ОЧКИ' : 'ЛУЧШИЙ';
+  if (!raceOn){ toast('Свободная езда', 'Esc — пауза · P — фоторежим'); return; }
+  frozen = true; let n = 3; const cd = $('count'); cd.classList.remove('hidden'); cd.textContent = n; beep(520);
+  const tick = () => { if (!raceOn || !running) { cd.classList.add('hidden'); frozen = false; return; } if (paused){ setTimeout(tick, 200); return; }
+    n--; if (n > 0){ cd.textContent = n; beep(520); setTimeout(tick, 1000); }
+    else { cd.textContent = 'СТАРТ!'; beep(880); frozen = false; raceT0 = performance.now(); driftStart = performance.now(); setTimeout(() => cd.classList.add('hidden'), 700);
+      toast(modeName(), mode==='drift' ? 'Набери максимум очков за 60 секунд' : 'Пересеки линию старта'); } };
+  setTimeout(tick, 1000);
+}
+function beep(f){ if (!ac) return; const o = ac.createOscillator(), g = ac.createGain(); o.frequency.value = f; o.type = 'square'; g.gain.setValueAtTime(.08*SET.vol/55, ac.currentTime); g.gain.exponentialRampToValueAtTime(.001, ac.currentTime+.25); o.connect(g); g.connect(ac.destination); o.start(); o.stop(ac.currentTime+.26); }
+function finishRace(){
+  raceOn = false; paused = true; REC.races++; for (const k in keys) keys[k] = false;
+  let rows = '', head = '';
+  if (mode==='time'){
+    const total = lapTimes.reduce((a,b)=>a+b, 0), bl = Math.min(...lapTimes), pb = REC.laps[carKey()];
+    head = fmt(total); rows = lapTimes.map((t,i) => `<div><span>Круг ${i+1}</span><b>${fmt(t)}${t===bl?' <span class="nr">ЛУЧШИЙ</span>':''}</b></div>`).join('') + `<div><span>Рекорд машины</span><b>${pb ? fmt(pb) : '—'}</b></div>`;
+    addSkill(1500*modeLaps);
+  } else {
+    const sc = Math.round(driftScore), nr = sc > REC.drift; if (nr) REC.drift = sc;
+    head = sc.toLocaleString('ru-RU') + ' очков'; rows = `<div><span>Счёт</span><b>${sc.toLocaleString('ru-RU')}${nr?' <span class="nr">НОВЫЙ РЕКОРД</span>':''}</b></div><div><span>Рекорд</span><b>${Math.round(REC.drift).toLocaleString('ru-RU')}</b></div>`;
+  }
+  saveRec(); const c = custom ? null : CARS[carIdx];
+  $('r_t').textContent = (mode==='time' ? 'ЗАЕЗД НА ВРЕМЯ' : 'ДРИФТ-ЗОНА') + (c ? ' · ' + c.brand + ' ' + c.model : '');
+  $('r_h').textContent = head; $('r_rows').innerHTML = rows; $('results').classList.remove('hidden'); $('r_again').focus();
+}
+$('r_again').onclick = () => { $('results').classList.add('hidden'); paused = false; clock.getDelta(); startMode(); };
+$('r_free').onclick = () => { mode = 'free'; LSW('race_mode', mode); updModeLabel(); $('results').classList.add('hidden'); paused = false; clock.getDelta(); startMode(); };
+$('r_garage').onclick = () => { $('results').classList.add('hidden'); pause(); };
+
+// --- фоторежим
+let photoOn = false, phYaw = 0, phPitch = .25, phDist = 9, phH = 0, phDrag = null; const phKeys = {}, phT = new THREE.Vector3(), PH_EXP = renderer.toneMappingExposure;
+const PH_F = { '':'', vivid:'saturate(1.45) contrast(1.08)', film:'sepia(.25) contrast(1.12) saturate(.85) brightness(1.04)', bw:'grayscale(1) contrast(1.15)', sepia:'sepia(.85) contrast(1.05)', cold:'hue-rotate(-12deg) saturate(.9) brightness(1.05)', dusk:'sepia(.35) saturate(1.5) hue-rotate(-12deg) contrast(1.05)' };
+const phFilter = () => PH_F[$('ph_f').value];
+function phApply(){
+  renderer.domElement.style.filter = photoOn ? phFilter() : '';
+  renderer.toneMappingExposure = photoOn ? PH_EXP * $('ph_e').value/100 : PH_EXP;
+  const v = $('ph_v').value/100; $('photo').style.background = photoOn && v ? `radial-gradient(ellipse at center, transparent ${60-v*25}%, rgba(0,0,0,${v*.75}) 100%)` : '';
+  $('ph_grid').classList.toggle('hidden', !$('ph_grid_c').checked); $('ph_bars').classList.toggle('hidden', !$('ph_bars_c').checked);
+}
+['ph_f','ph_e','ph_v','ph_grid_c','ph_bars_c'].forEach(id => $(id).addEventListener('input', phApply));
+function enterPhoto(){
+  photoOn = true; $('pause').classList.add('hidden'); $('hud').classList.add('hidden'); $('fps').classList.add('hidden'); $('photo').classList.remove('hidden');
+  phYaw = car.yaw + Math.PI + .6; phPitch = .22; phDist = 8.5; phH = 0; phT.set(0,0,0); phApply(); $('ph_take').focus();
+}
+function exitPhoto(){ photoOn = false; phApply(); $('photo').classList.add('hidden'); $('hud').classList.remove('hidden'); applySettings(); camera.fov = SET.fov; camera.updateProjectionMatrix(); openPause(); }
+$('ph_exit').onclick = exitPhoto; $('ph_take').onclick = () => takeShot();
+function updPhotoCam(dt){
+  const sp = 6*dt, fx = Math.sin(phYaw), fz = Math.cos(phYaw);
+  if (phKeys.KeyW || phKeys.ArrowUp){ phT.x -= fx*sp; phT.z -= fz*sp; } if (phKeys.KeyS || phKeys.ArrowDown){ phT.x += fx*sp; phT.z += fz*sp; }
+  if (phKeys.KeyA || phKeys.ArrowLeft){ phT.x -= fz*sp; phT.z += fx*sp; } if (phKeys.KeyD || phKeys.ArrowRight){ phT.x += fz*sp; phT.z -= fx*sp; }
+  if (phKeys.KeyE) phH += sp*.7; if (phKeys.KeyQ) phH -= sp*.7; phH = clamp(phH, -1, 12); phT.clampLength(0, 25);
+  const tx_ = car.x + phT.x, tz_ = car.z + phT.z, ty = visY + .8 + phH;
+  const cp = Math.cos(phPitch);
+  camera.position.set(tx_ + Math.sin(phYaw)*cp*phDist, ty + Math.sin(phPitch)*phDist, tz_ + Math.cos(phYaw)*cp*phDist);
+  camera.position.y = Math.max(camera.position.y, gh(camera.position.x, camera.position.z) + .25);
+  camera.lookAt(tx_, ty, tz_); camera.rotateZ(-$('ph_roll').value*Math.PI/180);
+  const f = +$('ph_fov').value; if (camera.fov !== f){ camera.fov = f; camera.updateProjectionMatrix(); }
+}
+renderer.domElement.addEventListener('pointerdown', e => { if (!photoOn) return; phDrag = { x:e.clientX, y:e.clientY }; renderer.domElement.setPointerCapture(e.pointerId); });
+renderer.domElement.addEventListener('pointermove', e => { if (!photoOn || !phDrag) return; phYaw -= (e.clientX-phDrag.x)*.006; phPitch = clamp(phPitch + (e.clientY-phDrag.y)*.005, -.15, 1.45); phDrag = { x:e.clientX, y:e.clientY }; });
+renderer.domElement.addEventListener('pointerup', () => phDrag = null);
+renderer.domElement.addEventListener('wheel', e => { if (!photoOn) return; e.preventDefault(); phDist = clamp(phDist * (e.deltaY > 0 ? 1.1 : .9), 2.5, 40); }, { passive:false });
+function takeShot(){
+  renderer.render(scene, camera);
+  const src = renderer.domElement, W = src.width, H = src.height, cv = document.createElement('canvas'); cv.width = W; cv.height = H; const g = cv.getContext('2d');
+  g.filter = phFilter() || 'none'; g.drawImage(src, 0, 0); g.filter = 'none';
+  const v = $('ph_v').value/100; if (v){ const gr = g.createRadialGradient(W/2,H/2, Math.min(W,H)*(.6-v*.25)*.6, W/2,H/2, Math.hypot(W,H)/2); gr.addColorStop(0,'rgba(0,0,0,0)'); gr.addColorStop(1,`rgba(0,0,0,${v*.75})`); g.fillStyle = gr; g.fillRect(0,0,W,H); }
+  if ($('ph_bars_c').checked){ g.fillStyle = '#000'; g.fillRect(0,0,W,H*.11); g.fillRect(0,H*.89,W,H*.11); }
+  if ($('ph_logo').checked){ const s = Math.max(.8, H/1080), c = custom ? null : CARS[carIdx], yb = H - ($('ph_bars_c').checked ? H*.11 : 0) - 26*s;
+    g.textAlign = 'right'; g.shadowColor = 'rgba(0,0,0,.65)'; g.shadowBlur = 10*s;
+    if (c){ g.font = `800 ${Math.round(22*s)}px system-ui`; g.fillStyle = '#fff'; g.fillText(c.brand + ' ' + c.model, W - 34*s, yb - 30*s); }
+    g.font = `900 ${Math.round(15*s)}px system-ui`; g.fillStyle = '#ff9a3c'; g.fillText('ОСЕННЯЯ ТРАССА', W - 34*s, yb); g.shadowBlur = 0; }
+  const url = cv.toDataURL('image/png'); $('shotimg').src = url; $('shotdl').href = url; $('shotdl').download = 'osennyaya-trassa-' + Date.now() + '.png'; $('shotview').classList.remove('hidden'); addSkill(100);
+}
+$('shotclose').onclick = () => $('shotview').classList.add('hidden');
 
 // ================= build
 const setLoad = t => { $('loading').textContent = t; return new Promise(r => requestAnimationFrame(() => setTimeout(r, 20))); };
@@ -1357,22 +1766,23 @@ const setLoad = t => { $('loading').textContent = t; return new Promise(r => req
   setupSky(sky_.default); await loadTextures(tx_.default);
   await setLoad('Строю рельеф 5×5 км…');
   const before = new Set(scene.children);
-  buildTerrain(); buildRoad(); buildWater();
+  planZones(); buildTerrain(); buildRoad(); buildWater();
   await setLoad('Сажаю лес…');
   const trees = await new Promise((ok, no) => { const bin = atob(tr_.default), buf = new Uint8Array(bin.length); for (let k=0;k<bin.length;k++) buf[k] = bin.charCodeAt(k); loader.parse(buf.buffer, '', ok, no); });
-  buildForest(trees.scene); buildGrass(); buildHouses(); buildGate();
+  buildForest(trees.scene); buildGrass(); buildPlaces(); buildGate();
   scene.children.filter(o => !before.has(o)).forEach(o => autumnGroup.add(o));
   let x0=1e9,x1=-1e9,z0=1e9,z1=-1e9; for (let i=0;i<NS;i++){ x0=Math.min(x0,rx[i]); x1=Math.max(x1,rx[i]); z0=Math.min(z0,rz[i]); z1=Math.max(z1,rz[i]); }
   TRACKS.autumn = { n:NS, rx, ry, rz, tx, tz, map:{ x:(x0+x1)/2, z:(z0+z1)/2, span:Math.max(x1-x0,z1-z0)*1.1 } }; mapC = TRACKS.autumn.map;
   let q0 = 'medium'; try { q0 = localStorage.getItem('race_q') || 'medium'; } catch(e) {} applyQuality(QUAL[q0] ? q0 : 'medium');
-  buildMap(); buildGarage(); renderBrands(); pickCar(0); pickMap('autumn');
+  buildMap(); buildGarage(); renderBrands(); pickCar(0); pickMap('autumn'); applySettings(); addSkill(0);
   resetCar(NS-25);
   $('loading').classList.add('hidden');
   window.__ready = true;
   frame();
 })().catch(e => { console.error(e); $('loading').textContent = 'Ошибка загрузки: ' + e.message; });
 // для отладки
-window.__dbg = { freeze: () => { gDrag = { x:0, t:performance.now() }; turntable.rotation.y = 0; }, wheels: () => customWheels.length, forest, tp: i => { resetCar(i); visY = car.y; lookY = car.y+1.25; camYaw = car.yaw; updForest(0,true); }, get sunDir(){ return sunDir; }, scene, sun, renderer, get T(){ return T; } };
+window.__cars = CARS.map(c=>c.id);
+window.__dbg = { zones: () => ZONES.map(z => [z.id, Math.round(z.x), Math.round(z.z), Math.round(z.h), z.i]), tpZone: id => { const zn = ZONES.find(z => z.id===id); if (!zn) return false; resetCar(zn.i); const back = (zn.i - 40 + NS) % NS; resetCar(back); updForest(0,true); return true; }, wheelInfo: () => customWheels.map(w => [w.front?'F':'R', ...w.pivot.position.toArray().map(v=>+v.toFixed(2)), w.pivot.children.length, w.pivot.children.map(c=>c.name).join('+').slice(0,60)]), freeze: () => { gDrag = { x:0, t:performance.now() }; turntable.rotation.y = 0; }, wheels: () => customWheels.length, forest, tp: i => { resetCar(i); visY = car.y; lookY = car.y+1.25; camYaw = car.yaw; updForest(0,true); }, get sunDir(){ return sunDir; }, scene, sun, renderer, get T(){ return T; } };
 window.__game = { openPause, pickMap, setTab, pickCar: id => pickCar(CARS.findIndex(c=>c.id===id)), keys, car, get running(){ return running; } };
 </script>
 </body>
