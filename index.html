@@ -27,12 +27,25 @@
   @media (max-width: 820px){ .side { width:100%; background:linear-gradient(180deg, rgba(8,9,12,.15) 0%, rgba(8,9,12,.92) 45%); top:auto; max-height:62%; } .arrows { left:50%; transform:translateX(-50%); bottom:auto; top:18px; } .loadcar { left:50%; top:22%; } }
   button:disabled { opacity:.45; cursor:default; }
   /* ===== пауза ===== */
-  #pause { position:fixed; inset:0; z-index:12; display:flex; align-items:center; background:linear-gradient(90deg, rgba(5,6,8,.92) 0%, rgba(5,6,8,.7) 38%, rgba(5,6,8,.15) 100%); backdrop-filter:blur(3px); }
-  .pz { margin-left:clamp(24px, 8vw, 120px); width:min(380px, calc(100% - 48px)); }
+  #pause { position:fixed; inset:0; z-index:12; background:linear-gradient(90deg, rgba(5,6,8,.88) 0%, rgba(5,6,8,.55) 30%, rgba(5,6,8,.05) 55%, rgba(5,6,8,.45) 100%); animation:pzIn .25s ease-out; }
+  @keyframes pzIn { from { opacity:0; } to { opacity:1; } }
+  .pz-top { position:absolute; top:0; left:0; right:0; height:56px; display:flex; align-items:center; justify-content:space-between; padding:0 28px; background:linear-gradient(180deg, rgba(5,6,8,.85), rgba(5,6,8,0)); }
+  .pz-top .logo { font-weight:900; letter-spacing:.18em; font-size:12px; } .pz-top .logo span { color:#ff8a2a; } .pz-w { font-size:12.5px; font-weight:700; color:#d8d0c6; }
+  .pz-left { position:absolute; left:clamp(20px, 5vw, 80px); top:50%; transform:translateY(-50%); width:min(330px, calc(100% - 40px)); }
+  .pz-right { position:absolute; right:clamp(16px, 3vw, 44px); top:70px; bottom:58px; width:min(400px, 40vw); display:flex; flex-direction:column; gap:10px; }
+  .pz-car { display:flex; justify-content:space-between; align-items:center; background:rgba(9,10,13,.78); border:1px solid rgba(255,255,255,.07); border-radius:12px; padding:12px 16px; backdrop-filter:blur(10px); }
+  .pz-car .bn { color:#ff8a2a; font-weight:800; letter-spacing:.2em; font-size:10px; text-transform:uppercase; } .pz-car .cn { font-size:19px; font-weight:900; margin-top:2px; }
+  .pz-map { position:relative; flex:1; min-height:0; border-radius:12px; overflow:hidden; border:1px solid rgba(255,255,255,.08); background:#0d1013; box-shadow:0 10px 40px rgba(0,0,0,.4); }
+  .pz-map canvas { width:100%; height:100%; object-fit:cover; display:block; }
+  .pz-loc { position:absolute; left:12px; bottom:12px; background:rgba(9,10,13,.82); border-radius:8px; padding:8px 12px; backdrop-filter:blur(6px); } .pz-loc b { display:block; font-size:14px; } .pz-loc span { font-size:11.5px; color:#bdb5ab; }
+  .pz-stats { display:grid; grid-template-columns:1fr 1fr; gap:8px; } .pz-stats .kpi { background:rgba(9,10,13,.78); border:1px solid rgba(255,255,255,.06); backdrop-filter:blur(10px); } .pz-stats .kpi b { font-size:17px; }
+  .pz-hint { position:absolute; left:0; right:0; bottom:0; height:44px; display:flex; align-items:center; gap:20px; padding:0 28px; font-size:11.5px; color:#bdb5ab; background:linear-gradient(0deg, rgba(5,6,8,.9), rgba(5,6,8,0)); } .pz-hint kbd { margin-right:3px; font-size:10.5px; }
+  @media (max-width: 820px){ .pz-right { display:none; } #pause { background:rgba(5,6,8,.75); } }
+  .pz { width:100%; }
   .pz .t { font-size:13px; letter-spacing:.3em; color:#ff8a2a; font-weight:900; }
-  .pz h2 { margin:6px 0 26px; font-size:44px; font-weight:900; font-style:italic; letter-spacing:-.01em; }
-  .pz .opt { display:flex; align-items:center; justify-content:space-between; width:100%; text-align:left; font-size:17px; font-weight:800; letter-spacing:.06em; padding:15px 18px; margin-bottom:8px; border-radius:10px; background:rgba(255,255,255,.06); border:1px solid rgba(255,255,255,.08); border-left:3px solid transparent; }
-  .pz .opt:hover, .pz .opt:focus-visible, .pz .opt.sel { background:linear-gradient(90deg, rgba(255,122,26,.28), rgba(255,255,255,.05)); border-left-color:#ff7a1a; outline:none; }
+  .pz h2 { margin:4px 0 20px; font-size:42px; font-weight:900; font-style:italic; letter-spacing:-.01em; }
+  .pz .opt { display:flex; align-items:center; justify-content:space-between; width:100%; text-align:left; font-size:14.5px; font-weight:800; letter-spacing:.08em; padding:12px 16px; margin-bottom:6px; backdrop-filter:blur(8px); background:rgba(12,13,17,.6) !important; border-radius:10px; background:rgba(255,255,255,.06); border:1px solid rgba(255,255,255,.08); border-left:3px solid transparent; }
+  .pz .opt:hover, .pz .opt:focus-visible, .pz .opt.sel { background:linear-gradient(90deg, rgba(255,122,26,.42), rgba(12,13,17,.6)) !important; border-left-color:#ff7a1a; outline:none; }
   .pz .opt small { color:#bdb5ab; font-weight:600; letter-spacing:0; font-size:13px; }
   .pz .srow { display:flex; align-items:center; justify-content:space-between; gap:14px; padding:12px 4px; border-bottom:1px solid rgba(255,255,255,.07); font-weight:700; }
   .pz input[type=range] { width:160px; accent-color:#ff7a1a; }
@@ -97,6 +110,7 @@
   .res .rows .nr { color:#2ee59d; font-size:11px; font-weight:800; letter-spacing:.1em; margin-left:6px; }
   .res .btns { display:flex; gap:8px; justify-content:center; flex-wrap:wrap; }
   #count { position:fixed; inset:0; z-index:9; display:flex; align-items:center; justify-content:center; pointer-events:none; font-size:140px; font-weight:900; font-style:italic; color:#fff; text-shadow:0 6px 40px rgba(0,0,0,.6); }
+  #fade { position:fixed; inset:0; z-index:8; background:#0b0d10; opacity:0; transition:opacity .4s; pointer-events:none; }
   #fps { position:fixed; top:6px; left:50%; transform:translateX(-50%); z-index:6; font:700 11px system-ui; color:#2ee59d; background:rgba(0,0,0,.45); padding:2px 8px; border-radius:6px; font-variant-numeric:tabular-nums; }
   #photo { position:fixed; inset:0; z-index:12; pointer-events:none; }
   #photo .pp { pointer-events:auto; position:absolute; left:18px; bottom:18px; width:270px; background:rgba(8,9,12,.82); border:1px solid rgba(255,255,255,.08); border-radius:12px; padding:14px 16px; backdrop-filter:blur(8px); }
@@ -179,8 +193,10 @@
 <div id="loading">Строим мир…</div>
 
 <div id="pause" class="hidden" role="dialog" aria-label="Пауза">
+  <div class="pz-top"><div class="logo">ОСЕННЯЯ <span>ТРАССА</span></div><div class="pz-w"><span id="pz_time">14:20</span> · Осень · ясно · +14°</div></div>
+  <div class="pz-left">
   <div class="pz" id="pz_main">
-    <div class="t">ОСЕННЯЯ ТРАССА</div><h2>ПАУЗА</h2>
+    <div class="t" id="pz_mode">СВОБОДНАЯ ЕЗДА</div><h2>ПАУЗА</h2>
     <button class="opt" data-a="resume">ПРОДОЛЖИТЬ <small>Esc</small></button>
     <button class="opt" data-a="photo">ФОТОРЕЖИМ <small>P</small></button>
     <button class="opt" data-a="restart">ЗАНОВО</button>
@@ -196,6 +212,18 @@
     <div class="srow" style="border:none; color:#bdb5ab; font-weight:600; font-size:13px; line-height:1.6">W A S D / стрелки — ехать · Пробел — ручник · C — камера · R — на трассу</div>
     <button class="opt back" data-a="back">‹ НАЗАД</button>
   </div>
+  </div>
+  <div class="pz-right">
+    <div class="pz-car"><div><div class="bn" id="pz_brand"></div><div class="cn" id="pz_model"></div></div><span class="cls big" id="pz_cls"></span></div>
+    <div class="pz-map"><canvas id="pzmap" width="560" height="560"></canvas><div class="pz-loc"><b id="pz_loc">Горная долина</b><span id="pz_locs">Открытый мир</span></div></div>
+    <div class="pz-stats">
+      <div class="kpi"><span>В ПУТИ</span><b id="pz_t">0:00</b></div>
+      <div class="kpi"><span>ПРОЕХАНО</span><b id="pz_d">0 км</b></div>
+      <div class="kpi"><span>МАКС. СКОРОСТЬ</span><b id="pz_v">0</b></div>
+      <div class="kpi"><span>ОЧКИ НАВЫКОВ</span><b id="pz_s">0</b></div>
+    </div>
+  </div>
+  <div class="pz-hint"><span><kbd>↑</kbd><kbd>↓</kbd> Выбор</span><span><kbd>Enter</kbd> Подтвердить</span><span><kbd>P</kbd> Фоторежим</span><span><kbd>Esc</kbd> Продолжить</span></div>
 </div>
 
 <div class="screen" id="menu">
@@ -269,6 +297,7 @@
   <div class="btns"><button class="go" id="r_again">Ещё раз</button><button id="r_free">Свободная езда</button><button id="r_garage">В гараж</button></div>
 </div></div>
 <div id="count" class="hidden"></div>
+<div id="fade" class="hidden"></div>
 <div id="fps" class="hidden"></div>
 <div id="photo" class="hidden">
   <div class="grid hidden" id="ph_grid"></div><div class="bars hidden" id="ph_bars"></div>
@@ -337,7 +366,8 @@ function baseH(x,z){
   const r = Math.hypot(x,z), ring = MU.smoothstep(r, 1750, 2500);
   const inner = MU.smoothstep(fbm(wx/2200-5, wz/2200+9, 2), .08, .45);
   const mnt = Math.max(ring, inner*.8);
-  h += ridged(wx/1100, wz/1100, 5)*mnt*600 + mnt*30;
+  h += ridged(wx/1100, wz/1100, 6)*mnt*600 + mnt*30;
+  if (mnt > .02) h += (ridged(wx/240+9, wz/240-4, 3)*42 + fbm(x/55, z/55, 2)*7)*mnt*MU.smoothstep(h, 40, 160); // скалы и гребни на склонах
   h -= MU.smoothstep(fbm(wx/1300+40, wz/1300-40, 3), .16, .4) * 75; // озёрные котловины
   return h;
 }
@@ -380,6 +410,39 @@ function setupSky(b64){
   tex.magFilter = tex.minFilter = THREE.LinearFilter; tex.generateMipmaps = false; tex.needsUpdate = true;
   scene.background = tex; scene.environment = pmrem.fromEquirectangular(tex).texture;
   const m = Math.max(hr,hg,hb)/hn || 1; scene.fog.color.setRGB(hr/hn/m*.82, hg/hn/m*.86, hb/hn/m*.92);
+}
+
+// ================= облака (процедурные, привязаны к миру) + их тени на земле
+const WORLD = { uT:{ value:0 }, uCam:{ value:new THREE.Vector3() }, uSun:{ value:sunDir }, uCov:{ value:.5 } };
+const GLNOISE = `
+float h21(vec2 p){ p = fract(p*vec2(123.34,456.21)); p += dot(p, p+45.32); return fract(p.x*p.y); }
+float vn2(vec2 p){ vec2 i = floor(p), f = fract(p); f = f*f*(3.-2.*f); return mix(mix(h21(i), h21(i+vec2(1,0)), f.x), mix(h21(i+vec2(0,1)), h21(i+vec2(1,1)), f.x), f.y); }
+float cfbm(vec2 p, int o){ float s = 0., a = .5; for (int i=0;i<6;i++){ if (i>=o) break; s += a*vn2(p); p = mat2(1.6,1.2,-1.2,1.6)*p + 3.1; a *= .5; } return s; }
+`;
+const CLOUD_H = 1400.;
+let cloudMesh;
+function buildClouds(){
+  const mat = new THREE.ShaderMaterial({ transparent:true, depthWrite:false, side:THREE.BackSide, fog:false, uniforms:WORLD,
+    vertexShader:`varying vec3 vD; void main(){ vD = position; vec4 p = projectionMatrix*modelViewMatrix*vec4(position,1.); gl_Position = p; gl_Position.z = p.w*.99998; }`,
+    fragmentShader:`uniform float uT, uCov; uniform vec3 uCam, uSun; varying vec3 vD;` + GLNOISE + `
+float dens(vec2 q){ float n = cfbm(q, 6); float n2 = vn2(q*.23 + 7.3); return smoothstep(uCov, uCov + .28, n*.82 + n2*.32); }
+void main(){
+  vec3 d = normalize(vD); if (d.y < .005) discard;
+  vec2 wp = uCam.xz + d.xz/d.y*(${CLOUD_H.toFixed(1)} - uCam.y);
+  vec2 q = wp/1100. + uT*vec2(.006, .0025);
+  float a = dens(q); if (a < .01) discard;
+  float a2 = dens(q + normalize(uSun.xz + 1e-4)*.06);
+  float lit = clamp(1. - (a2 - a)*2.2 - a*.35, 0., 1.);
+  float sunF = pow(max(dot(d, normalize(uSun)), 0.), 6.);
+  vec3 shade = vec3(.52,.56,.64), light = vec3(1.,.97,.92)*1.25;
+  vec3 col = mix(shade, light, lit) + vec3(1.,.9,.75)*sunF*(1.-a)*1.2;
+  float horizon = smoothstep(.005, .14, d.y);
+  col = mix(vec3(.74,.78,.84), col, smoothstep(.0, .25, d.y));
+  gl_FragColor = vec4(col, a*horizon*.95);
+  #include <tonemapping_fragment>
+  #include <colorspace_fragment>
+}` });
+  cloudMesh = new THREE.Mesh(new THREE.SphereGeometry(7000, 48, 24, 0, Math.PI*2, 0, Math.PI*.52), mat); cloudMesh.frustumCulled = false; cloudMesh.renderOrder = -1; scene.add(cloudMesh);
 }
 
 // ================= textures
@@ -457,7 +520,7 @@ function buildTerrain(){
     const wr = Math.max(MU.smoothstep(1-ny, .26, .48), MU.smoothstep(h, 150+n1*60, 230+n1*60)*.7); rest -= wr;
     const ws = (1-MU.smoothstep(h, WL+.6, WL+3.5))*rest; rest -= ws;
     const zn = zoneAt(x, z); let zg = 0;
-    if (zn){ const d = Math.hypot(x-zn.x, z-zn.z); if (zn.id==='gas' || zn.id==='fest') zg = 1 - MU.smoothstep(d, zn.R*.75, zn.R); if (zn.id==='village') zg = (1 - MU.smoothstep(d, 18, 26))*.9 + (1 - MU.smoothstep(Math.abs(d-61), 3, 6))*.8; if (zn.id==='light') zg = 1 - MU.smoothstep(d, 6, 12); }
+    if (zn){ const d = Math.hypot(x-zn.x, z-zn.z); if (zn.id==='gas' || zn.id==='fest') zg = 1 - MU.smoothstep(d, zn.R*.75, zn.R); if (zn.id==='village') zg = (1 - MU.smoothstep(d, 18, 26))*.9 + (1 - MU.smoothstep(Math.abs(d-61), 3, 6))*.8; if (zn.id==='light') zg = 1 - MU.smoothstep(d, 6, 12); if (zn.id==='view') zg = 1 - MU.smoothstep(d, 14, 20); if (zn.id==='camp') zg = (1 - MU.smoothstep(d, 4, 7))*.8; }
     const wv = Math.max(1-MU.smoothstep(roadD[k], RW+1.4, RW+3.6), zg)*rest; rest -= wv;
     spl[k*4]=rest; spl[k*4+1]=wr; spl[k*4+2]=ws; spl[k*4+3]=wv;
     snw[k] = MU.smoothstep(h, 270+n2*40, 340+n2*40) * MU.smoothstep(ny, .45, .75);
@@ -470,11 +533,11 @@ function buildTerrain(){
   geo.setAttribute('color', new THREE.BufferAttribute(col,3)); geo.setAttribute('splat', new THREE.BufferAttribute(spl,4)); geo.setAttribute('snow', new THREE.BufferAttribute(snw,1));
   const mat = new THREE.MeshStandardMaterial({ vertexColors:true, roughness:.96, metalness:0, envMapIntensity:.55 });
   mat.onBeforeCompile = sh => {
-    Object.assign(sh.uniforms, { tG2:{value:T.grass2}, tG:{value:T.grass}, tR:{value:T.rock}, tS:{value:T.sand}, tV:{value:T.gravel} });
+    Object.assign(sh.uniforms, { tG2:{value:T.grass2}, tG:{value:T.grass}, tR:{value:T.rock}, tS:{value:T.sand}, tV:{value:T.gravel} }, WORLD);
     sh.vertexShader = sh.vertexShader.replace('#include <common>', '#include <common>\nattribute vec4 splat; attribute float snow; varying vec4 vSplat; varying float vSnow; varying vec3 vWP; varying vec3 vNW;')
       .replace('#include <begin_vertex>', '#include <begin_vertex>\nvSplat = splat; vSnow = snow; vWP = (modelMatrix*vec4(transformed,1.)).xyz; vNW = normalize(mat3(modelMatrix)*objectNormal);');
     sh.fragmentShader = sh.fragmentShader.replace('#include <common>', `#include <common>
-uniform sampler2D tG, tG2, tR, tS, tV; varying vec4 vSplat; varying float vSnow; varying vec3 vWP; varying vec3 vNW;
+uniform sampler2D tG, tG2, tR, tS, tV; uniform float uT, uCov; uniform vec3 uSun; varying vec4 vSplat; varying float vSnow; varying vec3 vWP; varying vec3 vNW;` + GLNOISE + `
 vec3 tl(sampler2D t, vec2 uv){ return mix(texture2D(t, uv).rgb, texture2D(t, uv*.23 + vec2(.37,.11)).rgb, .42); }`)
       .replace('#include <map_fragment>', `
   vec3 nn = abs(normalize(vNW)); nn /= (nn.x+nn.y+nn.z);
@@ -485,8 +548,21 @@ vec3 tl(sampler2D t, vec2 uv){ return mix(texture2D(t, uv).rgb, texture2D(t, uv*
   vec3 cS = tl(tS, vWP.xz/5.0);
   vec3 cV = texture2D(tV, vWP.xz/4.0).rgb;
   vec3 tcol = cG*vSplat.x + cR*vSplat.y + cS*vSplat.z + cV*vSplat.w;
-  tcol = mix(tcol, vec3(.92,.94,.98), clamp(vSnow,0.,1.));
-  diffuseColor.rgb *= tcol;`)
+  // мох на пологих скалах, слоистость породы
+  float moss = vSplat.y*smoothstep(.55, .85, vNW.y)*smoothstep(.45, .7, vn2(vWP.xz/14.))*(1.-smoothstep(170., 260., vWP.y));
+  tcol = mix(tcol, cG*vec3(.75,.85,.6), moss*.7);
+  tcol *= mix(1., .8 + .35*vn2(vec2(vWP.y*.09, vWP.x*.002 + vWP.z*.002)), vSplat.y);
+  float snowN = clamp(vSnow + (vn2(vWP.xz/9.)-.5)*.5*step(.01, vSnow), 0., 1.);
+  tcol = mix(tcol, vec3(.92,.94,.98), snowN);
+  float tBump = dot(cR, vec3(.33))*vSplat.y*1.6 + dot(cG, vec3(.33))*vSplat.x*.35 + dot(cS, vec3(.33))*vSplat.z*.3;
+  tBump *= 1. - smoothstep(60., 260., length(vViewPosition));
+  // тени от облаков (те же облака, что на небе)
+  vec2 cq = (vWP.xz + uSun.xz/max(uSun.y,.15)*(${CLOUD_H.toFixed(1)} - vWP.y))/1100. + uT*vec2(.006,.0025);
+  float cd = smoothstep(uCov, uCov + .28, cfbm(cq, 3)*.82 + vn2(cq*.23 + 7.3)*.32 + .06);
+  diffuseColor.rgb *= tcol * (1. - cd*.38);`)
+      .replace('#include <normal_fragment_maps>', `#include <normal_fragment_maps>
+  { vec3 sx = dFdx(-vViewPosition), sy = dFdy(-vViewPosition); vec3 n0 = normal; vec3 r1 = cross(sy, n0), r2 = cross(n0, sx); float det = dot(sx, r1)*faceDirection;
+    vec2 dH = vec2(dFdx(tBump), dFdy(tBump)); vec3 grad = sign(det)*(dH.x*r1 + dH.y*r2); normal = normalize(abs(det)*n0 - grad*.9); }`)
       .replace('#include <color_fragment>', `#include <color_fragment>\n  diffuseColor.rgb = mix(diffuseColor.rgb, diffuseColor.rgb/max(vColor,vec3(.3)), clamp(vSplat.y+vSplat.z+vSnow,0.,1.));`);
   };
   terrainMesh = new THREE.Mesh(geo, mat); terrainMesh.receiveShadow = true; scene.add(terrainMesh);
@@ -541,11 +617,35 @@ function buildRoad(){
 
 // ================= water
 let waterMat;
-function buildWater(){
-  const wn = T.water; wn.repeat.set(S*1.6/38, S*1.6/38);
-  waterMat = new THREE.MeshStandardMaterial({ color:0x1b4654, roughness:.05, metalness:.1, normalMap:wn, normalScale:new THREE.Vector2(.32,.32), transparent:true, opacity:.9, envMapIntensity:1.15 });
-  const w = new THREE.Mesh(new THREE.PlaneGeometry(S*1.6, S*1.6), waterMat);
-  w.rotation.x = -Math.PI/2; w.position.y = WL; w.receiveShadow = true; scene.add(w);
+function buildWater(){ // вода: цвет по глубине, пена у берега, две ряби, отражения неба
+  const NW = 300, ext = S*1.25, st = ext/NW, pos = new Float32Array((NW+1)*(NW+1)*3), dep = new Float32Array((NW+1)*(NW+1)), uv = new Float32Array((NW+1)*(NW+1)*2);
+  for (let j=0;j<=NW;j++) for (let i=0;i<=NW;i++){ const k = j*(NW+1)+i, x = -ext/2 + i*st, z = -ext/2 + j*st;
+    pos[k*3] = x; pos[k*3+1] = WL; pos[k*3+2] = z; uv[k*2] = x/38; uv[k*2+1] = -z/38;
+    dep[k] = (Math.abs(x) < S/2-5 && Math.abs(z) < S/2-5) ? clamp(WL - terrainH(x,z), -6, 30) : 30; }
+  const idx = []; for (let j=0;j<NW;j++) for (let i=0;i<NW;i++){ const a = j*(NW+1)+i, b = a+NW+1; const ok = [a,a+1,b,b+1].some(k => dep[k] > -1.5); if (ok) idx.push(a, b, a+1, a+1, b, b+1); }
+  const geo = new THREE.BufferGeometry(); geo.setAttribute('position', new THREE.BufferAttribute(pos,3)); geo.setAttribute('uv', new THREE.BufferAttribute(uv,2)); geo.setAttribute('wd', new THREE.BufferAttribute(dep,1)); geo.setIndex(idx); geo.computeVertexNormals();
+  const wn = T.water; wn.wrapS = wn.wrapT = THREE.RepeatWrapping;
+  waterMat = new THREE.MeshStandardMaterial({ color:0xffffff, roughness:.06, metalness:0, normalMap:wn, normalScale:new THREE.Vector2(.42,.42), transparent:true, envMapIntensity:1.25 });
+  waterMat.onBeforeCompile = sh => { Object.assign(sh.uniforms, WORLD);
+    sh.vertexShader = sh.vertexShader.replace('#include <common>', '#include <common>\nattribute float wd; varying float vWd; varying vec3 vWPw;')
+      .replace('#include <begin_vertex>', '#include <begin_vertex>\nvWd = wd; vWPw = (modelMatrix*vec4(transformed,1.)).xyz;');
+    sh.fragmentShader = sh.fragmentShader.replace('#include <common>', '#include <common>\nuniform float uT; varying float vWd; varying vec3 vWPw;' + GLNOISE)
+      .replace('#include <map_fragment>', `
+  float dd = vWd;
+  vec3 shallow = vec3(.17,.43,.40), mid = vec3(.06,.24,.27), deep = vec3(.02,.09,.12);
+  vec3 wc = mix(shallow, mid, smoothstep(0., 2.5, dd)); wc = mix(wc, deep, smoothstep(2.5, 12., dd));
+  float fn = vn2(vWPw.xz*.35 + uT*.25) * vn2(vWPw.xz*.9 - uT*.4);
+  float foam = (1. - smoothstep(.05, .7 + fn*.6, dd)) * smoothstep(.15, .5, fn + .25*sin(dd*9. - uT*2.));
+  diffuseColor.rgb = mix(wc, vec3(.93,.95,.95), clamp(foam, 0., 1.)*.85);
+  diffuseColor.a = mix(.35, .93, smoothstep(0., 2.2, dd)); diffuseColor.a = max(diffuseColor.a, foam*.9);`)
+      .replace('#include <normal_fragment_maps>', `
+  vec3 mN1 = texture2D(normalMap, vWPw.xz/38. + uT*vec2(.010, .006)).xyz*2. - 1.;
+  vec3 mN2 = texture2D(normalMap, vWPw.xz/11. - uT*vec2(.017, -.012)).xyz*2. - 1.;
+  vec3 mapN = normalize(vec3(mN1.xy + mN2.xy*.7, mN1.z*mN2.z));
+  mapN.xy *= normalScale * (1. - smoothstep(.0, .5, foam));
+  normal = normalize(tbn * mapN);`)
+      .replace('#include <roughnessmap_fragment>', '#include <roughnessmap_fragment>\n  roughnessFactor = mix(.05, .5, clamp(foam,0.,1.));'); };
+  const w = new THREE.Mesh(geo, waterMat); w.receiveShadow = true; scene.add(w);
 }
 
 // ================= лес (сканированные деревья Poly Haven, CC0), камни, дома
@@ -577,36 +677,38 @@ function buildForest(treeScene){
   const SP = ['island_tree_01','island_tree_02','tree_small_02'];
   for (const sp of SP){
     if (!parts[sp+'|LOD0']) continue;
-    forest.species.push({ trees:[], lod0: mkInst(parts[sp+'|LOD0'], 320, true), lod1: mkInst(parts[sp+'|LOD1'] || parts[sp+'|LOD0'], 3200, false), card: mkInst(parts[sp+'|CARD'] || parts[sp+'|LOD1'], 6000, false) });
+    forest.species.push({ trees:[], lod0: mkInst(parts[sp+'|LOD0'], 320, true), lod1: mkInst(parts[sp+'|LOD1'] || parts[sp+'|LOD0'], 3600, false), card: mkInst(parts[sp+'|CARD'] || parts[sp+'|LOD1'], 8000, false) });
   }
   const shrubKeys = Object.keys(parts).filter(k => k.startsWith('SHRUB'));
-  for (const k of shrubKeys) forest.shrubs.push({ items:[], ims: mkInst(parts[k], 2600, false) });
+  for (const k of shrubKeys) forest.shrubs.push({ items:[], ims: mkInst(parts[k], 3400, false) });
   let guard = 0, nt = 0, ns = 0;
-  while ((nt < 9000 || ns < 9000) && guard++ < 400000){
+  const NT = 15000, NSH = 13000;
+  while ((nt < NT || ns < NSH) && guard++ < 600000){
     const x = (R()-.5)*(S-200), z = (R()-.5)*(S-200), h = terrainH(x,z);
     if (h < WL+1.2) continue;
     const q2 = roadQ(x,z); const dr = q2.i>=0 ? q2.lat : 1e9; if (dr < RW+8) continue;
     const sl = slopeAt(x,z); if (sl > .75) continue; if (zoneAt(x, z, 25)) continue;
     const dens = fbm(x/420+7, z/420-3, 3);
     const treeLine = 200 + fbm(x/300,z/300,2)*60;
-    if (nt < 9000 && h < treeLine && dens > -.08 + R()*.25){
+    if (nt < NT && h < treeLine && dens > -.12 + R()*.25){
       const sp = forest.species[(R()*forest.species.length)|0], hgtT = 7 + R()*R()*12;
       q.setFromAxisAngle(up, R()*6.28); s.setScalar(hgtT); p.set(x, Math.min(h, terrainH(x+1.2,z), terrainH(x-1.2,z), terrainH(x,z+1.2), terrainH(x,z-1.2))-.2, z); m4.compose(p,q,s);
       sp.trees.push({ x, y:h, z, m:m4.toArray(new Float32Array(16)), c:.85+R()*.3 }); addObst(x, z, .45 + hgtT*.02); nt++;
-    } else if (ns < 9000 && h < treeLine+40 && (dens > -.3 || R() < .15)){
+    } else if (ns < NSH && h < treeLine+40 && (dens > -.3 || R() < .15)){
       const sh = forest.shrubs[(R()*forest.shrubs.length)|0], hs = .6 + R()*1.6;
       q.setFromAxisAngle(up, R()*6.28); s.set(hs*(1+R()*.6), hs, hs*(1+R()*.6)); p.set(x, h-.05, z); m4.compose(p,q,s);
       sh.items.push({ x, y:h, z, m:m4.toArray(new Float32Array(16)) }); ns++;
     }
   }
+  buildPines(R, slopeAt);
   updForest(0, true);
   // камни
   const rockGeo = new THREE.DodecahedronGeometry(1.6, 2);
   { const pa=rockGeo.attributes.position; for (let i=0;i<pa.count;i++){ const x=pa.getX(i),y=pa.getY(i),z=pa.getZ(i), n=1+.28*vnoise(x*1.7+5,z*1.7+y)+.12*vnoise(y*4,x*4); pa.setXYZ(i,x*n,y*n*.62,z*n); } rockGeo.computeVertexNormals(); }
   const rt = T.rock.clone(); rt.needsUpdate = true; rt.repeat.set(1.5,1.5);
-  const rockM = new THREE.InstancedMesh(rockGeo, new THREE.MeshStandardMaterial({ map:rt, color:0xb4aca2, roughness:.95 }), 900);
+  const rockM = new THREE.InstancedMesh(rockGeo, new THREE.MeshStandardMaterial({ map:rt, color:0xb4aca2, roughness:.95 }), 1600);
   let ri=0;
-  while (ri<900 && guard++ < 700000){
+  while (ri<1600 && guard++ < 700000){
     const x=(R()-.5)*(S-200), z=(R()-.5)*(S-200), h=terrainH(x,z); if (h<WL+.5) continue; const q3 = roadQ(x,z); if (q3.i>=0 && q3.lat < RW+5) continue;
     const sl = slopeAt(x,z); if (sl < .15 && R() < .7) continue;
     const sc = .4 + R()*R()*3.5; q.setFromEuler(new THREE.Euler(R()*.5,R()*6,R()*.5)); s.set(sc*(1+R()*.5),sc,sc); p.set(x,h-.35*sc,z); m4.compose(p,q,s);
@@ -614,9 +716,40 @@ function buildForest(treeScene){
   }
   rockM.count = ri; rockM.castShadow = false; rockM.receiveShadow = true; scene.add(rockM);
 }
+// ели на склонах гор: процедурная модель, ярусы с рваными краями
+function buildPines(R, slopeAt){
+  const parts = [], col = new THREE.Color();
+  const tiers = [[0, 2.2, .55], [.42, 1.9, .5], [.62, 1.45, .4], [.78, 1.0, .32], [.9, .55, .2]];
+  for (const [y0, r, hh] of tiers){ const g = new THREE.ConeGeometry(r*.32, hh, 9, 2, true); const pa = g.attributes.position;
+    for (let i=0;i<pa.count;i++){ const x = pa.getX(i), y = pa.getY(i), z = pa.getZ(i), a = Math.atan2(z, x), low = y < 0 ? 1 : 0;
+      const j = 1 + low*(.16*Math.sin(a*5 + y0*20) + .1*Math.sin(a*11)); pa.setXYZ(i, x*j, y + hh/2 + y0 - low*.06*Math.abs(Math.sin(a*7)), z*j); }
+    g.computeVertexNormals(); const c = new Float32Array(pa.count*3); for (let i=0;i<pa.count;i++){ const t = pa.getY(i); col.setRGB(.16 + t*.06, .26 + t*.08, .16); c.set([col.r, col.g, col.b], i*3); } g.setAttribute('color', new THREE.BufferAttribute(c, 3)); parts.push(g); }
+  const trunk = new THREE.CylinderGeometry(.018, .03, .3, 6).translate(0, .15, 0); { const c = new Float32Array(trunk.attributes.position.count*3).fill(.22); for (let i=0;i<c.length;i+=3){ c[i] = .3; c[i+1] = .2; c[i+2] = .13; } trunk.setAttribute('color', new THREE.BufferAttribute(c,3)); }
+  parts.push(trunk);
+  const geo = mergeGeometries(parts.map(g => { g.deleteAttribute('uv'); return g; }));
+  const mat = new THREE.MeshStandardMaterial({ vertexColors:true, roughness:.92, envMapIntensity:.4 });
+  forest.pine = { items:[], im: new THREE.InstancedMesh(geo, mat, 9000) };
+  forest.pine.im.count = 0; forest.pine.im.frustumCulled = false; forest.pine.im.castShadow = true; forest.pine.im.receiveShadow = true; scene.add(forest.pine.im);
+  const m4 = new THREE.Matrix4(), q = new THREE.Quaternion(), sc = new THREE.Vector3(), p = new THREE.Vector3(), up = new THREE.Vector3(0,1,0), ic = new THREE.Color();
+  let n = 0, guard = 0;
+  while (n < 9000 && guard++ < 500000){
+    const x = (R()-.5)*(S-200), z = (R()-.5)*(S-200), h = terrainH(x,z);
+    const tl = 250 + fbm(x/300, z/300, 2)*50; if (h < 60 || h > tl) continue;
+    const sl = slopeAt(x,z); if (sl > .9) continue; if (zoneAt(x, z, 25)) continue;
+    const q2 = roadQ(x,z); if (q2.i>=0 && q2.lat < RW+9) continue;
+    const dens = fbm(x/260-13, z/260+5, 3) + MU.smoothstep(h, 60, 180)*.45; if (dens < .05 + R()*.3) continue;
+    const H = 8 + R()*R()*16; q.setFromAxisAngle(up, R()*6.28); sc.set(H*(.85+R()*.3), H, H*(.85+R()*.3)); p.set(x, h - .3, z); m4.compose(p, q, sc);
+    ic.setHSL(.27 + R()*.06, .3 + R()*.15, .35 + R()*.2);
+    forest.pine.items.push({ x, z, m: m4.toArray(new Float32Array(16)), c:[ic.r, ic.g, ic.b] }); addObst(x, z, .5); n++;
+  }
+  forest.pine.im.setColorAt(0, ic);
+}
 function updForest(dt, force){ // уровни детализации: рядом — подробные деревья, дальше — простые
   forest.t -= dt; if (forest.t > 0 && !force) return; forest.t = .3;
   const cx = camera.position.x, cz = camera.position.z;
+  if (forest.pine){ const P = forest.pine, im = P.im, D = Q.l1*3.2; let a = 0;
+    for (const t of P.items){ const dx = t.x-cx, dz = t.z-cz; if (dx*dx+dz*dz < D*D){ im.instanceMatrix.array.set(t.m, a*16); im.instanceColor.array.set(t.c, a*3); a++; } }
+    im.count = a; im.instanceMatrix.needsUpdate = true; im.instanceColor.needsUpdate = true; }
   for (const sp of forest.species){
     let a0=0, a1=0, a2=0; const c0 = sp.lod0[0].instanceMatrix.count, c1 = sp.lod1[0].instanceMatrix.count, c2 = sp.card[0].instanceMatrix.count;
     for (const t of sp.trees){ const dx=t.x-cx, dz=t.z-cz, d=dx*dx+dz*dz;
@@ -634,14 +767,18 @@ function noBackDark(m){ const prev = m.onBeforeCompile; m.onBeforeCompile = (sh,
 // трава вокруг машины: густые кустики с колыханием на ветру
 const grass = { im:null, cx:1e9, cz:1e9, t:0 };
 function buildGrass(){
-  const tex = canvasTex(256, 256, (g,w,h) => {
+  const tex = canvasTex(512, 256, (g,w,h) => { // густой пучок: задний слой темнее, передний светлее, колоски
     g.clearRect(0,0,w,h);
-    for (let i=0;i<46;i++){ const x = 20 + Math.random()*(w-40), hh = h*(.45+Math.random()*.55), lean = (Math.random()-.5)*60, wd = 3+Math.random()*4;
-      const gr = g.createLinearGradient(0,h,0,h-hh); gr.addColorStop(0,'#3f5a1e'); gr.addColorStop(1, Math.random()<.3 ? '#b8b75a' : '#86a83c');
-      g.fillStyle = gr; g.beginPath(); g.moveTo(x-wd,h); g.quadraticCurveTo(x+lean*.4, h-hh*.6, x+lean, h-hh); g.quadraticCurveTo(x+lean*.4+1, h-hh*.6, x+wd, h); g.fill(); }
+    const layers = [['#2f4416','#5f7a2c',60,.75],['#3b561c','#7f9c3a',70,.88],['#46621f','#9bb04a',60,1]];
+    for (const [c0,c1,n,hs] of layers) for (let i=0;i<n;i++){ const x = 30 + Math.random()*(w-60), hh = h*hs*(.4+Math.random()*.6), lean = (Math.random()-.5)*90, wd = 2.5+Math.random()*3.5;
+      const gr = g.createLinearGradient(0,h,0,h-hh); gr.addColorStop(0, c0); gr.addColorStop(1, Math.random()<.22 ? '#c2b763' : c1);
+      g.fillStyle = gr; g.beginPath(); g.moveTo(x-wd,h); g.quadraticCurveTo(x+lean*.35, h-hh*.6, x+lean, h-hh); g.quadraticCurveTo(x+lean*.35+1, h-hh*.6, x+wd, h); g.fill(); }
+    for (let i=0;i<10;i++){ const x = 60 + Math.random()*(w-120), hh = h*(.75+Math.random()*.25), lean = (Math.random()-.5)*50;
+      g.strokeStyle = '#8a8a4a'; g.lineWidth = 2; g.beginPath(); g.moveTo(x,h); g.quadraticCurveTo(x+lean*.4, h-hh*.6, x+lean, h-hh); g.stroke();
+      g.fillStyle = '#c9bb78'; g.beginPath(); g.ellipse(x+lean, h-hh+6, 3.5, 11, lean*.004, 0, 6.3); g.fill(); }
   }, false);
   tex.wrapS = tex.wrapT = THREE.ClampToEdgeWrapping;
-  const q1 = new THREE.PlaneGeometry(1.1, .7).translate(0,.35,0), q2 = q1.clone().rotateY(Math.PI/3), q3 = q1.clone().rotateY(-Math.PI/3);
+  const q1 = new THREE.PlaneGeometry(1.5, .8).translate(0,.4,0), q2 = q1.clone().rotateY(Math.PI/3), q3 = q1.clone().rotateY(-Math.PI/3);
   const geo = mergeGeometries([q1,q2,q3]); const nrm = geo.getAttribute('normal'); for (let i=0;i<nrm.count;i++) nrm.setXYZ(i,0,1,0);
   const mat = new THREE.MeshStandardMaterial({ map:tex, alphaTest:.45, alphaToCoverage:true, side:THREE.DoubleSide, roughness:.95, color:0xd8e0c8 });
   mat.onBeforeCompile = sh => { sh.uniforms.uTime = grass.uTime = { value:0 };
@@ -649,14 +786,15 @@ function buildGrass(){
       .replace('#include <begin_vertex>', `#include <begin_vertex>
   #ifdef USE_INSTANCING
   vec3 ip = vec3(instanceMatrix[3][0], instanceMatrix[3][1], instanceMatrix[3][2]);
-  float sw = sin(uTime*1.7 + ip.x*.35 + ip.z*.27) * .12 * position.y;
+  float gust = .55 + .45*sin(uTime*.45 + ip.x*.015 + ip.z*.011);
+  float sw = (sin(uTime*1.9 + ip.x*.35 + ip.z*.27)*.09 + .07)*gust * position.y;
   transformed.x += sw; transformed.z += sw*.6;
   #endif`); };
   noBackDark(mat);
   grass.im = new THREE.InstancedMesh(geo, mat, GN*GN*GK); grass.im.count = 0; grass.im.frustumCulled = false; grass.im.receiveShadow = true;
   scene.add(grass.im);
 }
-const GN = 26, GC4 = 4, GK = 6; // окно травы 26×26 клеток по 4 м, по 6 кустиков в клетке
+const GN = 34, GC4 = 4, GK = 8; // окно травы 26×26 клеток по 4 м, по 6 кустиков в клетке
 const gCell = new Int32Array(GN*GN).fill(-2147483648);
 const _gm = new THREE.Matrix4(), _gq = new THREE.Quaternion(), _gs = new THREE.Vector3(), _gp = new THREE.Vector3(), _gu = new THREE.Vector3(0,1,0), _gc = new THREE.Color(), _gz = new THREE.Matrix4().makeScale(0,0,0);
 function grassCell(ci, cj, slot){
@@ -669,7 +807,7 @@ function grassCell(ci, cj, slot){
     if (ok){ const e=1.5, sl = Math.abs(terrainH(x+e,z)-terrainH(x-e,z)) + Math.abs(terrainH(x,z+e)-terrainH(x,z-e)); if (sl > 1.2) ok = false; }
     const den = ok ? fbm(x/60, z/60, 2) : -1; if (den < -.35) ok = false;
     if (!ok){ grass.im.setMatrixAt(n, _gz); continue; }
-    const sc = .7 + hash2(x,z)*.9 + Math.max(0,den)*.6;
+    const sc = .5 + hash2(x,z)*.6 + Math.max(0,den)*.4;
     _gq.setFromAxisAngle(_gu, hash2(z,x)*6.28); _gs.set(sc, sc*(.8+hash2(x+1,z)*.6), sc); _gp.set(x, h-.05, z); _gm.compose(_gp,_gq,_gs);
     grass.im.setMatrixAt(n, _gm);
     const fl = hash2(x*3.1, z*1.7); if (fl > .985) _gc.setRGB(1.6,1.5,.4); else if (fl > .975) _gc.setRGB(1.7,1.7,1.7); else _gc.setRGB(.85+fl*.25, .9+fl*.2, .8);
@@ -707,6 +845,18 @@ function planZones(){
     for (let d=40; d<=260; d+=10){ const p = sidePoint(i, s, d), hh = baseH(p.x, p.z); if (hh < WL-3){ if (last && last.d > 50) lh = { i, s, d:last.d }; break; } last = { d }; }
     if (lh) break; }
   if (lh){ const p = sidePoint(lh.i, lh.s, lh.d); ZONES.push({ id:'light', name:'Маяк «Северный»', sub:'Пирс у озера', icon:'⚑', i:lh.i, side:lh.s, x:p.x, z:p.z, R:22, h: Math.max(baseH(p.x,p.z), WL+2.2), yaw: Math.atan2(-tz[lh.i]*lh.s, tx[lh.i]*lh.s), lake: true }); }
+}
+function planZones2(){ // смотровая площадка на высоком участке и кемпинг у озера
+  const far = (x, z, d) => ZONES.every(zn => Math.hypot(zn.x-x, zn.z-z) > zn.R + d);
+  let hi = 0; for (let i=0;i<NS;i+=10){ const p = sidePoint(i, 1, 0); if (ry[i] > ry[hi] && far(p.x, p.z, 250)) hi = i; }
+  let bi = hi, bs = 1, bc = 1e9;
+  for (let i=hi-120;i<=hi+120;i+=10) for (const sd of [1,-1]){ const ii = (i+NS)%NS, p = sidePoint(ii, sd, 42); if (!far(p.x, p.z, 120)) continue; let c = 0; for (let a=0;a<6;a++){ const an = a/6*6.283; c += Math.abs(baseH(p.x+Math.cos(an)*18, p.z+Math.sin(an)*18) - ry[ii]); } if (c < bc){ bc = c; bi = ii; bs = sd; } }
+  { const p = sidePoint(bi, bs, 42); ZONES.push({ id:'view', name:'Смотровая «Орлиная»', sub:'Вид на всю долину', icon:'▲', i:bi, side:bs, x:p.x, z:p.z, R:26, h: ry[bi], yaw: Math.atan2(tx[bi], tz[bi]) }); }
+  let cp = null;
+  for (let k=0;k<NS && !cp;k+=25){ const i = (k + (NS>>1)) % NS; for (const sd of [1,-1]){ let last = null;
+    for (let d=40; d<=240; d+=10){ const p = sidePoint(i, sd, d), hh = baseH(p.x, p.z); if (hh < WL-2){ if (last && last.d > 70){ const q = sidePoint(i, sd, last.d - 28); if (far(q.x, q.z, 200)) cp = { i, sd, d:last.d - 28 }; } break; } last = { d }; }
+    if (cp) break; } }
+  if (cp){ const p = sidePoint(cp.i, cp.sd, cp.d); ZONES.push({ id:'camp', name:'Кемпинг «Озёрный»', sub:'Палатки, костёр, лодки', icon:'⛺', i:cp.i, side:cp.sd, x:p.x, z:p.z, R:20, h: Math.max(baseH(p.x,p.z), WL+2.4), yaw: Math.atan2(-tz[cp.i]*cp.sd, tx[cp.i]*cp.sd), lake:true }); }
 }
 const zoneAt = (x, z, pad=0) => { for (const zn of ZONES){ const d = Math.hypot(x-zn.x, z-zn.z); if (d < zn.R + pad) return zn; } return null; };
 function zoneFlatten(x, z, h){ for (const zn of ZONES){ const d = Math.hypot(x-zn.x, z-zn.z); if (d < zn.R+70){ const t = MU.smoothstep(d, zn.R, zn.R+70); h = MU.lerp(zn.h, h, t); } } return h; }
@@ -839,7 +989,69 @@ function buildPlaces(){
       const pg = new THREE.Group(); pg.position.set(zn.x, WL + .7 - (zn.h - .25), zn.z); pg.rotation.y = zn.yaw; g.add(pg);
       for (let k=0;k<16;k++){ box(pg, 3.4, .25, 3, M.wood, 0, 0, 6 + k*3); for (const sx of [-1.6, 1.6]) cyl(pg, .15, .15, 4, M.wood, sx, -1.8, 6 + k*3, 6); }
     }
+    if (zn.id === 'village'){
+      // фонари вдоль кольцевой улицы, лавки и скамейки на площади, клумбы
+      for (let k=0;k<18;k++){ const a = k/18*Math.PI*2; const [x, z] = local(zn, Math.cos(a)*57, Math.sin(a)*57); if (roadQ(x,z).lat < RW+4) continue;
+        cyl(g, .09, .13, 4.6, M.dark, x, 2.3, z, 6); box(g, .5, .5, .5, M.glow, x, 4.7, z); box(g, .7, .12, .7, M.dark, x, 5.02, z); }
+      const awn = canvasMat(128, 32, (c,w,h) => { for (let k=0;k<8;k++){ c.fillStyle = k%2 ? '#f4efe4' : ['#c4372b','#2b6cff','#2fbf71','#ff7a1a'][k%4]; c.fillRect(k*w/8, 0, w/8, h); } }, { mat:{ side:THREE.DoubleSide } });
+      for (let k=0;k<4;k++){ const a = .6 + k*.55; const sg = new THREE.Group(); const [x, z] = local(zn, Math.cos(a)*30, Math.sin(a)*30); sg.position.set(x, 0, z); sg.rotation.y = zn.yaw - a; g.add(sg);
+        box(sg, 3.2, 1, 1.6, M.wood, 0, .5, 0); for (const sx of [-1.5, 1.5]) for (const sz of [-.75, .75]) box(sg, .1, 2.6, .1, M.wood, sx, 1.3, sz);
+        const aw = box(sg, 3.6, .08, 2.2, awn, 0, 2.7, .2); aw.rotation.x = -.25;
+        for (let n=0;n<6;n++) box(sg, .35, .3, .35, [M.orange, M.barn, new THREE.MeshStandardMaterial({ color:0x7ab648, roughness:.8 })][n%3], -1.2 + n*.48, 1.15, 0); }
+      for (let k=0;k<6;k++){ const a = k/6*Math.PI*2 + .26; const [x, z] = local(zn, Math.cos(a)*15, Math.sin(a)*15); const bg = new THREE.Group(); bg.position.set(x, 0, z); bg.rotation.y = zn.yaw - a + Math.PI/2; g.add(bg);
+        box(bg, 2, .1, .5, M.wood, 0, .5, 0); box(bg, 2, .5, .08, M.wood, 0, .8, -.24); for (const sx of [-.85,.85]) box(bg, .1, .5, .45, M.dark, sx, .25, 0); }
+      const fl = [0xd8423a, 0xf2c14e, 0xf4f1ea, 0xb35bd1].map(c => new THREE.MeshStandardMaterial({ color:c, roughness:.8 }));
+      for (let k=0;k<4;k++){ const a = k/4*Math.PI*2 + .78; const [x, z] = local(zn, Math.cos(a)*21, Math.sin(a)*21); box(g, 3, .45, 1.2, M.stone, x, .22, z, zn.yaw - a);
+        for (let n=0;n<14;n++){ const m = new THREE.Mesh(new THREE.IcosahedronGeometry(.16, 0), fl[(n+k)%4]); m.position.set(x + (R()-.5)*2.6, .55, z + (R()-.5)*.9); g.add(m); } }
+    }
+    if (zn.id === 'farm'){
+      // водонапорная башня и трактор
+      const [wx, wz] = local(zn, 8, -14);
+      for (const [ox, oz] of [[-1.6,-1.6],[1.6,-1.6],[-1.6,1.6],[1.6,1.6]]) cyl(g, .15, .15, 12, M.wood, wx+ox, 6, wz+oz, 6);
+      cyl(g, 3, 3, 4, M.wood, wx, 14, wz, 16); const tc = new THREE.Mesh(new THREE.ConeGeometry(3.3, 2, 16), M.roof); tc.position.set(wx, 17, wz); g.add(tc); addObst(wx, wz, 3);
+      const tg = new THREE.Group(); const [tx4, tz4] = local(zn, -12, 14); tg.position.set(tx4, 0, tz4); tg.rotation.y = zn.yaw + .7; g.add(tg);
+      const green = new THREE.MeshStandardMaterial({ color:0x2f7a3a, roughness:.45, metalness:.3 });
+      box(tg, 1.6, 1.2, 3.2, green, 0, 1.5, .3); box(tg, 1.5, 1.5, 1.4, M.win, 0, 2.7, -.6); box(tg, 1.7, .1, 1.6, green, 0, 3.5, -.6);
+      for (const sx of [-1, 1]){ const bw = new THREE.Mesh(new THREE.CylinderGeometry(1.05, 1.05, .6, 18), M.dark); bw.rotation.z = Math.PI/2; bw.position.set(sx*1.05, 1.05, -.8); tg.add(bw);
+        const fw = new THREE.Mesh(new THREE.CylinderGeometry(.55, .55, .4, 14), M.dark); fw.rotation.z = Math.PI/2; fw.position.set(sx*.9, .55, 1.5); tg.add(fw); }
+      cyl(tg, .08, .08, 1.4, M.dark, .5, 2.8, 1.4, 6); addObst(tx4, tz4, 2.5);
+      // стога сена
+      for (let k=0;k<5;k++){ const [x, z] = local(zn, 30 + k*7, 25 + (k%2)*6); if (roadQ(x,z).lat < RW+6) continue; const st = new THREE.Mesh(new THREE.SphereGeometry(2.4, 12, 8, 0, 6.3, 0, 1.7), new THREE.MeshStandardMaterial({ color:0xb89a4e, roughness:1 })); st.scale.y = 1.25; st.position.set(x, .2, z); g.add(st); addObst(x, z, 2.2); }
+    }
+    if (zn.id === 'view'){
+      const vg = new THREE.Group(); vg.position.set(zn.x, 0, zn.z); vg.rotation.y = zn.yaw; g.add(vg);
+      box(vg, 30, .02, 22, M.asphalt, 0, .26, 0);
+      // деревянный настил-балкон с перилами
+      box(vg, 12, .3, 7, M.wood, 0, .6, -14); for (let k=0;k<7;k++){ cyl(vg, .08, .08, 1.1, M.wood, -6 + k*2, 1.3, -17.4, 6); } box(vg, 12, .1, .12, M.wood, 0, 1.85, -17.4);
+      for (const sx of [-6, 6]){ box(vg, .1, .1, 7, M.wood, sx, 1.85, -14); for (let k=0;k<4;k++) cyl(vg, .08, .08, 1.1, M.wood, sx, 1.3, -17.4 + k*2.2, 6); }
+      cyl(vg, .08, .12, 1.3, M.dark, 2, 1.4, -16.5, 8); const scope = box(vg, .3, .3, 1.1, M.metal, 2, 2.15, -16.6); scope.rotation.x = .2;
+      const sign = new THREE.Mesh(new THREE.BoxGeometry(3.4, 1.2, .15), canvasMat(256, 90, (c,w,h) => { c.fillStyle = '#5b3e27'; c.fillRect(0,0,w,h); c.fillStyle = '#f4ead8'; c.font = '800 30px system-ui'; c.textAlign = 'center'; c.fillText('ОРЛИНАЯ', w/2, 42); c.font = '600 18px system-ui'; c.fillText('высота ' + Math.round(zn.h + 120) + ' м', w/2, 72); }));
+      sign.position.set(-8, 2.3, 4); vg.add(sign); for (const sx of [-9.5, -6.5]) cyl(vg, .1, .1, 2.6, M.wood, sx, 1.3, 4, 6);
+      for (const sx of [-3, 3]){ box(vg, 2, .1, .5, M.wood, sx, .95, -11); box(vg, 2, .5, .08, M.wood, sx, 1.25, -10.76); }
+      addObst(zn.x, zn.z, 1);
+    }
+    if (zn.id === 'camp'){
+      const cg = new THREE.Group(); cg.position.set(zn.x, 0, zn.z); cg.rotation.y = zn.yaw; g.add(cg);
+      const tentCols = [0xff7a1a, 0x2b6cff, 0x2fbf71, 0xf2c14e, 0xc4372b];
+      for (let k=0;k<6;k++){ const a = k/6*Math.PI*2 + .3, rr = 9 + R()*5, x = Math.cos(a)*rr, z = Math.sin(a)*rr;
+        const t = new THREE.Mesh(new THREE.ConeGeometry(1.9, 2.4, 4), new THREE.MeshStandardMaterial({ color:tentCols[k%5], roughness:.75, side:THREE.DoubleSide })); t.position.set(x, 1.4, z); t.rotation.y = R()*3; t.scale.z = 1.5; cg.add(t);
+        const [wx, wz] = local(zn, x, z); addObst(wx, wz, 1.8); }
+      // костёр
+      for (let k=0;k<8;k++){ const a = k/8*Math.PI*2; const st = new THREE.Mesh(new THREE.DodecahedronGeometry(.28, 0), M.stone); st.position.set(Math.cos(a)*.9, .45, Math.sin(a)*.9); cg.add(st); }
+      for (let k=0;k<4;k++){ const lg = box(cg, .14, .14, 1.4, M.wood, 0, .5, 0); lg.rotation.y = k*.8; lg.rotation.x = .5; }
+      for (let k=0;k<5;k++){ const a = k/5*Math.PI*2; box(cg, 1.6, .25, .35, M.wood, Math.cos(a)*3.2, .45, Math.sin(a)*3.2, -a + Math.PI/2); }
+      // стол и лодки у воды
+      box(cg, 2.4, .1, 1, M.wood, 7, 1.1, -6); for (const sz of [-.9, .9]) box(cg, 2.4, .08, .3, M.wood, 7, .7, -6 + sz);
+      const boatM = new THREE.MeshStandardMaterial({ color:0xc4372b, roughness:.6 });
+      for (let k=0;k<2;k++){ const b = new THREE.Mesh(new THREE.SphereGeometry(1, 14, 8, 0, 6.3, Math.PI/2, Math.PI/2), boatM); b.scale.set(.8, .45, 2.6); b.position.set(-5 + k*3, .6, 19); b.rotation.x = Math.PI; cg.add(b); }
+    }
     bake(g);
+    if (zn.id === 'camp'){ // огонь (вне запекания — колышется)
+      const fire = new THREE.Group(); fire.position.set(zn.x, zn.h - .25 + .6, zn.z);
+      const fm = new THREE.MeshStandardMaterial({ color:0xffa040, emissive:0xff6a10, emissiveIntensity:2.4, transparent:true, opacity:.9 });
+      for (let k=0;k<3;k++){ const f = new THREE.Mesh(new THREE.ConeGeometry(.35 - k*.08, 1.3 - k*.25, 7), fm); f.position.set((k-1)*.18, .55, (k%2)*.12); fire.add(f); }
+      scene.add(fire); anims.push({ o:fire, flicker:true, sp:0 });
+    }
   }
   // ветряки на холмах
   const R2 = mulberry(4242); let nt = 0, guard = 0;
@@ -856,7 +1068,7 @@ function buildPlaces(){
     anims.push({ o:rot, ax:'z', sp:.6 + R2()*.4 }); addObst(x, z, 2); nt++;
   }
 }
-function updPlaces(dt){ for (const a of anims){ a.o.rotation[a.ax] += a.sp*dt; if (a.cabs) for (const c of a.o.children) if (c.userData.cab) c.rotation.z = -a.o.rotation.z; } }
+function updPlaces(dt){ for (const a of anims){ if (a.flicker){ const t = performance.now()/1000; a.o.scale.set(1 + .15*Math.sin(t*13), 1 + .25*Math.sin(t*9.3) + .1*Math.sin(t*23), 1 + .15*Math.cos(t*11)); continue; } a.o.rotation[a.ax] += a.sp*dt; if (a.cabs) for (const c of a.o.children) if (c.userData.cab) c.rotation.z = -a.o.rotation.z; } }
 let lastZone = null;
 function zoneCheck(){ const zn = zoneAt(car.x, car.z, 40); if (zn && zn !== lastZone) toast(zn.name, zn.sub); lastZone = zn; }
 
@@ -938,7 +1150,7 @@ function makeWheel(r, w, dark){
 
 // модели машин (.glb)
 const loader = new GLTFLoader(); loader.setMeshoptDecoder(MeshoptDecoder);
-let custom = null, customWheels = [];
+let custom = null, customWheels = [], userCar = false;
 const modelCache = {};
 function wheelKey(name){
   const n = name.toLowerCase();
@@ -1067,7 +1279,7 @@ function showCarInfo(c){
   const canPaint = !!(c.opts && c.opts.paint); document.querySelectorAll('.sw').forEach(b => b.disabled = !canPaint);
 }
 function pickCar(i){
-  carIdx = (i + CARS.length) % CARS.length; const c = CARS[carIdx]; carStats = c.st;
+  carIdx = (i + CARS.length) % CARS.length; const c = CARS[carIdx]; carStats = c.st; userCar = false;
   if (c.brand !== brandSel && !(brandSel==='★' && FAV.has(c.id))){ brandSel = c.brand; renderBrands(); }
   $('favb').classList.toggle('on', FAV.has(c.id)); const pb = REC.laps[c.id]; $('i_rec').innerHTML = pb ? 'Лучший круг: <b>' + fmt(pb) + '</b>' : 'Лучший круг: <b>—</b>';
   renderModels(); showCarInfo(c); $('models').querySelector('.on')?.scrollIntoView({ inline:'nearest', block:'nearest' });
@@ -1092,7 +1304,7 @@ document.querySelectorAll('.tab').forEach(b => b.onclick = () => setTab(b.datase
 $('glb').addEventListener('change', e => {
   const f = e.target.files[0]; if (!f) return;
   $('glbnote').textContent = 'Загружаю…'; const url = URL.createObjectURL(f);
-  loader.load(url, g => { ++loadToken; useModel(prepareModel(g.scene)); $('i_brand').textContent = 'СВОЯ МОДЕЛЬ'; $('i_model').textContent = f.name.replace(/\.(glb|gltf)$/i,''); $('i_year').textContent = ''; $('credit').textContent = '';
+  loader.load(url, g => { ++loadToken; useModel(prepareModel(g.scene)); userCar = true; $('i_brand').textContent = 'СВОЯ МОДЕЛЬ'; $('i_model').textContent = f.name.replace(/\.(glb|gltf)$/i,''); $('i_year').textContent = ''; $('credit').textContent = '';
     $('rot').classList.remove('hidden'); $('start').disabled = false; $('loadcar').classList.add('hidden'); $('glbnote').textContent = 'Готово — машина в гараже. Если стоит боком, нажми «Повернуть».'; URL.revokeObjectURL(url); setTab('garage'); },
     undefined, err => { $('glbnote').textContent = 'Не удалось открыть файл. Нужен .glb (glTF Binary).'; console.error(err); });
 });
@@ -1159,14 +1371,14 @@ function updAudio(rpm, thr, slip, spd){
 }
 
 // ================= game state
-const car = { revT:.35, x:0, z:0, y:0, yaw:0, vx:0, vz:0, vy:0, air:false, airT:0, steer:0, pitch:0, roll:0, spin:0 };
+const car = { thrS:0, gyPrev:0, bp:0, bpV:0, br:0, brV:0, lastA:0, dry:[], dryT:0, revT:.35, x:0, z:0, y:0, yaw:0, vx:0, vz:0, vy:0, air:false, airT:0, steer:0, pitch:0, roll:0, spin:0 };
 let running=false, paused=false, camMode=0, camYaw=0, skill=0, driftPts=0, driftT=0, lapStart=null, best=null, lap=1, nextCp=0, started=false, shake=0, lastSmoke=0;
 const NCP = 8; let cps = Array.from({length:NCP}, (_,k) => Math.floor(k*NS/NCP));
 function resetCar(atIdx){
   let i = atIdx ?? roadQ(car.x, car.z).i;
   if (i < 0){ let bd = Infinity; for (let k=0;k<NS;k+=2){ const d = (rx[k]-car.x)**2 + (rz[k]-car.z)**2; if (d < bd){ bd = d; i = k; } } } // далеко от дороги — ищем ближайшую точку
   const ii = Math.max(0, i);
-  car.x = rx[ii]; car.z = rz[ii]; car.y = ry[ii]+.12; car.y = groundAt(car.x, car.z).y; car.pitch = car.roll = 0; car.yaw = Math.atan2(tx[ii], tz[ii]); car.vx=car.vz=car.vy=0; car.air=false; car.airT = 0; camYaw = car.yaw; visY = car.y; lookY = car.y + 1.25; camSnap = true; driftPts = 0;
+  car.x = rx[ii]; car.z = rz[ii]; car.y = ry[ii]+.12; car.y = groundAt(car.x, car.z).y; car.pitch = car.roll = 0; car.yaw = Math.atan2(tx[ii], tz[ii]); car.vx=car.vz=car.vy=0; car.air=false; car.airT = 0; car.gyPrev = car.y; car.thrS = 0; car.bp = car.bpV = car.br = car.brV = 0; camYaw = car.yaw; visY = car.y; lookY = car.y + 1.25; camSnap = true; driftPts = 0;
 }
 function toast(big, small=''){ const d=document.createElement('div'); d.innerHTML = big + (small?`<small>${small}</small>`:''); $('toast').innerHTML=''; $('toast').appendChild(d); }
 const fmt = t => { const m=Math.floor(t/60), s=t-m*60; return `${m}:${s.toFixed(2).padStart(5,'0')}`; };
@@ -1174,6 +1386,20 @@ function addSkill(n){ skill += Math.round(n); $('skill').textContent = $('skill2
 
 const GEARS = [13, 23, 34, 46, 59, 80];
 let rpm = 900, gear = 1;
+function rescueFromWater(){
+  let spot = null;
+  for (let k=0;k<car.dry.length && !spot;k++){ const [x,z,yaw] = car.dry[k]; if (terrainH(x,z) > WL+1.2) spot = [x,z,yaw]; }
+  if (!spot){ // не нашли след — ищем сушу по спирали вокруг
+    for (let r=10; r<400 && !spot; r+=10) for (let a=0;a<16;a++){ const x = car.x + Math.cos(a/16*6.283)*r, z = car.z + Math.sin(a/16*6.283)*r; if (terrainH(x,z) > WL+2){ spot = [x,z,car.yaw]; break; } } }
+  if (!spot){ resetCar(); return; }
+  // разворачиваем машину в сторону суши (подальше от воды)
+  let bestA = spot[2], bestH = -1e9; for (let a=0;a<12;a++){ const ang = a/12*6.283, h = terrainH(spot[0]+Math.sin(ang)*14, spot[1]+Math.cos(ang)*14); if (h > bestH){ bestH = h; bestA = ang; } }
+  car.x = spot[0]; car.z = spot[1]; car.yaw = bestA; car.y = gh(car.x, car.z); car.gyPrev = car.y;
+  car.vx = car.vz = car.vy = 0; car.air = false; car.airT = 0; car.pitch = car.roll = 0; car.thrS = 0; car.dry.length = 0;
+  camYaw = car.yaw; lookY = car.y + 1.25; camSnap = true;
+  const f = $('fade'); f.classList.remove('hidden'); f.style.opacity = 1; setTimeout(() => { f.style.opacity = 0; setTimeout(() => f.classList.add('hidden'), 450); }, 250);
+  toast('Вытащили на берег', 'Глубокая вода — машину вернули на сушу');
+}
 function physics(dt){
   const fx=Math.sin(car.yaw), fz=Math.cos(car.yaw), rtx=Math.cos(car.yaw), rtz=-Math.sin(car.yaw);
   let vF = car.vx*fx + car.vz*fz, vR = car.vx*rtx + car.vz*rtz;
@@ -1185,7 +1411,8 @@ function physics(dt){
   let acc = 0;
   if (!car.air){
     const vmax = (onRoad ? 58 : 32) + carStats[0]*(onRoad ? 1.9 : .8);
-    const drive = (10 + carStats[1]*.75) * (1 - Math.pow(clamp(vF/vmax,0,1), 2));
+    car.thrS += ((thr && !brk ? 1 : 0) - car.thrS) * Math.min(1, dt*(thr ? 5 : 9)); // педаль газа нажимается плавно
+    const drive = (10 + carStats[1]*.75) * (1 - Math.pow(clamp(vF/vmax,0,1), 2)) * car.thrS;
     if (thr && brk){ // газ + тормоз: тормоз главнее, машина не дёргается и не катится назад
       acc -= Math.sign(vF)*Math.min(Math.abs(vF)/dt, 30); car.revT = .35;
     } else {
@@ -1199,7 +1426,7 @@ function physics(dt){
     const vPrev = vF; vF += acc*dt;
     if (brk && !thr && vPrev > 0 && vF < 0 && car.revT > 0) vF = 0; // остановка без отскока назад
     const grip = hb ? 1.3 : (onRoad ? 6 + carStats[2]*.35 : 3.6);
-    vR *= Math.exp(-grip*dt);
+    { const want = vR*(1 - Math.exp(-grip*dt)), cap = (hb ? 5 : onRoad ? 15 + carStats[2]*.25 : 8.5)*dt; vR -= clamp(want, -cap, cap); } // сцепление шин ограничено — на пределе машина скользит
     let turn = car.steer * clamp(vF/5, -1, 1) * 2.1 / (1 + Math.abs(vF)/32) * (Math.abs(vF)>1 ? 1 : Math.abs(vF));
     if (hb && Math.abs(vF)>8) turn *= 1.6;
     car.yaw += turn*dt;
@@ -1219,22 +1446,24 @@ function physics(dt){
       if (d<R && d>0 && car.y < terrainH(ox,oz)+6){ const nx=dx/d, nz=dz/d; car.x=ox+nx*R; car.z=oz+nz*R; const vn=car.vx*nx+car.vz*nz;
         if (vn<0){ car.vx -= vn*nx*1.3; car.vz -= vn*nz*1.3; car.vx*=.6; car.vz*=.6; if (-vn>8){ shake = Math.min(1,-vn/30); toast('Бум!', 'Осторожнее с деревьями'); } } } } }
   const lim = S/2-80; if (world==='autumn') if (Math.abs(car.x)>lim){ car.x=Math.sign(car.x)*lim; car.vx*=-.3; } if (Math.abs(car.z)>lim){ car.z=Math.sign(car.z)*lim; car.vz*=-.3; }
-  // вертикаль и прыжки
+  // вертикаль: мягкая подвеска (пружина + амортизатор), гравитация, прыжки
   const gy = gh(car.x, car.z);
-  if (car.air){
-    car.vy -= 24*dt; car.y += car.vy*dt; car.airT += dt;
-    if (car.y <= gy){ car.y = gy; car.air=false; if (car.airT > .3) shake = Math.min(.5, -car.vy/50);
-      if (car.airT > .45){ const pts = Math.round(car.airT*car.airT*900 + Math.hypot(car.vx,car.vz)*car.airT*20); addSkill(pts); toast('Прыжок! +' + pts, `в воздухе ${car.airT.toFixed(1)} с`); }
-      car.vy = 0; car.airT = 0; }
-  } else {
-    // плавная вертикаль: скорость подъёма сглаживается, в воздух — только на настоящих трамплинах
-    // земля уходит вниз быстрее, чем машина падает под своим весом (обрыв, гребень холма) — машина летит
-    const yFree = car.y + car.vy*dt - 12*dt*dt;
-    if (gy < yFree - .02 && (yFree - gy)/dt > 4){ car.air = true; car.airT = 0; car.y = yFree; car.vy -= 24*dt; }
-    else { car.vy += (clamp((gy - car.y)/dt, -40, 40) - car.vy)*.35; car.y = gy; }
+  const gv = clamp((gy - car.gyPrev)/dt, -25, 25); car.gyPrev = gy;
+  car.vy -= 15*dt; car.y += car.vy*dt;
+  const pen = gy - car.y;
+  if (pen > -.02){
+    const imp = car.vy - gv;
+    if (car.air && car.airT > .3){ shake = Math.min(.45, Math.max(0, -imp)/40);
+      if (car.airT > .45){ const pts = Math.round(car.airT*car.airT*900 + Math.hypot(car.vx,car.vz)*car.airT*20); addSkill(pts); toast('Прыжок! +' + pts, `в воздухе ${car.airT.toFixed(1)} с`); } }
+    if (pen > 0) car.vy += (pen*260 - imp*24)*dt;
+    if (pen > .3){ car.y = gy - .3; car.vy = Math.max(car.vy, gv); }
+    car.air = false; car.airT = 0;
+  } else if (pen < -.15){ car.air = true; car.airT += dt; }
+  // вода: глубоко — вытаскиваем на ближайший берег, а не на трассу
+  if (world==='autumn'){
+    car.dryT -= dt; if (!car.air && gy > WL + 1 && car.dryT <= 0){ car.dryT = .35; car.dry.push([car.x, car.z, car.yaw]); if (car.dry.length > 16) car.dry.shift(); }
+    if (car.y < WL - 1.1){ rescueFromWater(); return { thr:0, slip:0, sp:0, vF:0, acc:0, turn:0 }; }
   }
-  // вода тормозит
-  if (world==='autumn' && car.y < WL - 1.1 && !car.air){ toast('Вода!', 'Машину вернули на трассу'); resetCar(); return { thr:0, slip:0, sp:0, vF:0, acc:0, turn:0 }; }
   if (world==='autumn' && car.y < WL + .3){ car.vx *= Math.exp(-2.5*dt); car.vz *= Math.exp(-2.5*dt); if (Math.random()<.2) puff(new THREE.Vector3(car.x, WL, car.z)); }
 
   // наклон кузова по рельефу
@@ -1247,6 +1476,10 @@ function physics(dt){
 
   // скорость, обороты
   const sp = Math.hypot(car.vx, car.vz); vF = car.vx*fx + car.vz*fz; vR = car.vx*rtx + car.vz*rtz;
+  // кузов: плавный клевок при разгоне/торможении и крен в повороте (пружина с затуханием)
+  { const aL = car.air ? 0 : clamp((vF - car.lastA)/dt, -30, 30); car.lastA = vF; const latA = car.air ? 0 : clamp(vF*car.steer*2.1/(1+Math.abs(vF)/32), -14, 14);
+    car.bpV += ((clamp(-aL*.0016, -.035, .035) - car.bp)*90 - car.bpV*13)*dt; car.bp += car.bpV*dt;
+    car.brV += ((clamp(-latA*.0035, -.05, .05) - car.br)*80 - car.brV*12)*dt; car.br += car.brV*dt; }
   const av = Math.abs(vF);
   gear = GEARS.findIndex(t => av < t) + 1 || 6;
   const lo = gear>1 ? GEARS[gear-2] : 0, hi = GEARS[gear-1];
@@ -1543,17 +1776,16 @@ function frame(){
     const h = dt/2; for (let k=0;k<2;k++) info = physics(h);
     laps();
   }
-  visY = running ? visY + (car.y - visY)*Math.min(1, dt*18) : car.y; if (Math.abs(car.y - visY) > 1.5) visY = car.y;
+  visY = car.y + .06;
   carRoot.position.set(car.x, visY, car.z); carRoot.rotation.y = car.yaw;
   carTilt.rotation.set(car.pitch, 0, car.roll);
   if (running){
-    carBody.rotation.x = clamp(-info.acc*.0035, -.05, .05);
-    carBody.rotation.z = clamp(-info.turn*info.vF*.004, -.06, .06);
+    carBody.rotation.x = car.bp; carBody.rotation.z = car.br;
     for (const w of customWheels){ w.pivot.rotation.x = car.spin; w.pivot.rotation.y = w.front ? car.steer*.9 : 0; }
   }
   updSmoke(dt);
   if (running){
-    if (photoOn) updPhotoCam(dt); else updCamera(dt, info);
+    if (photoOn) updPhotoCam(dt); else if (pauseOpen) updPauseCam(dt); else updCamera(dt, info);
     hudT += dt; const hudNow = hudT > 1/30; if (hudNow) hudT = 0;
     if (hudNow) drawGauge(Math.abs(info.vF)*3.6, rpm, info.vF < -.5 ? 'R' : (Math.abs(info.vF) < .3 && !keys.up ? 'N' : String(gear)));
     if (mode==='drift' && raceOn){ const left = Math.max(0, DRIFT_T - (performance.now()-driftStart)/1000); $('laptime').textContent = frozen ? fmt(DRIFT_T) : fmt(left); $('lapn').textContent = ''; $('bestt').textContent = Math.round(driftScore + driftPts).toLocaleString('ru-RU');
@@ -1561,6 +1793,7 @@ function frame(){
     else { $('laptime').textContent = started ? fmt((performance.now()-lapStart)/1000) : '0:00.00';
     $('lapn').textContent = mode==='time' && raceOn ? Math.min(lap, modeLaps) + ' / ' + modeLaps : lap; $('bestt').textContent = best===null ? '—' : fmt(best); }
     const kmhNow = Math.abs(info.vF)*3.6; if (kmhNow > REC.top) REC.top = kmhNow; REC.dist += Math.abs(info.vF)*dt;
+    if (!paused){ sess.t += dt; sess.d += Math.abs(info.vF)*dt; if (kmhNow > sess.v) sess.v = kmhNow; }
     if (SET.fps){ fpsC++; fpsT += dt; if (fpsT > .5){ $('fps').textContent = Math.round(fpsC/fpsT) + ' FPS'; fpsC = 0; fpsT = 0; } }
     const done = started ? (nextCp===0 ? NCP : nextCp) : 0; if ($('cps').dataset.v != done){ $('cps').dataset.v = done; $('cps').innerHTML = Array.from({length:NCP}, (_,i) => `<i class="${i<done?'on':''}"></i>`).join(''); }
     if (hudNow && SET.map) drawMap();
@@ -1571,7 +1804,7 @@ function frame(){
   if (running && world==='wold') updLOD(dt);
   if (running && world==='autumn'){ updForest(dt); updGrass(dt); zoneCheck(); }
   updPlaces(dt);
-  if (waterMat){ const tt = performance.now()/1000; waterMat.normalMap.offset.set(tt*.006, tt*.004); }
+  WORLD.uT.value = performance.now()/1000 % 100000; WORLD.uCam.value.copy(camera.position); if (cloudMesh) cloudMesh.position.copy(camera.position);
   if (running){
     if (!paused) autoRes(dt);
     const wpr = Math.round(Math.min(devicePixelRatio, Q.pr) * dynScale * 20) / 20; if (renderer.getPixelRatio() !== wpr) renderer.setPixelRatio(wpr);
@@ -1585,8 +1818,50 @@ let pauseOpen = false, pzPage = 'main';
 const CAMN = ['сзади', 'дальняя', 'с капота'];
 function updCamBtn(){ $('camb').textContent = CAMN[camMode]; }
 function showPz(pg){ pzPage = pg; $('pz_main').classList.toggle('hidden', pg!=='main'); $('pz_set').classList.toggle('hidden', pg!=='set'); setTimeout(() => document.querySelector('#pz_'+pg+' .opt, #pz_'+pg+' button')?.focus(), 0); }
-function openPause(){ pauseOpen = true; paused = true; for (const k in keys) keys[k] = false; $('pause').classList.remove('hidden'); showPz('main'); }
-function closePause(){ pauseOpen = false; paused = false; $('pause').classList.add('hidden'); clock.getDelta(); }
+function openPause(){ pauseOpen = true; paused = true; for (const k in keys) keys[k] = false; $('pause').classList.remove('hidden'); $('hud').classList.add('hidden'); showPz('main'); fillPause(); pzYaw = car.yaw + Math.PI*.75; }
+let pzYaw = 0, sess = { t:0, d:0, v:0 }, pzBg = null;
+function buildPauseMap(){ // большая карта долины: рельеф с отмывкой, вода, снег
+  const N = 280, cv = document.createElement('canvas'); cv.width = cv.height = N; const g = cv.getContext('2d'), im = g.createImageData(N, N), st = S/N;
+  const H = new Float32Array(N*N); for (let j=0;j<N;j++) for (let i=0;i<N;i++) H[j*N+i] = terrainH(-S/2 + (i+.5)*st, -S/2 + (j+.5)*st);
+  for (let j=0;j<N;j++) for (let i=0;i<N;i++){ const k = j*N+i, h = H[k];
+    const dx = (H[j*N+Math.min(N-1,i+1)] - H[j*N+Math.max(0,i-1)])/(2*st), dz = (H[Math.min(N-1,j+1)*N+i] - H[Math.max(0,j-1)*N+i])/(2*st);
+    const shd = clamp(.75 - (dx*.7 + dz*.7)*1.6, .25, 1.25); let r, gg, b;
+    if (h < WL){ const d = clamp((WL-h)/12, 0, 1); r = 40 - d*20; gg = 96 - d*40; b = 112 - d*30; }
+    else if (h > 260){ r = 222; gg = 226; b = 232; }
+    else { const t = clamp(h/220, 0, 1); r = 74 + t*70; gg = 92 + t*38; b = 50 + t*40; }
+    const sh = h < WL ? 1 : shd; im.data[k*4] = r*sh; im.data[k*4+1] = gg*sh; im.data[k*4+2] = b*sh; im.data[k*4+3] = 255; }
+  g.putImageData(im, 0, 0); pzBg = cv;
+}
+function drawPauseMap(){
+  if (!pzBg) buildPauseMap(); if (!roadPath) buildRoadPath();
+  const c = $('pzmap').getContext('2d'), W = 560, k = W/S; c.imageSmoothingEnabled = true; c.drawImage(pzBg, 0, 0, W, W);
+  c.save(); c.translate(W/2, W/2); c.scale(k, k); c.lineJoin = c.lineCap = 'round';
+  c.strokeStyle = 'rgba(0,0,0,.5)'; c.lineWidth = 11/k*.9; c.stroke(roadPath); c.strokeStyle = '#f1ebe2'; c.lineWidth = 5/k*.9; c.stroke(roadPath); c.restore();
+  const P = (x, z) => [(x/S + .5)*W, (z/S + .5)*W];
+  c.textAlign = 'center'; c.textBaseline = 'middle';
+  for (const zn of ZONES){ const [x, y] = P(zn.x, zn.z); c.fillStyle = 'rgba(9,10,13,.85)'; c.beginPath(); c.arc(x, y, 12, 0, 6.3); c.fill(); c.strokeStyle = '#ff9a3c'; c.lineWidth = 2; c.stroke(); c.fillStyle = '#ffb35c'; c.font = '900 13px system-ui'; c.fillText(zn.icon, x, y+1);
+    c.font = '700 11px system-ui'; c.fillStyle = '#fff'; c.shadowColor = 'rgba(0,0,0,.9)'; c.shadowBlur = 4; c.fillText(zn.name.replace(/«|»/g,''), x, y + 22); c.shadowBlur = 0; }
+  { const [x, y] = P(rx[0], rz[0]); c.fillStyle = '#fff'; c.font = '900 14px system-ui'; c.fillText('⚑', x, y); }
+  const [cx, cy] = P(car.x, car.z), a = Math.atan2(Math.cos(car.yaw), Math.sin(car.yaw));
+  c.save(); c.translate(cx, cy); c.rotate(a + Math.PI/2); c.fillStyle = 'rgba(255,122,26,.25)'; c.beginPath(); c.arc(0, 0, 18, 0, 6.3); c.fill();
+  c.fillStyle = '#ff7a1a'; c.strokeStyle = '#fff'; c.lineWidth = 2; c.beginPath(); c.moveTo(0, -11); c.lineTo(8, 9); c.lineTo(0, 5); c.lineTo(-8, 9); c.closePath(); c.fill(); c.stroke(); c.restore();
+}
+function fillPause(){
+  const c = userCar ? null : CARS[carIdx]; $('pz_brand').textContent = c ? c.brand : 'Своя модель'; $('pz_model').textContent = c ? c.model : 'Загруженная машина'; $('pz_cls').innerHTML = c ? clsHTML(c) : '';
+  $('pz_mode').textContent = (mode==='free' ? 'Свободная езда' : modeName()).toUpperCase();
+  const zn = zoneAt(car.x, car.z, 60); $('pz_loc').textContent = zn ? zn.name : 'Горная долина'; $('pz_locs').textContent = zn ? zn.sub : (Math.round(car.y) > 140 ? 'Горный перевал' : 'Открытый мир');
+  const m = Math.floor(sess.t/60); $('pz_t').textContent = Math.floor(m/60) ? Math.floor(m/60) + ' ч ' + (m%60) + ' мин' : m + ':' + String(Math.floor(sess.t%60)).padStart(2,'0');
+  $('pz_d').textContent = SET.units==='mph' ? (sess.d/1609).toFixed(1).replace('.',',') + ' ми' : (sess.d/1000).toFixed(1).replace('.',',') + ' км';
+  $('pz_v').textContent = SET.units==='mph' ? Math.round(sess.v*.6214) + ' mph' : Math.round(sess.v) + ' км/ч'; $('pz_s').textContent = skill.toLocaleString('ru-RU');
+  const d = new Date(); $('pz_time').textContent = String(d.getHours()).padStart(2,'0') + ':' + String(d.getMinutes()).padStart(2,'0');
+  drawPauseMap();
+}
+function updPauseCam(dt){ // медленный облёт машины за меню паузы
+  pzYaw += dt*.13; const d = 7.5, cx = car.x + Math.sin(pzYaw)*d, cz = car.z + Math.cos(pzYaw)*d;
+  camera.position.set(cx, Math.max(visY + 1.9, gh(cx, cz) + .8), cz); camera.lookAt(car.x, visY + .75, car.z);
+  if (Math.abs(camera.fov - 42) > .05){ camera.fov += (42 - camera.fov)*Math.min(1, dt*2); camera.updateProjectionMatrix(); }
+}
+function closePause(){ pauseOpen = false; paused = false; $('pause').classList.add('hidden'); if (running) $('hud').classList.remove('hidden'); camSnap = true; camYaw = car.yaw; clock.getDelta(); }
 document.querySelectorAll('#pause .opt').forEach(b => b.onclick = () => {
   const a = b.dataset.a;
   if (a==='resume') closePause();
@@ -1622,12 +1897,12 @@ const LS = (k, d) => { try { const v = JSON.parse(localStorage.getItem(k)); retu
 const LSW = (k, v) => { try { localStorage.setItem(k, JSON.stringify(v)); } catch(e){} };
 const SET = Object.assign({ units:'kmh', fov:60, steer:1, map:1, fps:0, vol:55, cam:0 }, LS('race_set', {}));
 const REC = Object.assign({ laps:{}, drift:0, dist:0, top:0, races:0, skill:0 }, LS('race_rec', {}));
-const FAV = new Set(LS('race_fav', []));
+const FAV = new Set(LS('race_fav', [])); if (REC.laps.custom){ delete REC.laps.custom; }
 skill = REC.skill || 0;
 function saveSet(){ LSW('race_set', SET); }
 function saveRec(){ REC.skill = skill; LSW('race_rec', REC); }
 setInterval(() => { if (running) saveRec(); }, 10000);
-const carKey = () => custom ? 'custom' : CARS[carIdx].id;
+const carKey = () => userCar ? 'custom' : CARS[carIdx].id;
 function setVol(v){ SET.vol = v; saveSet(); if (masterGain) masterGain.gain.value = v/100; $('vol').value = v; $('vol2').value = v; }
 function applySettings(){
   camMode = SET.cam; updCamBtn(); $('fps').classList.toggle('hidden', !SET.fps || !running);
@@ -1646,7 +1921,7 @@ $('fov').oninput = e => { SET.fov = +e.target.value; $('fovv').textContent = SET
 $('steer').oninput = e => { SET.steer = e.target.value/100; $('steerv').textContent = e.target.value + '%'; saveSet(); };
 $('vol2').oninput = e => setVol(+e.target.value);
 $('resetrec').onclick = () => { if (!confirm('Сбросить все рекорды и очки навыков?')) return; REC.laps = {}; REC.drift = 0; REC.dist = 0; REC.top = 0; REC.races = 0; skill = 0; addSkill(0); saveRec(); $('resetrec').textContent = 'Сброшено'; setTimeout(() => $('resetrec').textContent = 'Сбросить', 1500); };
-function toggleFav(){ if (custom) return; const id = CARS[carIdx].id; FAV.has(id) ? FAV.delete(id) : FAV.add(id); LSW('race_fav', [...FAV]); $('favb').classList.toggle('on', FAV.has(id)); $('favn').textContent = FAV.size; if (brandSel==='★') renderModels(); }
+function toggleFav(){ if (userCar) return; const id = CARS[carIdx].id; FAV.has(id) ? FAV.delete(id) : FAV.add(id); LSW('race_fav', [...FAV]); $('favb').classList.toggle('on', FAV.has(id)); $('favn').textContent = FAV.size; if (brandSel==='★') renderModels(); }
 $('favb').onclick = toggleFav;
 $('favf').onclick = () => { brandSel = '★'; renderBrands(); renderModels(); const i = CARS.findIndex(c => FAV.has(c.id)); if (i >= 0) pickCar(i); };
 
@@ -1703,7 +1978,7 @@ function finishRace(){
     const sc = Math.round(driftScore), nr = sc > REC.drift; if (nr) REC.drift = sc;
     head = sc.toLocaleString('ru-RU') + ' очков'; rows = `<div><span>Счёт</span><b>${sc.toLocaleString('ru-RU')}${nr?' <span class="nr">НОВЫЙ РЕКОРД</span>':''}</b></div><div><span>Рекорд</span><b>${Math.round(REC.drift).toLocaleString('ru-RU')}</b></div>`;
   }
-  saveRec(); const c = custom ? null : CARS[carIdx];
+  saveRec(); const c = userCar ? null : CARS[carIdx];
   $('r_t').textContent = (mode==='time' ? 'ЗАЕЗД НА ВРЕМЯ' : 'ДРИФТ-ЗОНА') + (c ? ' · ' + c.brand + ' ' + c.model : '');
   $('r_h').textContent = head; $('r_rows').innerHTML = rows; $('results').classList.remove('hidden'); $('r_again').focus();
 }
@@ -1750,7 +2025,7 @@ function takeShot(){
   g.filter = phFilter() || 'none'; g.drawImage(src, 0, 0); g.filter = 'none';
   const v = $('ph_v').value/100; if (v){ const gr = g.createRadialGradient(W/2,H/2, Math.min(W,H)*(.6-v*.25)*.6, W/2,H/2, Math.hypot(W,H)/2); gr.addColorStop(0,'rgba(0,0,0,0)'); gr.addColorStop(1,`rgba(0,0,0,${v*.75})`); g.fillStyle = gr; g.fillRect(0,0,W,H); }
   if ($('ph_bars_c').checked){ g.fillStyle = '#000'; g.fillRect(0,0,W,H*.11); g.fillRect(0,H*.89,W,H*.11); }
-  if ($('ph_logo').checked){ const s = Math.max(.8, H/1080), c = custom ? null : CARS[carIdx], yb = H - ($('ph_bars_c').checked ? H*.11 : 0) - 26*s;
+  if ($('ph_logo').checked){ const s = Math.max(.8, H/1080), c = userCar ? null : CARS[carIdx], yb = H - ($('ph_bars_c').checked ? H*.11 : 0) - 26*s;
     g.textAlign = 'right'; g.shadowColor = 'rgba(0,0,0,.65)'; g.shadowBlur = 10*s;
     if (c){ g.font = `800 ${Math.round(22*s)}px system-ui`; g.fillStyle = '#fff'; g.fillText(c.brand + ' ' + c.model, W - 34*s, yb - 30*s); }
     g.font = `900 ${Math.round(15*s)}px system-ui`; g.fillStyle = '#ff9a3c'; g.fillText('ОСЕННЯЯ ТРАССА', W - 34*s, yb); g.shadowBlur = 0; }
@@ -1766,7 +2041,7 @@ const setLoad = t => { $('loading').textContent = t; return new Promise(r => req
   setupSky(sky_.default); await loadTextures(tx_.default);
   await setLoad('Строю рельеф 5×5 км…');
   const before = new Set(scene.children);
-  planZones(); buildTerrain(); buildRoad(); buildWater();
+  planZones(); planZones2(); buildTerrain(); buildRoad(); buildWater(); buildClouds();
   await setLoad('Сажаю лес…');
   const trees = await new Promise((ok, no) => { const bin = atob(tr_.default), buf = new Uint8Array(bin.length); for (let k=0;k<bin.length;k++) buf[k] = bin.charCodeAt(k); loader.parse(buf.buffer, '', ok, no); });
   buildForest(trees.scene); buildGrass(); buildPlaces(); buildGate();
@@ -1782,7 +2057,7 @@ const setLoad = t => { $('loading').textContent = t; return new Promise(r => req
 })().catch(e => { console.error(e); $('loading').textContent = 'Ошибка загрузки: ' + e.message; });
 // для отладки
 window.__cars = CARS.map(c=>c.id);
-window.__dbg = { zones: () => ZONES.map(z => [z.id, Math.round(z.x), Math.round(z.z), Math.round(z.h), z.i]), tpZone: id => { const zn = ZONES.find(z => z.id===id); if (!zn) return false; resetCar(zn.i); const back = (zn.i - 40 + NS) % NS; resetCar(back); updForest(0,true); return true; }, wheelInfo: () => customWheels.map(w => [w.front?'F':'R', ...w.pivot.position.toArray().map(v=>+v.toFixed(2)), w.pivot.children.length, w.pivot.children.map(c=>c.name).join('+').slice(0,60)]), freeze: () => { gDrag = { x:0, t:performance.now() }; turntable.rotation.y = 0; }, wheels: () => customWheels.length, forest, tp: i => { resetCar(i); visY = car.y; lookY = car.y+1.25; camYaw = car.yaw; updForest(0,true); }, get sunDir(){ return sunDir; }, scene, sun, renderer, get T(){ return T; } };
+window.__dbg = { th: (x,z) => terrainH(x,z), sim: (n, up, dt=1/120) => { const out = []; keys.up = up; for (let k=0;k<n;k++){ const r = physics(dt); if (k%12===0) out.push([+(car.y - gh(car.x,car.z)).toFixed(3), +car.vy.toFixed(2), +car.bp.toFixed(3), car.air?1:0, +(r.sp*3.6).toFixed(0)]); } keys.up = false; return out; }, zones: () => ZONES.map(z => [z.id, Math.round(z.x), Math.round(z.z), Math.round(z.h), z.i]), tpZone: id => { const zn = ZONES.find(z => z.id===id); if (!zn) return false; resetCar(zn.i); const back = (zn.i - 40 + NS) % NS; resetCar(back); updForest(0,true); return true; }, wheelInfo: () => customWheels.map(w => [w.front?'F':'R', ...w.pivot.position.toArray().map(v=>+v.toFixed(2)), w.pivot.children.length, w.pivot.children.map(c=>c.name).join('+').slice(0,60)]), freeze: () => { gDrag = { x:0, t:performance.now() }; turntable.rotation.y = 0; }, wheels: () => customWheels.length, forest, tp: i => { resetCar(i); visY = car.y; lookY = car.y+1.25; camYaw = car.yaw; updForest(0,true); }, get sunDir(){ return sunDir; }, scene, sun, renderer, get T(){ return T; } };
 window.__game = { openPause, pickMap, setTab, pickCar: id => pickCar(CARS.findIndex(c=>c.id===id)), keys, car, get running(){ return running; } };
 </script>
 </body>
